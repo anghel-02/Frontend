@@ -1,0 +1,28 @@
+<div class="search-container">
+  <input type="text" id="searchInput" placeholder="Cerca..." />
+</div>
+
+<div class="menudestra">
+  <button mat-button [matMenuTriggerFor]="menu" (click)="toggleMenu()" name="menubottone">Menu</button>
+  <mat-menu #menu="matMenu" name="menumenu">
+    <button mat-menu-item name="profiloutente">Profilo Utente</button>
+    <button mat-menu-item name="galleria">Galleria</button>
+  </mat-menu>
+</div>
+
+<div class="paginacompraora">
+  <button mat-fab extended color="primary" name="btncompraora">
+    <mat-icon>store</mat-icon>
+      Compra ora
+  </button>
+</div>
+
+<div class="paginaaste">
+  <button mat-fab extended color="primary" name="btnaste">
+    <mat-icon>gavel</mat-icon>
+      Aste
+  </button>
+</div>
+
+
+
