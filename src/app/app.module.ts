@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -52,10 +53,16 @@ import { BuyNowComponent } from './component/buy-now/buy-now.component';
     FormsModule, 
     ReactiveFormsModule,
     MatMenuModule,
-    MatTabsModule
+    MatTabsModule,
+    HttpClientModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    {
+      provide: HttpClient,
+      useClass: HttpClient,
+      deps: [],
+    },
   ],
   bootstrap: [AppComponent]
 })
