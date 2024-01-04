@@ -6,5 +6,7 @@ export interface Usermodel {
     username: string;
     password: string;
     authcode: number;
+    portafoglioETH: number;
+    portafoglioEUR: number;
 
 }

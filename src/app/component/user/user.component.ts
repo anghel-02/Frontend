@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
+  campiattivi=true;
+  campo1!: string;
+  campo2!: string;
+  campo3!: string;
+  campo4!: string;
+  campo5!: string;
+  campo6!: string;
+  campo7!: string;
 
+
+  abilitacampi(){
+    this.campiattivi=false;
+  }
+
+  abilitacampi2(){
+    this.campiattivi=true;
+  }
 }

@@ -1,0 +1,66 @@
+:host {
+    display: block;
+    margin: 0;
+    padding: 0;
+    height: 110%;
+    background: url('../../../assets/img/sfumato.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  /* titolo */
+
+h1 {
+    transform: translate(-400px,50px);
+    position: static;
+    font-size: 4em;
+    text-align: center;
+    color: black;
+    text-decoration:solid;
+    font-style: italic;
+    font-weight: bold;
+    text-shadow: 5px 5px 10px #00ff00; 
+  }
+
+  /* form  */
+
+  form {
+    flex: 1;
+    text-align: right;
+    margin-top: 70px;
+    margin-right: 300px;
+  }
+
+
+  button[name="btnmp"] {
+    position: absolute;
+    right: 430px;
+    background: linear-gradient(to right, black, #00ff00);
+    color: white;
+    display:inline-block;
+    margin-left:auto;
+  }
+
+  button[name="btnsm"] {
+    position: absolute;
+    right: 220px;
+    background: linear-gradient(to right, black, #00ff00);
+    color: white;
+    display:inline-block;
+    margin-left:auto;
+  }
+  
+  .container {
+    display: flex;
+  }
+  
+  .image-container img {
+    transform: translate(100px,100px);
+    position: static;
+    max-width: 500px;
+    height: auto;
+  }
+
+
+
+
+

@@ -1,1 +1,49 @@
-<p>user works!</p>
+<h1>Gestione Profilo</h1>
+<div class="container">
+    <div class="image-container">
+        <img mat-card-image src="https://www.chirale.it/wp-content/uploads/2021/04/Kerfin7-NEA-2203-scaled.jpg">
+    </div>
+
+<form>
+<mat-form-field appearance="outline">
+    <mat-label>Nome</mat-label>
+    <input matInput [(ngModel)]="campo1" name="camponome" [disabled]="campiattivi">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="outline">
+    <mat-label>Cognome</mat-label>
+    <input matInput [(ngModel)]="campo2" name="campocognome" [disabled]="campiattivi">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="outline">
+    <mat-label>Data di nascita</mat-label>
+    <input matInput [(ngModel)]="campo3" name="campodatanascita" [disabled]="campiattivi">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="campo4" name="campoemail" [disabled]="campiattivi">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="outline">
+    <mat-label>Username</mat-label>
+    <input matInput [(ngModel)]="campo5" name="campousername" [disabled]="campiattivi">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput [(ngModel)]="campo6" name="campopassword" [disabled]="campiattivi">
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="outline">
+    <mat-label>Authcode</mat-label>
+    <input matInput [(ngModel)]="campo7" name="campoauthcode" [disabled]="campiattivi">
+  </mat-form-field>
+  <br>
+</form>
+ 
+</div>
+
+<button mat-raised-button name="btnmp" (click)="abilitacampi()" [disabled]="!campiattivi">Modifica Profilo</button>
+<button mat-raised-button name="btnsm" (click)="abilitacampi2()" [disabled]="campiattivi">Salva Modifiche</button>
+
