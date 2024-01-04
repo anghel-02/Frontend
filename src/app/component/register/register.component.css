@@ -1,0 +1,42 @@
+/* sfondo */
+:host {
+    display: block;
+    margin: 0;
+    padding: 0;
+    height: 110%;
+    background: url('../../../assets/img/sfumato.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+
+
+/* titolo */
+
+
+h1 {
+    transform: translateY(50px);
+    position: static;
+    font-size: 4em;
+    text-align: center;
+    color: black;
+    text-decoration:solid;
+    font-style: italic;
+    font-weight: bold;
+    text-shadow: 5px 5px 10px #00ff00;
+    
+  }
+  
+   
+/* form  */
+
+  form {
+    text-align: center;
+    margin-top: 70px;
+  }
+
+  button[name="btninvia"] {
+    background: linear-gradient(to right, black, #00ff00);
+    color: white;
+    display:inline-block;
+    
+  }
