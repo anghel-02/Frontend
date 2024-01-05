@@ -38,7 +38,19 @@ h1 {
     background: linear-gradient(to right, black, #00ff00);
     color: white;
     display:inline-block;
-    
+    transform: translateX(70px)
   }
+
+  /* home */
+
+::before{
+  font-size: 50px;
+  cursor: pointer;
+  position: absolute;
+  transform: translate(-110px,-5px)
+
+}
+
+
 
   

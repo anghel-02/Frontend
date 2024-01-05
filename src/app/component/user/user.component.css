@@ -64,10 +64,22 @@ h1 {
 
   .portfolio-container mat-form-field {
     transform: translate(-370px,350px);
-  
     position: static;
   }
 
+  .homebtn-container mat-raised-button {
+    position: relative;
+  }
 
+  /* home */
 
+  button[name="btnhome"] {
+    background: linear-gradient(to right, black, #00ff00);
+    color: white;
+    position: bottom left;
+    bottom: 0;
+    left:105px;
+    /* margin-left: 50px; */
+
+  }
 
