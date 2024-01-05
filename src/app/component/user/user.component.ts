@@ -14,6 +14,9 @@ export class UserComponent {
   campo5!: string;
   campo6!: string;
   campo7!: string;
+  campo8!: number;
+  campo9!: number;
+  hide: any;
 
 
   abilitacampi(){

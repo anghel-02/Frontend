@@ -3,41 +3,61 @@
     <div class="image-container">
         <img mat-card-image src="https://www.chirale.it/wp-content/uploads/2021/04/Kerfin7-NEA-2203-scaled.jpg">
     </div>
+    <div class="portfolio-container">
+      <mat-form-field class="example-full-width">
+        <mat-label>EUR wallet</mat-label>
+        <input matInput [(ngModel)]="campo8" name="EURwallet" disabled>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>ETH wallet</mat-label>
+        <input matInput [(ngModel)]="campo9" name="ETHwallet" disabled>
+      </mat-form-field>
+    </div>
 
 <form>
-<mat-form-field appearance="outline">
+<mat-form-field>
     <mat-label>Nome</mat-label>
     <input matInput [(ngModel)]="campo1" name="camponome" [disabled]="campiattivi">
+    <mat-icon matSuffix>person</mat-icon>
   </mat-form-field>
   <br>
-  <mat-form-field appearance="outline">
+  <mat-form-field>
     <mat-label>Cognome</mat-label>
     <input matInput [(ngModel)]="campo2" name="campocognome" [disabled]="campiattivi">
+    <mat-icon matSuffix>person</mat-icon>
   </mat-form-field>
   <br>
-  <mat-form-field appearance="outline">
+  <mat-form-field>
     <mat-label>Data di nascita</mat-label>
-    <input matInput [(ngModel)]="campo3" name="campodatanascita" [disabled]="campiattivi">
+    <input [matDatepicker]="picker" matInput [(ngModel)]="campo3" name="campodatanascita" [disabled]="campiattivi">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
   <br>
-  <mat-form-field appearance="outline">
+  <mat-form-field>
     <mat-label>Email</mat-label>
     <input matInput [(ngModel)]="campo4" name="campoemail" [disabled]="campiattivi">
+    <mat-icon matSuffix>email</mat-icon>
   </mat-form-field>
   <br>
-  <mat-form-field appearance="outline">
+  <mat-form-field>
     <mat-label>Username</mat-label>
     <input matInput [(ngModel)]="campo5" name="campousername" [disabled]="campiattivi">
+    <mat-icon matSuffix>account_circle</mat-icon>
   </mat-form-field>
   <br>
-  <mat-form-field appearance="outline">
+  <mat-form-field>
     <mat-label>Password</mat-label>
-    <input matInput [(ngModel)]="campo6" name="campopassword" [disabled]="campiattivi">
+    <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="campo6" name="campopassword" [disabled]="campiattivi">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
   </mat-form-field>
   <br>
-  <mat-form-field appearance="outline">
+  <mat-form-field>
     <mat-label>Authcode</mat-label>
-    <input matInput [(ngModel)]="campo7" name="campoauthcode" [disabled]="campiattivi">
+    <input matInput type="password" [(ngModel)]="campo7" name="campoauthcode" [disabled]="campiattivi">
+    <mat-icon matSuffix>shield</mat-icon> 
   </mat-form-field>
   <br>
 </form>
