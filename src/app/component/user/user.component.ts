@@ -7,15 +7,15 @@ import { Component } from '@angular/core';
 })
 export class UserComponent {
   campiattivi=true;
-  campo1!: string;
-  campo2!: string;
-  campo3!: string;
-  campo4!: string;
-  campo5!: string;
-  campo6!: string;
-  campo7!: string;
-  campo8!: number;
-  campo9!: number;
+  camponome!: string;
+  campocognome!: string;
+  campodatanascita!: string;
+  campoemail!: string;
+  campousername!: string;
+  campopassword!: string;
+  campoauthcode!: string;
+  EURwallet!: number;
+  ETHwallet!: number;
   hide: any;
 
 

@@ -7,11 +7,10 @@ enum compraoraAsta{
 
 export interface Nftmodel {
     nome: string;
+    tag: string;
     img: string;
     descrizione: string;
-    tag: string;
     possessore: string;
-    invendita: boolean;
     tipovendita:compraoraAsta;
     prezzo: string;
     durata: Time;

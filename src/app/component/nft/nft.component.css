@@ -1,0 +1,64 @@
+:host {
+    display: block;
+    margin: 0;
+    padding: 0;
+    height: 110%;
+    background: url('../../../assets/img/verdesfumato.avif') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  /* titolo */
+
+h1 {
+    transform: translate(-340px,50px);
+    position: static;
+    font-size: 4em;
+    text-align: center;
+    color: black;
+    text-decoration:solid;
+    font-style: italic;
+    font-weight: bold;
+    text-shadow: 5px 5px 10px #00ff00; 
+  }
+
+  .NFT {
+    transform: translate(200px,120px);
+    max-width: 400px;
+  }
+  
+  .NFT-header-img {
+    background-image: url('../../../assets/img/monkey.jpg');
+    background-size: cover;
+  }
+
+  
+  .vendere {
+    text-align: right;
+    transform: translate(-350px,-400px)
+  }
+
+  .comprasubito {
+    text-align: right;
+    transform: translate(-315px,-380px)
+  }
+
+  .asta{
+    text-align: right;
+    transform: translate(-315px,-360px)
+  }
+
+  .asta2 {
+    text-align: right;
+    transform: translate(-350px,-340px)
+  }
+
+  button[name="btnvendi2"] {
+    background: linear-gradient(to right, black, #00ff00);
+    color: white;
+    display:inline-block;
+  }
+
+  .btnvendi{
+    text-align: right;
+    transform: translate(-410px,-320px)
+  }

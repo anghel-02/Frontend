@@ -15,6 +15,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTabsModule} from '@angular/material/tabs';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
@@ -25,6 +28,7 @@ import { GalleryComponent } from './component/gallery/gallery.component';
 import { NftComponent } from './component/nft/nft.component';
 import { AuctionsComponent } from './component/auctions/auctions.component';
 import { BuyNowComponent } from './component/buy-now/buy-now.component';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +58,10 @@ import { BuyNowComponent } from './component/buy-now/buy-now.component';
     ReactiveFormsModule,
     MatMenuModule,
     MatTabsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule,
+    MatOptionModule
+
   ],
   providers: [
     provideClientHydration(),
