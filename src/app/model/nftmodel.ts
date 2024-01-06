@@ -1,9 +1,5 @@
 import { Time } from "@angular/common";
 
-enum compraoraAsta{
-    compraora,
-    asta
-}
 
 export interface Nftmodel {
     nome: string;
@@ -11,7 +7,7 @@ export interface Nftmodel {
     img: string;
     descrizione: string;
     possessore: string;
-    tipovendita:compraoraAsta;
+    tipovendita:string;
     prezzo: string;
     durata: Time;
     offertaattuale: string;

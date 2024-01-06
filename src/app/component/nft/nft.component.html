@@ -19,39 +19,45 @@
     </mat-card-actions>
   </mat-card>
 
-  
+  <div class="homebtn-container">
+    <button mat-raised-button name="btnhome" routerLink="/"> Home </button>
+  </div>
+
   <div class="vendere" *ngIf="vuoivendere">
     <mat-form-field>
         <mat-label>Tipo di vendita</mat-label>
-        <mat-select [(ngModel)]="compraoasta" >
-          <mat-option value="compraora">compra ora</mat-option>
-          <mat-option value="asta">asta</mat-option>
+        <mat-select [(ngModel)]="tipovendita" >
+          <mat-option value="null">Null</mat-option>
+          <mat-option value="compraora">Compra ora</mat-option>
+          <mat-option value="asta">Asta</mat-option>
         </mat-select>
       </mat-form-field>
   </div>
 
-  <div class="comprasubito" *ngIf="vuoivendere && compraoasta == 'compraora' ">
+  <div class="comprasubito" *ngIf="vuoivendere && tipovendita == 'compraora' ">
     <mat-form-field>
         <mat-label>Inserisci prezzo</mat-label>
-        <input matInput>
+        <input matInput required [formControl]="prezzo">
         <mat-icon matSuffix>monetization_on</mat-icon>
       </mat-form-field>
   </div>
 
-  <div class="asta" *ngIf="vuoivendere && compraoasta == 'asta' ">
+  <div class="asta" *ngIf="vuoivendere && tipovendita == 'asta' ">
     <mat-form-field>
         <mat-label>Inserisci prezzo di partenza</mat-label>
-        <input matInput>
+        <input matInput required [formControl]="offertaattuale">
         <mat-icon matSuffix>monetization_on</mat-icon>
       </mat-form-field>
   </div>
 
-  <div class="asta2" *ngIf="vuoivendere && compraoasta == 'asta' ">
+  <div class="asta2" *ngIf="vuoivendere && tipovendita == 'asta' ">
     <mat-form-field>
         <mat-label>Seleziona la durata</mat-label>
-        <input matInput [(ngModel)]="durata" placeholder="HH:mm">
+        <input matInput placeholder="HH:mm" required [formControl]="durata">
       </mat-form-field>
   </div>
-<div class="btnvendi" *ngIf="vuoivendere && compraoasta!=null">
-  <button mat-raised-button type="submit" name="btnvendi2" (click)="mettiinvendita()">Invia</button>
+
+<div class="btnvendi" *ngIf="vuoivendere && tipovendita=='compraora' || tipovendita=='asta'">
+  <button mat-raised-button type="submit" name="btnvendi2">Vendi</button>
 </div>
+

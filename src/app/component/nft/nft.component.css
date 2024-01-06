@@ -10,7 +10,7 @@
   /* titolo */
 
 h1 {
-    transform: translate(-340px,50px);
+    transform: translate(-340px,30px);
     position: static;
     font-size: 4em;
     text-align: center;
@@ -22,7 +22,7 @@ h1 {
   }
 
   .NFT {
-    transform: translate(200px,120px);
+    transform: translate(200px,60px);
     max-width: 400px;
   }
   
@@ -61,4 +61,14 @@ h1 {
   .btnvendi{
     text-align: right;
     transform: translate(-410px,-320px)
+  }
+
+  button[name="btnhome"] {
+    background: linear-gradient(to right, black, #00ff00);
+    color: white;
+    transform: translate(50px,75px)
+    /* position: bottom left;
+    bottom: 0;
+    left:105px; */
+    
   }

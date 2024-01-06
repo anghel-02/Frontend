@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class UserComponent {
   campiattivi=true;
+  forever=true;
   camponome!: string;
   campocognome!: string;
   campodatanascita!: string;
