@@ -10,13 +10,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatInputModule} from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 import { AppComponent } from './app.component';
@@ -28,6 +29,8 @@ import { GalleryComponent } from './component/gallery/gallery.component';
 import { NftComponent } from './component/nft/nft.component';
 import { AuctionsComponent } from './component/auctions/auctions.component';
 import { BuyNowComponent } from './component/buy-now/buy-now.component';
+import { BuyNftNowComponent } from './component/buy-nft-now/buy-nft-now.component';
+import { BuyNftAuctionComponent } from './component/buy-nft-auction/buy-nft-auction.component';
 
 
 @NgModule({
@@ -40,7 +43,9 @@ import { BuyNowComponent } from './component/buy-now/buy-now.component';
     GalleryComponent,
     NftComponent,
     AuctionsComponent,
-    BuyNowComponent
+    BuyNowComponent,
+    BuyNftNowComponent,
+    BuyNftAuctionComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,8 @@ import { BuyNowComponent } from './component/buy-now/buy-now.component';
     MatTabsModule,
     HttpClientModule,
     MatSelectModule,
-    MatOptionModule
+    MatOptionModule,
+    MatGridListModule
 
   ],
   providers: [

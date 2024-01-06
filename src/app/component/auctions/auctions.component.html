@@ -1,1 +1,21 @@
-<p>auctions works!</p>
+<mat-grid-list cols="4" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let numero of [0, 1, 2, 3, 4, 5, 6, 7]">
+        <mat-card class="NFT">
+            <mat-card-header>
+              <div mat-card-avatar class="NFT-header-img"></div>
+              <mat-card-title>{{nome}}</mat-card-title>
+              <mat-card-subtitle>{{tag}} </mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image class="imagecard" src={{img}}>
+            <mat-card-content>
+              {{descrizione}}
+              <br>
+              {{possessore}}
+              <br>
+              {{offertaattuale}} - {{durata}}
+            </mat-card-content>
+          </mat-card>
+      </mat-grid-tile>
+
+
+    
