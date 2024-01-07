@@ -1,5 +1,6 @@
-import { Component,OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+
 
 
 @Component({
@@ -7,7 +8,7 @@ import { FormControl } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   
 
   user = new FormControl ();
@@ -15,18 +16,17 @@ export class LoginComponent implements OnInit {
   authcode= new FormControl ();  
   hide: any;
   
-  //constructor(private auth:AuthServiceService){}
+  //constructor(private auth:AuthService){}
 
-  ngOnInit(): void {
-    
-    
-  }
-  
+
   onSubmit(){
-     let user = this.user.value
-     let pass = this.pass.value
-     let autcode= this.authcode.value
-
-    //this.auth.login(user, pass);
+    let user = this.user.value;
+    let pass = this.pass.value;
+    let authcode = this.authcode.value;
+    
+    // this.auth.login(user, pass);
   }
+
 }
+
+
