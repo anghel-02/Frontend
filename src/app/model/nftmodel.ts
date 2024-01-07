@@ -8,7 +8,8 @@ export interface Nftmodel {
     descrizione: string;
     possessore: string;
     tipovendita:string;
-    prezzo: string;
+    prezzo: number;
     durata: Time;
-    offertaattuale: string;
+    offertaattuale: number;
+    valuta: string;
 }

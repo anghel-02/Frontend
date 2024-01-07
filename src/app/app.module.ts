@@ -18,6 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 import { AppComponent } from './app.component';
@@ -66,7 +67,8 @@ import { BuyNftAuctionComponent } from './component/buy-nft-auction/buy-nft-auct
     HttpClientModule,
     MatSelectModule,
     MatOptionModule,
-    MatGridListModule
+    MatGridListModule,
+    MatRadioModule
 
   ],
   providers: [

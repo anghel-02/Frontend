@@ -34,6 +34,7 @@
       </mat-form-field>
   </div>
 
+  
   <div class="comprasubito" *ngIf="vuoivendere && tipovendita == 'compraora' ">
     <mat-form-field>
         <mat-label>Inserisci prezzo</mat-label>
@@ -42,13 +43,22 @@
       </mat-form-field>
   </div>
 
+
   <div class="asta" *ngIf="vuoivendere && tipovendita == 'asta' ">
     <mat-form-field>
-        <mat-label>Inserisci prezzo di partenza</mat-label>
+        <mat-label>Inserisci prezzo iniziale</mat-label>
         <input matInput required [formControl]="offertaattuale">
         <mat-icon matSuffix>monetization_on</mat-icon>
       </mat-form-field>
   </div>
+
+  <div class="scegli" *ngIf="vuoivendere && tipovendita=='compraora' || tipovendita=='asta'">
+    <mat-radio-group aria-label="Scegli la valuta">
+      <mat-radio-button value="EUR">EUR</mat-radio-button>
+      <mat-radio-button value="ETH">ETH</mat-radio-button>
+    </mat-radio-group>    
+  </div>
+
 
   <div class="asta2" *ngIf="vuoivendere && tipovendita == 'asta' ">
     <mat-form-field>

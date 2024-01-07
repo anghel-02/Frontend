@@ -44,12 +44,17 @@ h1 {
 
   .asta{
     text-align: right;
-    transform: translate(-315px,-360px)
+    transform: translate(-315px,-380px)
   }
 
   .asta2 {
     text-align: right;
-    transform: translate(-350px,-340px)
+    transform: translate(-350px,-400px)
+  }
+
+  .scegli{
+    text-align: right;
+    transform: translate(-160px,-440px)
   }
 
   button[name="btnvendi2"] {
@@ -60,15 +65,12 @@ h1 {
 
   .btnvendi{
     text-align: right;
-    transform: translate(-410px,-320px)
+    transform: translate(-410px,-350px)
   }
 
   button[name="btnhome"] {
     background: linear-gradient(to right, black, #00ff00);
     color: white;
     transform: translate(50px,75px)
-    /* position: bottom left;
-    bottom: 0;
-    left:105px; */
     
   }

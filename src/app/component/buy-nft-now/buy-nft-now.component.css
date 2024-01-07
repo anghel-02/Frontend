@@ -1,0 +1,62 @@
+:host {
+    display: block;
+    margin: 0;
+    padding: 0;
+    height: 110%;
+    background: url('../../../assets/img/verdesfumato.avif') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  /* titolo */
+
+h1 {
+    transform: translate(-340px,30px);
+    position: static;
+    font-size: 4em;
+    text-align: center;
+    color: black;
+    text-decoration:solid;
+    font-style: italic;
+    font-weight: bold;
+    text-shadow: 5px 5px 10px #00ff00; 
+  }
+
+  .NFT {
+    transform: translate(200px,60px);
+    max-width: 400px;
+  }
+  
+  .NFT-header-img {
+    background-image: url('../../../assets/img/monkey.jpg');
+    background-size: cover;
+  }
+
+  button[name="btnhome"] {
+    background: linear-gradient(to right, black, #00ff00);
+    color: white;
+    transform: translate(60px,150px)
+  }
+
+  .nft-container{
+    position: absolute;
+    top: 120px;
+    right: 300px;
+  }
+
+  #comp {
+    font-size: 18px;
+  }
+
+  #tit {
+    font-weight: bold; 
+    font-size: 22px;
+  }
+
+  button[name="btncompra"] {
+    position: absolute;
+    bottom: 230px;
+    right: 370px;
+    background: linear-gradient(to right, black, #00ff00);
+    color: white;
+
+  }

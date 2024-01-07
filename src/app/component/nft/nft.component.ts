@@ -19,6 +19,7 @@ export class NftComponent {
     prezzo = new FormControl();
     durata = new FormControl();
     offertaattuale = new FormControl();
+    valuta: string = "€"
 
     vuoivendere: boolean = false;
     
