@@ -52,7 +52,7 @@
       </mat-form-field>
   </div>
 
-  <div class="scegli" *ngIf="vuoivendere && tipovendita=='compraora' || tipovendita=='asta'">
+  <div class="scegli" *ngIf="vuoivendere && (tipovendita=='compraora' || tipovendita=='asta')">
     <mat-radio-group aria-label="Scegli la valuta">
       <mat-radio-button value="EUR">EUR</mat-radio-button>
       <mat-radio-button value="ETH">ETH</mat-radio-button>
@@ -67,7 +67,7 @@
       </mat-form-field>
   </div>
 
-<div class="btnvendi" *ngIf="vuoivendere && tipovendita=='compraora' || tipovendita=='asta'">
+<div class="btnvendi" *ngIf="vuoivendere && (tipovendita=='compraora' || tipovendita=='asta')">
   <button mat-raised-button type="submit" name="btnvendi2">Vendi</button>
 </div>
 

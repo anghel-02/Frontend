@@ -1,91 +1,53 @@
-
-/* barra di ricerca */
-
-.search-container {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    background-color: #00FF00;
-    padding: 8px;
-    border-radius: 8px;
-    border-color: transparent;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    top: 10px; 
-    left: 35%; 
-    width: 400px; 
-    height: 22.5px; 
-  }
-  
-  #searchInput {
-    flex-grow: 1;
-    border: none;
-    padding: 8px;
-    background-color: #00FF00;
-    font-size: 16px;
-    border-color: transparent;
-  }
-
-
-#searchInput:focus {
-    outline: none;
+body {
+  margin: 0;
+  padding: 0;
 }
- 
 
-/* menu destra*/
+.topContainer {
+  position: absolute;
+  top: 0px;
+  height: 150px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8));
+  width: 100%;
+  z-index: 0;
+}
 
-.menudestra {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-  
-  button[name="menubottone"] {
-    background-color: #3498db; /* Colore di sfondo */
-    color: #fff; /* Colore del testo */
-    padding: 10px 15px; /* Spaziatura interna */
-    border: none; /* Nessun bordo */
-    border-radius: 5px; /* Angoli arrotondati */
-    cursor: pointer;
-  }
-  
-  button[name="menubottone"]:hover {
-    background-color: #2980b9; /* Cambia il colore di sfondo al passaggio del mouse */
-  }
-  
-  .mat-menu-panel {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombra leggera per il menu */
-  }
-  
-  button[name="profiloutente"],
-  button[name="galleria"] {
-    text-align: left; /* Allinea il testo a sinistra */
-    padding: 10px; /* Spaziatura interna */
-  }
-  
-  button[name="profiloutente"]:hover,
-  button[name="galleria"]:hover {
-    background-color: #ecf0f1; /* Cambia il colore di sfondo al passaggio del mouse */
-  }
-
-  
-  /* shopnft */
-
-
-  
-
-button[name="btncompraora"] {
-  display: flex;
-  background-color: #3498db;
+button[name="menubottone"] {
+  /*background-color: #3498db;*/
+  background: linear-gradient(to bottom, rgba(84, 172, 204), rgba(99, 108, 176));
   color: #fff;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  top: 100px;
-  left: 130px;
-  
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 1; /* Posiziona il bottone sopra il rettangolo nero */
+}
+button[name="menubottone"]:hover {
+  background-color: #2980b9; /* Cambia il colore di sfondo al passaggio del mouse */
+}
+.logImg {
+  position: absolute;
+  top: 2px;
+  right: 100px;
+  z-index: 1; /* Posiziona l'immagine di log sopra il rettangolo nero */
 }
 
+/* Altri stili rimasti invariati */
+
+button[name="btncompraora"] {
+  display: flex;
+  background: linear-gradient(to bottom, rgba(84, 172, 204), rgba(99, 108, 176));
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  left: 130px;
+  top: 10px; /* Posiziona il pulsante a una certa distanza dall'alto */
+}
 button[name="btncompraora"] mat-icon {
   margin-right: 8px;
 }
@@ -93,23 +55,70 @@ button[name="btncompraora"] mat-icon {
 button[name="btncompraora"]:hover {
   background-color: #2980b9;
 }
-
 button[name="btnaste"] {
   display: flex;
-  background-color: #3498db;
+  background: linear-gradient(to bottom, rgba(84, 172, 204), rgba(99, 108, 176));
   color: #fff;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  top: 52px;
   left: 20px;
+  top: -38px; /* Regola la distanza dall'alto per evitare sovrapposizioni */
+}
+.search-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-color: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  top: 10px;
+  left: 35%;
+  width: 400px;
+  height: 22.5px;
+  z-index: 1;
 }
 
-button[name="btnaste"] mat-icon {
-  margin-right: 8px;
+#searchInput {
+  flex-grow: 1;
+  border: none;
+  padding: 8px;
+  font-size: 16px;
+  border-color: transparent;
+  border-radius: 18px;
+  z-index: 1;
 }
+/* Altri stili rimasti invariati */
+#searchInput:focus {
+  outline: none;
+}
+.mat-menu-panel {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombra leggera per il menu */
+}
+
+button[name="profiloutente"],
+button[name="galleria"] {
+  text-align: left; /* Allinea il testo a sinistra */
+  padding: 10px; /* Spaziatura interna */
+}
+
+button[name="profiloutente"]:hover,
+button[name="galleria"]:hover {
+  background-color: #ecf0f1;
+}
+button[name="btnaste"] mat-icon {
+   margin-right: 8px;
+ }
 
 button[name="btnaste"]:hover {
   background-color: #2980b9;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  top: 75%;
+  transform: translate(-50%, -50%);
+  z-index: 1; /* Posiziona il logo sopra il rettangolo nero e altri elementi */
 }
