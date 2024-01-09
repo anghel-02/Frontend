@@ -10,7 +10,7 @@ export class AuthService {
 
   constructor() {
     // Simuliamo un utente loggato all'inizio (modifica questa logica con la tua autenticazione effettiva)
-    this.isLoggedInSubject.next(false);
+    this.isLoggedInSubject.next(true);
   }
   login(): void {
     // Implementa la logica di login effettiva, ad esempio, interagendo con un server
