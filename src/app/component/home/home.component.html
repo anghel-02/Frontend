@@ -6,13 +6,26 @@
     <div class="search-container">
       <input type="text" id="searchInput" placeholder="Cerca..." />
     </div>
-    <div class="utente">
-      <a [routerLink]="['/user']">
-        <img src="../../../assets/img/log.png" width="50" height="50" class="logImg">
-      </a>
-    </div>
-
     <img src="../../../assets/img/nftLogo.png" class="logo" width="150" height="120">
+    <div *ngIf="isUserLoggedIn(); else showLoginButtons">
+      <div class="utente">
+        <a [routerLink]="['/user']">
+          <img src="../../../assets/img/log.png" width="50" height="50" class="logImg">
+        </a>
+      </div>
+    </div>
+    <ng-template #showLoginButtons>
+      <div class="logbuttons">
+        <a [routerLink]="['/login']" target="_blank" class="login-link">
+          <button mat-fab extended color="primary" name="btnlog">LOGIN</button>
+        </a>
+        <a [routerLink]="['/register']" target="_blank" class="register-link">
+          <button mat-fab extended color="primary" name="btnregistrati">REGISTRATI</button>
+        </a>
+      </div>
+    </ng-template>
+
+
   </mat-toolbar>
   <mat-drawer-container class="main-container" autosize>
     <mat-drawer #drawer mode="side" opened="true" class="side">

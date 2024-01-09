@@ -10,7 +10,6 @@ body {
 }
 .mat-elevation-z8{
   background: linear-gradient(to bottom, rgba(0, 0, 0), rgba(61, 61, 92));
-
   padding: 0;
   margin: 0;
 }
@@ -31,6 +30,22 @@ mat-list-item{
   top: 5px;
   right: 100px;
   z-index: 1;
+}
+.logbuttons{
+  margin-left: 1000px;
+  display: flex;
+  width: 80px;
+}
+.logbuttons button {
+
+  border-radius: 8px;
+  height: 35px;
+  width: 90px;
+}
+.login-link,
+.register-link {
+  margin-right: 5px;
+  text-decoration: none; /* Rimuove la sottolineatura del link */
 }
 .logo{
   padding-top: 25px;
