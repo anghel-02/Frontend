@@ -2,9 +2,10 @@
     display: block;
     margin: 0;
     padding: 0;
-    height: 110%;
-    background: url('../../../assets/img/sfumato.jpg') no-repeat center center fixed;
+    height: 100%;
+    background: url('../../../assets/img/blu.avif') no-repeat center fixed;
     background-size: cover;
+  
   }
 
   .NFT {
