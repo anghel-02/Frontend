@@ -2,7 +2,7 @@
     display: block;
     margin: 0;
     padding: 0;
-    height: 110%;
+    height: 100%;
     background: url('../../../assets/img/verdesfumato.avif') no-repeat center center fixed;
     background-size: cover;
   }
@@ -34,14 +34,13 @@ h1 {
   button[name="btnhome"] {
     background: linear-gradient(to right, black, #00ff00);
     color: white;
-    transform: translate(60px,150px)
+    transform: translate(60px,60px)
   }
 
   .nft-container{
-    position: absolute;
-    top: 120px;
-    right: 300px;
+    transform: translate(750px,-450px)
   }
+
 
   #comp {
     font-size: 18px;
@@ -53,16 +52,13 @@ h1 {
   }
 
   button[name="btncompra"] {
-    position: absolute;
-    bottom: 170px;
-    right: 545px;
+   transform: translate(750px,-400px);
     background: linear-gradient(to right, black, #00ff00);
     color: white;
 
   }
 
   .comprasubito {
-    text-align: right;
-    transform: translate(-220px,-55px)
+    transform: translate(950px,-440px)
   }
 
