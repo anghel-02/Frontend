@@ -6,6 +6,13 @@
     <div class="search-container">
       <input type="text" id="searchInput" placeholder="Cerca..." />
     </div>
+    <div class="utente">
+      <a [routerLink]="['/user']">
+        <img src="../../../assets/img/log.png" width="50" height="50" class="logImg">
+      </a>
+    </div>
+
+    <img src="../../../assets/img/nftLogo.png" class="logo" width="150" height="120">
   </mat-toolbar>
   <mat-drawer-container class="main-container" autosize>
     <mat-drawer #drawer mode="side" opened="true" class="side">
@@ -28,6 +35,13 @@
           <div class="paginaaste">
             <button mat-fab extended color="primary" name="btnaste" [routerLink]="['/auctions']">
               <mat-icon>gavel</mat-icon> Aste
+            </button>
+          </div>
+        </mat-list-item>
+        <mat-list-item>
+          <div class="paginagalleria">
+            <button mat-fab extended color="primary" name="btngalleria" [routerLink]="['/gallery']">
+              <mat-icon>perm_media</mat-icon> Galleria
             </button>
           </div>
         </mat-list-item>
