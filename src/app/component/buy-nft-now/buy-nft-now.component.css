@@ -2,9 +2,10 @@
     display: block;
     margin: 0;
     padding: 0;
-    height: 110%;
-    background: url('../../../assets/img/verdesfumato.avif') no-repeat center center fixed;
+    height: 100%;
+    background: url('../../../assets/img/blu.avif') no-repeat center center fixed;
     background-size: cover;
+    overflow: hidden;
   }
 
   /* titolo */
@@ -31,11 +32,7 @@ h1 {
     background-size: cover;
   }
 
-  button[name="btnhome"] {
-    background: linear-gradient(to right, black, #00ff00);
-    color: white;
-    transform: translate(60px,150px)
-  }
+  
 
   .nft-container{
     position: absolute;

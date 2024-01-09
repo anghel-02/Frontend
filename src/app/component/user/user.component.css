@@ -2,15 +2,17 @@
     display: block;
     margin: 0;
     padding: 0;
-    height: 110%;
+    height: 100%;
+    width: 100%;
     background: url('../../../assets/img/blu.avif') no-repeat center center fixed;
     background-size: cover;
+    overflow: hidden;
   }
 
   /* titolo */
 
 h1 {
-    transform: translate(-400px,50px);
+    transform: translate(-400px,35px);
     position: static;
     font-size: 4em;
     text-align: center;
@@ -26,8 +28,8 @@ h1 {
   form {
     flex: 1;
     text-align: right;
-    margin-top: 70px;
-    margin-right: 300px;
+    margin-top: 32px;
+    margin-right: 270px;
   }
 
 
@@ -54,7 +56,7 @@ h1 {
   }
   
   .image-container img {
-    transform: translate(100px,100px);
+    transform: translate(100px,80px);
     position: static;
     max-width: 500px;
     height: auto;
@@ -63,23 +65,23 @@ h1 {
 /* wallet  */
 
   .portfolio-container mat-form-field {
-    transform: translate(-370px,350px);
-    position: static;
+    transform: translate(-370px,330px);
+    position: relative;
   }
 
   .homebtn-container mat-raised-button {
     position: relative;
   }
 
-  /* home */
+  
 
-  button[name="btnhome"] {
+  /* button[name="btnhome"] {
     background: linear-gradient(to right, black, #00bfff);
     color: white;
     position: bottom left;
-    bottom: 0;
+    bottom: 40px;
     left:105px;
-    /* margin-left: 50px; */
+   margin-left: 50px; */
 
-  }
+  
 

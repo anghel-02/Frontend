@@ -3,9 +3,10 @@
     display: block;
     margin: 0;
     padding: 0;
-    height: 110%;
-    background: url('../../../assets/img/sfumato.jpg') no-repeat center center fixed;
+    height: 100%;
+    background: url('../../../assets/img/blu.avif') no-repeat center center fixed;
     background-size: cover;
+    
   }
 
 
@@ -13,7 +14,7 @@
 /* titolo */
 
 h1 {
-    transform: translateY(50px);
+    transform: translateY(15px);
     position: static;
     font-size: 4em;
     text-align: center;
@@ -30,15 +31,18 @@ h1 {
 
   form {
     text-align: center;
-    margin-top: 70px;
+    margin-top: 20px;
     
   }
+
 
   button[name="btninvia"] {
     background: linear-gradient(to right, black, #00ff00);
     color: white;
     display:inline-block;
-    transform: translateX(70px)
+    transform: translate(50px,-10px);
+    
+    
   }
 
   /* home */
@@ -47,7 +51,7 @@ h1 {
   font-size: 50px;
   cursor: pointer;
   position: absolute;
-  transform: translate(-110px,-5px)
+  transform: translate(-120px,-20px)
 
 }
 
