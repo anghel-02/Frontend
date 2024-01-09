@@ -1,7 +1,7 @@
 
 <h1>Registrazione</h1>
 <br>
-<form (ngSubmit)="onSubmit()">
+<form #homeform="ngForm" (ngSubmit)="onSubmit(homeform)">
     <mat-form-field>
         <mat-label>Nome</mat-label>
         <input matInput placeholder="Inserisci il nome" name= "nome" required [formControl]="nome">
@@ -47,6 +47,6 @@
         <mat-icon matSuffix>shield</mat-icon> 
       </mat-form-field>
       <br>
-      <button mat-raised-button type="submit" name="btninvia">Invia</button>
+      <button mat-raised-button type="submit" name="btninvia" [disabled]="!homeform.valid">Invia</button>
       <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home" routerLink="/"></mat-icon>  
 </form>

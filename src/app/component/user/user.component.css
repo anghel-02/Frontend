@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     height: 110%;
-    background: url('../../../assets/img/verdesfumato.avif') no-repeat center center fixed;
+    background: url('../../../assets/img/sfondo1.jpg') no-repeat center center fixed;
     background-size: cover;
   }
 
@@ -18,7 +18,7 @@ h1 {
     text-decoration:solid;
     font-style: italic;
     font-weight: bold;
-    text-shadow: 5px 5px 10px #00ff00; 
+    text-shadow: 5px 5px 10px #00bfff; 
   }
 
   /* form  */
@@ -34,7 +34,7 @@ h1 {
   button[name="btnmp"] {
     position: absolute;
     right: 430px;
-    background: linear-gradient(to right, black, #00ff00);
+    background: linear-gradient(to right, black, #00bfff);
     color: white;
     display:inline-block;
     margin-left:auto;
@@ -43,7 +43,7 @@ h1 {
   button[name="btnsm"] {
     position: absolute;
     right: 220px;
-    background: linear-gradient(to right, black, #00ff00);
+    background: linear-gradient(to right, black, #00bfff);
     color: white;
     display:inline-block;
     margin-left:auto;
@@ -74,7 +74,7 @@ h1 {
   /* home */
 
   button[name="btnhome"] {
-    background: linear-gradient(to right, black, #00ff00);
+    background: linear-gradient(to right, black, #00bfff);
     color: white;
     position: bottom left;
     bottom: 0;

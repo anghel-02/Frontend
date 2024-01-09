@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +18,7 @@ export class RegisterComponent {
   hide: any;
 
 
-  onSubmit(){
+  onSubmit(form: NgForm){
     let user = this.user.value
     let pass = this.pass.value
     let email = this.email.value

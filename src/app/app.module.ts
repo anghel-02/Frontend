@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -38,7 +39,7 @@ import { BuyNftAuctionComponent } from './component/buy-nft-auction/buy-nft-auct
 import { NewHomeComponent } from './new-home/new-home.component';
 
 
-@NgModule({
+@NgModule ({
   declarations: [
     AppComponent,
     LoginComponent,
@@ -76,7 +77,8 @@ import { NewHomeComponent } from './new-home/new-home.component';
     MatSidenavModule,
     MatListModule,
     MatRadioModule,
-    MatToolbarModule
+    MatToolbarModule,
+    RouterModule
 
   ],
   providers: [
@@ -89,4 +91,4 @@ import { NewHomeComponent } from './new-home/new-home.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

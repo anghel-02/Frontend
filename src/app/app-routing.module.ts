@@ -12,7 +12,7 @@ import { BuyNftAuctionComponent } from './component/buy-nft-auction/buy-nft-auct
 import {NewHomeComponent} from "./new-home/new-home.component";
 
 const routes: Routes = [
-  {path: "", component: HomeComponent},
+  {path: "", component: NewHomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path:'user', component: UserComponent},
@@ -23,6 +23,7 @@ const routes: Routes = [
   {path:'buy-nft-auction', component: BuyNftAuctionComponent},
   {path: "home", component: NewHomeComponent},
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
