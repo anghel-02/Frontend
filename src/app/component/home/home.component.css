@@ -4,8 +4,8 @@ body {
 }
 
 .main-container {
-  width: 1515px;
-  height: 665px;
+  width: 100%;
+  height: 100vh;
   margin: 0;
 }
 .mat-elevation-z8{
@@ -31,20 +31,23 @@ mat-list-item{
   right: 100px;
   z-index: 1;
 }
+.btnlogout{
+  margin-left: 2400%;
+  border-radius: 16px;
+}
 .logbuttons{
   margin-left: 1000px;
   display: flex;
-  width: 80px;
+  width: 82px;
 }
 .logbuttons button {
-
   border-radius: 8px;
   height: 35px;
   width: 90px;
 }
 .login-link,
 .register-link {
-  margin-right: 5px;
+  margin-right: 15px;
   text-decoration: none; /* Rimuove la sottolineatura del link */
 }
 .logo{
