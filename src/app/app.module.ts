@@ -19,6 +19,9 @@ import { MatOptionModule } from '@angular/material/core';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatRadioModule} from '@angular/material/radio';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 
 import { AppComponent } from './app.component';
@@ -32,6 +35,7 @@ import { AuctionsComponent } from './component/auctions/auctions.component';
 import { BuyNowComponent } from './component/buy-now/buy-now.component';
 import { BuyNftNowComponent } from './component/buy-nft-now/buy-nft-now.component';
 import { BuyNftAuctionComponent } from './component/buy-nft-auction/buy-nft-auction.component';
+import { NewHomeComponent } from './new-home/new-home.component';
 
 
 @NgModule({
@@ -46,7 +50,8 @@ import { BuyNftAuctionComponent } from './component/buy-nft-auction/buy-nft-auct
     AuctionsComponent,
     BuyNowComponent,
     BuyNftNowComponent,
-    BuyNftAuctionComponent
+    BuyNftAuctionComponent,
+    NewHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,7 @@ import { BuyNftAuctionComponent } from './component/buy-nft-auction/buy-nft-auct
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     MatMenuModule,
     MatTabsModule,
@@ -68,7 +73,10 @@ import { BuyNftAuctionComponent } from './component/buy-nft-auction/buy-nft-auct
     MatSelectModule,
     MatOptionModule,
     MatGridListModule,
-    MatRadioModule
+    MatSidenavModule,
+    MatListModule,
+    MatRadioModule,
+    MatToolbarModule
 
   ],
   providers: [

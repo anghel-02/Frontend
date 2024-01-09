@@ -3,17 +3,25 @@ body {
   padding: 0;
 }
 
-.topContainer {
-  position: absolute;
-  top: 0px;
-  height: 150px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8));
-  width: 100%;
-  z-index: 0;
+.main-container {
+  width: 1400px;
+  height: 1000px;
+  margin: 10px;
+  border: 1px solid #555;
+}
+.mat-elevation-z8{
+  background-color: black;
+}
+
+.side{
+  width: 180px;
+}
+
+mat-list-item{
+  background: linear-gradient(to bottom, rgba(84, 172, 204), rgba(99, 108, 176));
 }
 
 button[name="menubottone"] {
-  /*background-color: #3498db;*/
   background: linear-gradient(to bottom, rgba(84, 172, 204), rgba(99, 108, 176));
   color: #fff;
   padding: 10px 15px;
@@ -35,64 +43,44 @@ button[name="menubottone"]:hover {
   z-index: 1; /* Posiziona l'immagine di log sopra il rettangolo nero */
 }
 
-/* Altri stili rimasti invariati */
-
+/*COMPRA ORA*/
+button{
+  display: flex;
+  background: linear-gradient(to bottom, rgba(84, 172, 204), rgba(99, 108, 176));
+  color: #fff;
+  width: 150px;
+  border-radius: 2px;
+}
 button[name="btncompraora"] {
   display: flex;
   background: linear-gradient(to bottom, rgba(84, 172, 204), rgba(99, 108, 176));
   color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  left: 130px;
-  top: 10px; /* Posiziona il pulsante a una certa distanza dall'alto */
+  width: 150px;
+  border-radius: 2px;
 }
 button[name="btncompraora"] mat-icon {
   margin-right: 8px;
 }
-
 button[name="btncompraora"]:hover {
   background-color: #2980b9;
 }
+
+/*ASTE*/
 button[name="btnaste"] {
   display: flex;
   background: linear-gradient(to bottom, rgba(84, 172, 204), rgba(99, 108, 176));
   color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  left: 20px;
-  top: -38px; /* Regola la distanza dall'alto per evitare sovrapposizioni */
+  border-radius: 2px;
+  width: 150px;
 }
-.search-container {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  padding: 8px;
-  border-color: transparent;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  top: 10px;
-  left: 35%;
-  width: 400px;
-  height: 22.5px;
-  z-index: 1;
+button[name="btnaste"] mat-icon {
+  margin-right: 8px;
+}
+button[name="btnaste"]:hover {
+  background-color: #2980b9;
 }
 
-#searchInput {
-  flex-grow: 1;
-  border: none;
-  padding: 8px;
-  font-size: 16px;
-  border-color: transparent;
-  border-radius: 18px;
-  z-index: 1;
-}
-/* Altri stili rimasti invariati */
-#searchInput:focus {
-  outline: none;
-}
+
 .mat-menu-panel {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombra leggera per il menu */
 }
@@ -107,13 +95,7 @@ button[name="profiloutente"]:hover,
 button[name="galleria"]:hover {
   background-color: #ecf0f1;
 }
-button[name="btnaste"] mat-icon {
-   margin-right: 8px;
- }
 
-button[name="btnaste"]:hover {
-  background-color: #2980b9;
-}
 
 .logo {
   position: absolute;
@@ -121,4 +103,32 @@ button[name="btnaste"]:hover {
   top: 75%;
   transform: translate(-50%, -50%);
   z-index: 1; /* Posiziona il logo sopra il rettangolo nero e altri elementi */
+}
+.search-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-color: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  top: 10px;
+  left: 35%;
+  width: 400px;
+  height: 24px;
+  z-index: 1;
+}
+
+#searchInput {
+  flex-grow: 1;
+  border: none;
+  padding: 8px;
+  font-size: 16px;
+  border-color: transparent;
+  border-radius: 18px;
+  z-index: 1;
+  height: 24px;
+}
+/* Altri stili rimasti invariati */
+#searchInput:focus {
+  outline: none;
 }

@@ -9,6 +9,7 @@ import { BuyNowComponent } from './component/buy-now/buy-now.component';
 import { AuctionsComponent } from './component/auctions/auctions.component';
 import { BuyNftNowComponent } from './component/buy-nft-now/buy-nft-now.component';
 import { BuyNftAuctionComponent } from './component/buy-nft-auction/buy-nft-auction.component';
+import {NewHomeComponent} from "./new-home/new-home.component";
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -20,7 +21,7 @@ const routes: Routes = [
   {path:'auctions', component: AuctionsComponent},
   {path:'buy-nft-now', component: BuyNftNowComponent},
   {path:'buy-nft-auction', component: BuyNftAuctionComponent},
-  {path:'**', component: HomeComponent},
+  {path: "home", component: NewHomeComponent},
 ];
 
 @NgModule({

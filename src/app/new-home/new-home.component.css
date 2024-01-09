@@ -1,0 +1,57 @@
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  width: 1400px;
+  height: 1000px;
+  margin: 10px;
+  border: 1px solid #555;
+}
+button[name="menubottone"] {
+  background: linear-gradient(to bottom, rgba(84, 172, 204), rgba(99, 108, 176));
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 1; /* Posiziona il bottone sopra il rettangolo nero */
+}
+button[name="menubottone"]:hover {
+  background-color: #2980b9; /* Cambia il colore di sfondo al passaggio del mouse */
+}
+.logImg {
+  position: absolute;
+  top: 2px;
+  right: 100px;
+  z-index: 1; /* Posiziona l'immagine di log sopra il rettangolo nero */
+}
+
+
+.mat-menu-panel {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombra leggera per il menu */
+}
+
+button[name="profiloutente"],
+button[name="galleria"] {
+  text-align: left; /* Allinea il testo a sinistra */
+  padding: 10px; /* Spaziatura interna */
+}
+
+button[name="profiloutente"]:hover,
+button[name="galleria"]:hover {
+  background-color: #ecf0f1;
+}
+.logo {
+  position: absolute;
+  left: 50%;
+  top: 75%;
+  transform: translate(-50%, -50%);
+  z-index: 1; /* Posiziona il logo sopra il rettangolo nero e altri elementi */
+}
+

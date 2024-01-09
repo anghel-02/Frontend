@@ -1,33 +1,42 @@
-<div class="search-container">
-  <input type="text" id="searchInput" placeholder="Cerca..." />
-</div>
-<div class="topContainer">
-
-  <div class="menudestra">
-    <button mat-button [matMenuTriggerFor]="menu" (click)="toggleMenu()" name="menubottone">Menu</button>
-    <mat-menu #menu="matMenu" name="menumenu">
-      <button mat-menu-item name="profiloutente">Profilo Utente</button>
-      <button mat-menu-item name="galleria">Galleria</button>
-    </mat-menu>
-  </div>
-
-  <div class="paginacompraora">
-    <button mat-fab extended color="primary" name="btncompraora">
-      <mat-icon>store</mat-icon>
-      Compra ora
+<div class="app-container">
+  <mat-toolbar color="primary" class="mat-elevation-z8">
+    <button (click)="drawer.toggle()" mat-icon-button>
+      <mat-icon>menu</mat-icon>
     </button>
-  </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Cerca..." />
+    </div>
+  </mat-toolbar>
+  <mat-drawer-container class="main-container" autosize>
+    <mat-drawer #drawer mode="side" opened="true" class="side">
+      <mat-nav-list class="list">
+        <mat-list-item class="buy">
+          <div class="paginahome">
+            <button mat-fab extended color="primary" name="btnhome" [routerLink]="['/home']">
+              <mat-icon>home</mat-icon> Home
+            </button>
+          </div>
+        </mat-list-item>
+        <mat-list-item class="buy">
+          <div class="paginacompraora">
+            <button mat-fab extended color="primary" name="btncompraora" [routerLink]="['/buy-now']">
+              <mat-icon>store</mat-icon> Compra ora
+            </button>
+          </div>
+        </mat-list-item>
+        <mat-list-item>
+          <div class="paginaaste">
+            <button mat-fab extended color="primary" name="btnaste" [routerLink]="['/auctions']">
+              <mat-icon>gavel</mat-icon> Aste
+            </button>
+          </div>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-drawer>
 
-  <div class="paginaaste">
-    <button mat-fab extended color="primary" name="btnaste">
-      <mat-icon>gavel</mat-icon>
-      Aste
-    </button>
-  </div>
-  <div class="utente">
-    <a [routerLink]="['/user']">
-      <img src="../../../assets/img/log.png" width="50" height="50" class="logImg">
-    </a>
-  </div>
-  <img src="../../../assets/img/nftLogo.png" class="logo" width="180" height="150">
+    <mat-drawer-content>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+
 </div>
