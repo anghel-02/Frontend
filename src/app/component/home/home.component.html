@@ -39,6 +39,13 @@
             </button>
           </div>
         </mat-list-item>
+        <mat-list-item>
+          <div class="paginacrea">
+            <button mat-fab extended color="primary" name="btncrea" [routerLink]="['/home']">
+              <mat-icon>create</mat-icon> Crea NFT
+            </button>
+          </div>
+        </mat-list-item>
         <mat-list-item class="buy">
           <div class="paginacompraora">
             <button mat-fab extended color="primary" name="btncompraora" [routerLink]="['/buy-now']">
@@ -60,10 +67,16 @@
             </button>
           </div>
         </mat-list-item>
+        <mat-list-item>
+          <div class="paginapreferiti">
+            <button mat-fab extended color="primary" name="btnpreferiti" [routerLink]="['/favourites']">
+              <mat-icon>stars</mat-icon> Preferiti
+            </button>
+          </div>
+        </mat-list-item>
       </mat-nav-list>
     </mat-drawer>
 
-    
     <mat-drawer-content>
       <router-outlet></router-outlet>
     </mat-drawer-content>
