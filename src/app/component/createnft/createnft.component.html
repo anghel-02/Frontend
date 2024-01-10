@@ -1,0 +1,38 @@
+<h1>Crea il tuo NFT</h1>
+
+<form #homeform="ngForm" (ngSubmit)="onSubmit(homeform)">
+    <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input matInput placeholder="Inserisci il nome" name= "nome" required [formControl]="nome">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Tag</mat-label>
+        <input matInput placeholder="Inserisci il nome" name= "nome" required [formControl]="tag">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Descrizione</mat-label>
+        <input matInput placeholder="Inserisci il nome" name= "nome" required [formControl]="descrizione">
+    </mat-form-field>
+    <br>
+
+    <div class="immagine">
+    <mat-label class="custom-label">Carica un'immagine</mat-label>
+    <br> <br>
+    <input type="file" (change)="onFileSelected($event)" accept="image/*" style="display: none" #fileInput required [formControl]="img">
+    <button mat-raised-button name="btnscegli" (click)="fileInput.click()">Scegli un file</button>
+    </div>
+    
+    <button mat-raised-button type="submit" name="btninvia" [disabled]="!homeform.valid">Crea Nft</button> 
+
+    <div class="viewimg">
+    <img *ngIf="img" [src]="img">
+    </div>
+    
+
+</form>
+
+
+
+

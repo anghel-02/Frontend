@@ -11,6 +11,7 @@ import { BuyNftNowComponent } from './component/buy-nft-now/buy-nft-now.componen
 import { BuyNftAuctionComponent } from './component/buy-nft-auction/buy-nft-auction.component';
 import {NewHomeComponent} from "./new-home/new-home.component";
 import {GalleryComponent} from "./component/gallery/gallery.component";
+import { CreatenftComponent } from './component/createnft/createnft.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -23,7 +24,9 @@ const routes: Routes = [
   {path:'buy-nft-now', component: BuyNftNowComponent},
   {path:'buy-nft-auction', component: BuyNftAuctionComponent},
   {path:'home', component: NewHomeComponent},
-  {path: 'gallery', component: GalleryComponent}
+  {path: 'gallery', component: GalleryComponent},
+  {path: 'createnft', component: CreatenftComponent},
+  {path: '**', component: NewHomeComponent}
 ];
 
 
