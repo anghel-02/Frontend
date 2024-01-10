@@ -37,6 +37,7 @@ import { BuyNowComponent } from './component/buy-now/buy-now.component';
 import { BuyNftNowComponent } from './component/buy-nft-now/buy-nft-now.component';
 import { BuyNftAuctionComponent } from './component/buy-nft-auction/buy-nft-auction.component';
 import { NewHomeComponent } from './new-home/new-home.component';
+import { FavouritesComponent } from './favourites/favourites.component';
 
 
 @NgModule ({
@@ -52,7 +53,8 @@ import { NewHomeComponent } from './new-home/new-home.component';
     BuyNowComponent,
     BuyNftNowComponent,
     BuyNftAuctionComponent,
-    NewHomeComponent
+    NewHomeComponent,
+    FavouritesComponent
   ],
   imports: [
     BrowserModule,
