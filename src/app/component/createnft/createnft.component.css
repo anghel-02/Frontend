@@ -51,9 +51,22 @@ h1 {
   }
 
   .immagine{
-    transform: translate(650px,-70px);
+    transform: translate(650px,-100px);
   }
 
   .viewimg{
-    transform: translate(350px,-350px);
+    transform: translate(300px,-380px);
+    max-height: 320px;
+    max-width: 320px;
   }
+
+  .viewimg img{
+    max-height: 320px;
+    max-width: 320px;
+  }
+
+.footer{
+  transform: translate(600px,-30px);
+  color: white; 
+  font-size: 15px; 
+}

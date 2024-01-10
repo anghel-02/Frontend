@@ -67,6 +67,7 @@ h1 {
   .portfolio-container mat-form-field {
     transform: translate(-370px,330px);
     position: relative;
+    padding:10px;
   }
 
   .homebtn-container mat-raised-button {
