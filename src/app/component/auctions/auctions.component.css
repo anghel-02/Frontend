@@ -5,6 +5,7 @@
     height: 100%;
     background: url('../../../assets/img/blu.avif') no-repeat center fixed;
     background-size: cover;
+    overflow: scroll;
   
   }
 

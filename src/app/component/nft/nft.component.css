@@ -19,9 +19,10 @@ h1 {
     text-decoration:solid;
     font-style: italic;
     font-weight: bold;
-    text-shadow: 5px 5px 10px #00ff00; 
+    text-shadow: 5px 5px 10px #00bfff; 
   }
 
+  
   .NFT {
     transform: translate(200px,60px);
     max-width: 400px;
@@ -59,7 +60,7 @@ h1 {
   }
 
   button[name="btnvendi2"] {
-    background: linear-gradient(to right, black, #00ff00);
+    background: linear-gradient(to right, black, #00bfff);
     color: white;
     display:inline-block;
   }
