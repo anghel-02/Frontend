@@ -12,8 +12,7 @@ export class LoginComponent {
   
 
   user = new FormControl ();
-  pass = new FormControl ();  
-  authcode= new FormControl ();  
+  pass = new FormControl ();   
   hide: any;
   
   //constructor(private auth:AuthService){}
@@ -22,7 +21,6 @@ export class LoginComponent {
   onSubmit(){
     let user = this.user.value;
     let pass = this.pass.value;
-    let authcode = this.authcode.value;
     
     // this.auth.login(user, pass);
   }

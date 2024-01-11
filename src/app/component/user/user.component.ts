@@ -10,11 +10,9 @@ export class UserComponent {
   forever=true;
   camponome!: string;
   campocognome!: string;
-  campodatanascita!: string;
   campoemail!: string;
   campousername!: string;
   campopassword!: string;
-  campoauthcode!: string;
   EURwallet!: number;
   ETHwallet!: number;
   hide: any;

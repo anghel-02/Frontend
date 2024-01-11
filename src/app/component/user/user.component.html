@@ -29,13 +29,6 @@
   </mat-form-field>
   <br>
   <mat-form-field>
-    <mat-label>Data di nascita</mat-label>
-    <input [matDatepicker]="picker" matInput [(ngModel)]="campodatanascita" name="campodatanascita" [disabled]="campiattivi">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-  <br>
-  <mat-form-field>
     <mat-label>Email</mat-label>
     <input matInput [(ngModel)]="campoemail" name="campoemail" [disabled]="campiattivi">
     <mat-icon matSuffix>email</mat-icon>
@@ -53,12 +46,6 @@
     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
-  </mat-form-field>
-  <br>
-  <mat-form-field>
-    <mat-label>Authcode</mat-label>
-    <input matInput type="password" [(ngModel)]="campoauthcode" name="campoauthcode" [disabled]="campiattivi">
-    <mat-icon matSuffix>shield</mat-icon> 
   </mat-form-field>
   <br>
 </form>

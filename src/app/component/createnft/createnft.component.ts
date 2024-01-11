@@ -11,11 +11,13 @@ export class CreatenftComponent {
   tag  = new FormControl ();
   img !: string;
   descrizione  = new FormControl ();
+  prezzo = new FormControl();
 
   onSubmit(form : NgForm){
     let nome = this.nome.value
     let tag = this.tag.value
     let descrizione = this.descrizione.value
+    let prezzo = this.prezzo.value
   }
 
   onFileSelected(event: any): void {

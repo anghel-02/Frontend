@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -8,25 +9,20 @@ import { FormControl, NgForm } from '@angular/forms';
 })
 
 export class RegisterComponent {
-  user = new FormControl ();
-  pass = new FormControl (); 
-  email = new FormControl (); 
-  authcode = new FormControl (); 
-  nome = new FormControl (); 
-  cognome = new FormControl (); 
-  datanascita = new FormControl (); 
+  
+  constructor(private authService: AuthService) {}
+  
   hide: any;
 
 
   onSubmit(form: NgForm){
-    let user = this.user.value
-    let pass = this.pass.value
-    let email = this.email.value
-    let authcode = this.authcode.value
-    let nome = this.nome.value
-    let cognome = this.cognome.value
-    let datanascita = this.datanascita.value
-
-   //this.auth.login(user, pass);
+    const nome = form.value.nome
+    const cognome = form.value.cognome 
+    const username = form.value.username
+    const password = form.value.password
+    this.authService.signup({nome: nome, cognome: cognome, username: username, password: password, returnSecureToken: true}).subscribe(data =>{
+      console.log(data);
+    })
+    
  }
 }
