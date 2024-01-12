@@ -1,12 +1,14 @@
 import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
+import { AuthToken, Userregister } from './model/userregister';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  url= 'postgresql://postgres:angelo2002@localhost:5432/postgres'
+  url= "http://localhost:9001"
+  public token?:string | null;
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$: Observable<boolean> = this.isLoggedInSubject.asObservable();
 
@@ -15,9 +17,13 @@ export class AuthService {
     this.isLoggedInSubject.next(true);
   }
 
-signup(body: {}): Observable<any> {
-  return this.http.post(this.url, body)
-}
+  signup(nome:string, cognome: string, username:string, password:string){
+    let user:Userregister = {"nome":nome, "cognome":cognome, "username": username, "password": password};
+    this.http.post<AuthToken>(this.url + "user/register",user,{withCredentials: true})
+    .subscribe(response => {
+      console.log(user)
+    });
+  }
 
 
   login(): void {
@@ -37,3 +43,5 @@ signup(body: {}): Observable<any> {
     return this.isLoggedInSubject.value;
   }
 }
+
+

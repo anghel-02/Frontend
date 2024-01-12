@@ -9,20 +9,24 @@ import { AuthService } from '../../auth.service';
 })
 
 export class RegisterComponent {
+
+  nome= new FormControl()
+  cognome= new FormControl()
+  username= new FormControl()
+  password= new FormControl()
   
   constructor(private authService: AuthService) {}
   
   hide: any;
 
 
-  onSubmit(form: NgForm){
-    const nome = form.value.nome
-    const cognome = form.value.cognome 
-    const username = form.value.username
-    const password = form.value.password
-    this.authService.signup({nome: nome, cognome: cognome, username: username, password: password, returnSecureToken: true}).subscribe(data =>{
-      console.log(data);
-    })
+  onSubmit(){
+    let nome =this.nome.value
+    let cognome =this.cognome.value
+    let username =this.username.value
+    let password =this.password.value
+
+    this.authService.signup(nome,cognome,username,password)
     
  }
 }
