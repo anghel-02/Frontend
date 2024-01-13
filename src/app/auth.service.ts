@@ -8,6 +8,7 @@ import {BehaviorSubject, catchError, Observable, throwError} from 'rxjs';
 })
 export class AuthService {
   private url = "http://localhost:9001";
+
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$: Observable<boolean> = this.isLoggedInSubject.asObservable();
 
@@ -16,13 +17,8 @@ export class AuthService {
   }
 
   signup(body: {}): Observable<any> {
-    return this.http.post(this.url + "user/register", body)
-      .pipe(
-        catchError(error => {
-          console.error('Errore durante la registrazione:', error);
-          return throwError(error); // Rilancia l'errore
-        })
-      );
+    return this.http.post(this.url + "/user/register", body)
+      
   }
 
 
