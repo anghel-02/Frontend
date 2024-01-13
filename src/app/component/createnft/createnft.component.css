@@ -1,54 +1,57 @@
-
 :host {
     display: block;
     margin: 0;
     padding: 0;
     height: 100%;
-    background: url('../../../assets/img/blu.avif') no-repeat center center fixed;
-    background-size: cover;
     overflow: hidden;
   }
 
-  /* titolo */
+.contieni {
+  background-color: #ecf0f1;
+  margin-left: 8%;
+  margin-top: 10%;
+  border-radius: 10px;
+  top: 3px;
+  position: fixed;
+  width: 80%;
+  z-index: -1;
+}
 
+  /* titolo */
 h1 {
-    transform: translate(-340px,30px);
-    position: static;
-    font-size: 4em;
-    text-align: center;
-    color: black;
-    text-decoration:solid;
-    font-style: italic;
-    font-weight: bold;
-    text-shadow: 5px 5px 10px #00bfff; 
-  }
+  transform: translate(-370px, 30px);
+  position: static;
+  font-size: 4em;
+  text-align: center;
+  color: black;
+  text-decoration: solid;
+  font-style: italic;
+  font-weight: bold;
+}
 
 
   /* form  */
-
   form {
     text-align: left;
-    margin-top: 150px;
-    margin-left: 200px;
-    
+    margin-top: 80px;
+    margin-left: 100px;
   }
 
-
   button[name="btninvia"] {
-    background: linear-gradient(to right, black, #00bfff);
+    background-color: rgb(0, 176, 240);
     color: white;
     display:inline-block;
     transform: translate(470px,-10px);
   }
 
   button[name="btnscegli"] {
-    background: linear-gradient(to right, black, #00bfff);
+    background-color: rgb(0, 176, 240);
     color: white;
   }
 
   .custom-label{
-    color: white; 
-    font-size: 15px; 
+    color: black;
+    font-size: 15px;
   }
 
   .immagine{
@@ -68,6 +71,6 @@ h1 {
 
 .footer{
   transform: translate(600px,-30px);
-  color: white; 
-  font-size: 15px; 
+  color: black;
+  font-size: 15px;
 }

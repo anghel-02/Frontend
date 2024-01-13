@@ -1,5 +1,6 @@
 <h1>Crea il tuo NFT</h1>
 
+<div class="contieni">
 <form #homeform="ngForm" (ngSubmit)="onSubmit(homeform)">
     <mat-form-field>
         <mat-label>Nome</mat-label>
@@ -29,9 +30,9 @@
     <input type="file" (change)="onFileSelected($event)" accept="image/*" style="display: none" #fileInput required>
     <button mat-raised-button name="btnscegli" (click)="fileInput.click()">Scegli un file</button>
     </div>
-    
-    <button mat-raised-button type="submit" name="btninvia" [disabled]="!homeform.valid">Crea Nft</button> 
-    
+
+    <button mat-raised-button type="submit" name="btninvia" [disabled]="!homeform.valid">Crea Nft</button>
+
     <div class="footer">
         <p>*L'NFT verrà aggiunto alla tua galleria</p>
     </div>
@@ -39,13 +40,8 @@
     <div class="viewimg">
     <img *ngIf="img" [src]="img">
     </div>
-
-    
-    
-
-
 </form>
-
+</div>
 
 
 

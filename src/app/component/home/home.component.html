@@ -6,7 +6,6 @@
     <div class="search-container">
       <input type="text" id="searchInput" placeholder="Cerca..." />
     </div>
-    <img src="../../../assets/img/nftLogo.png" class="logo" width="150" height="120">
     <div *ngIf="isUserLoggedIn(); else showLoginButtons">
       <div class="utente">
         <a [routerLink]="['/user']">

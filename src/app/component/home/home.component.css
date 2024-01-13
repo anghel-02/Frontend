@@ -13,23 +13,19 @@ body {
 .mat-elevation-z8{
   /*background: linear-gradient(to bottom, rgba(0, 0, 0), rgba(61, 61, 92));*/
   background-color: rgb(0, 176, 240);
-
   padding: 0;
   margin: 0;
 }
 
-.side{
+.side {
   margin: 0;
   padding: 0;
-  /*background: linear-gradient(to bottom, rgb(61, 61, 92),rgba(0, 0, 0));*/
-  background-color: #ecf0f1;
-  width: 180px;
-  height: 301px;
+  background-color: rgb(0, 176, 240);
 }
-
 mat-list-item{
   /*background: linear-gradient(to bottom, rgba(84, 172, 204), rgba(99, 108, 176));*/
   background-color: rgb(0, 176, 240);
+  border: 1px solid white;
 }
 
 .logImg {
@@ -39,7 +35,7 @@ mat-list-item{
   z-index: 1;
 }
 .btnlogout{
-  margin-left: 2550%;
+  margin-left: 2700%;
   border-radius: 16px;
 }
 .logbuttons{
@@ -57,9 +53,6 @@ mat-list-item{
   margin-right: 15px;
   text-decoration: none; /* Rimuove la sottolineatura del link */
 }
-.logo{
-  padding-top: 25px;
-}
 
 /*BOTTONI SIDE*/
 button{
@@ -67,24 +60,10 @@ button{
   /*background: linear-gradient(to bottom, rgba(84, 172, 204), rgba(99, 108, 176));*/
   background-color: rgb(0, 176, 240);
   color: #fff;
-  width: 150px;
+  width: 160px;
   border-radius: 2px;
-}
 
-button[name="btncompraora"] mat-icon {
-  margin-right: 8px;
 }
-/*button[name="btncompraora"]:hover {
-  background-color: #2980b9;
-}*/
-
-button[name="btnaste"] mat-icon {
-  margin-right: 8px;
-}
-/*
-button[name="btnaste"]:hover {
-  background-color: #2980b9;
-}*/
 
 /*BARRA DI RICERCA*/
 .search-container {
@@ -93,7 +72,6 @@ button[name="btnaste"]:hover {
   align-items: center;
   padding: 8px;
   border-color: transparent;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   top: 10px;
   left: 35%;
   width: 400px;
