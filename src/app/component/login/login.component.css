@@ -4,47 +4,43 @@
     margin: 0;
     padding: 0;
     height: 100%;
-    background: url('../../../assets/img/blu.avif') no-repeat center center fixed;
-    background-size: cover;
     overflow: hidden;
+    background: linear-gradient(to top, #c7e8ff, #ecf0f1);
   }
+.loginContent {
+  margin: 10%;
+  margin-right: 18%;
+  background-color: #ecf0f1;
+  border-radius: 10px;
+  z-index: -1;
+  align-content: center;
+  height: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 
-
-
+.sbarra{
+  background-color: rgb(0, 176, 240);
+  align-content: center;
+  border-radius: 8px;
+}
 /* titolo */
-
-
 h1 {
-    transform: translateY(50px);
+    transform: translateY(40px);
     position: static;
-    font-size: 4em;
     text-align: center;
     color: black;
     text-decoration:solid;
-    font-style: italic;
     font-weight: bold;
-    text-shadow: 5px 5px 10px #00bfff;
-    
+    font-size: 40px;
   }
-  
+
 /* form  */
-
-  form {
-    text-align: center;
-    margin-top: 70px;
-  }
-
+form {
+  text-align: center;
+  margin-top: 70px;
+}
   button[name="btninvia"] {
-    background: linear-gradient(to right, black, #00bfff);
+    background-color: rgb(0, 176, 240);
     color: white;
     display:inline-block;
   }
-
-
-
-
-
-
-
-
-

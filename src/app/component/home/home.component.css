@@ -30,7 +30,7 @@ mat-list-item{
 
 .logImg {
   position: absolute;
-  top: 5px;
+  top: 15px;
   right: 100px;
   z-index: 1;
 }
@@ -39,7 +39,7 @@ mat-list-item{
   border-radius: 16px;
 }
 .logbuttons{
-  margin-left: 1000px;
+  margin-left: 1100px;
   display: flex;
   width: 82px;
 }
