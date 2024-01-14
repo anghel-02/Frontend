@@ -18,12 +18,12 @@ export class RegisterComponent {
 
 
   onSubmit = (form: NgForm) => {
-    const nome = form.value.nome;
-    const cognome = form.value.cognome;
+    const name = form.value.nome;
+    const surname = form.value.cognome;
     const username = form.value.username;
     const password = form.value.password;
 
-    this.authService.signup({ nome, cognome, username, password })
+    this.authService.signup({ name, surname, username, password })
       .pipe(
         tap(data => {
           console.log('Risposta dal server:', data);
@@ -40,9 +40,11 @@ export class RegisterComponent {
           return throwError(error);
         }),
         finalize(() => {
-          console.log(nome, cognome, username, password);
+          console.log(name, surname, username, password);
         })
       )
       .subscribe();
   }
 }
+
+

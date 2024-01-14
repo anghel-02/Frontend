@@ -19,7 +19,7 @@ export class AuthService {
   }
 
   signup(body: {}): Observable<any> {
-    return this.http.post(this.url + "user/register.json", body)
+    return this.http.put(this.url + "user/register", body)
       .pipe(
         catchError(error => {
           console.error('Errore durante la registrazione:', error);
