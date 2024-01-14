@@ -4,11 +4,12 @@
     padding: 0;
     height: 100%;
     overflow: hidden;
+    background: linear-gradient(to top, #c7e8ff, #ecf0f1);
   }
 
 .contieni {
   background-color: #ecf0f1;
-  margin-left: 8%;
+  margin-left: 10%;
   margin-top: 10%;
   border-radius: 10px;
   top: 3px;

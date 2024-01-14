@@ -1,50 +1,52 @@
 /* sfondo */
 :host {
-    display: block;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: url('../../../assets/img/blu.avif') no-repeat center center fixed;
-    background-size: cover;
-    
-  }
-
-
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 100% of the viewport height */
+  background: linear-gradient(to top, #c7e8ff, #ecf0f1);
+}
+.regContainer{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: #ecf0f1;
+  width: 30%;
+  margin-right: 5%;
+  border-radius: 8px;
+  height: 600px;
+}
+.sbarra{
+  background-color: rgb(0, 176, 240);
+  border-radius: 8px;
+  height: 20px;
+}
 /* titolo */
 
 h1 {
-    transform: translateY(15px);
-    position: static;
-    font-size: 4em;
-    text-align: center;
-    color: black;
-    text-decoration:solid;
-    font-style: italic;
-    font-weight: bold;
-    text-shadow: 5px 5px 10px #00bfff;
-    
-  }
-  
-   
+  transform: translateY(40px);
+  position: static;
+  font-size: 40px;
+  text-align: center;
+  color: black;
+  text-decoration:solid;
+  font-weight: bold;
+}
 /* form  */
 
   form {
     text-align: center;
-    margin-top: 20px;
-    
+    margin-top: 100px;
   }
 
 
-  button[name="btninvia"] {
-    background: linear-gradient(to right, black, #00bfff);
-    color: white;
-    display:inline-block;
-    transform: translateY(-10px);
-  }
+button[name="btninvia"] {
+  margin-top: 12%;
+  background-color: rgb(0, 176, 240);
+  color: white;
+  display:inline-block;
+  transform: translateY(-10px);
+}
 
 
 
 
 
-  
