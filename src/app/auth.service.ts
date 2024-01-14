@@ -7,7 +7,7 @@ import {BehaviorSubject, catchError, Observable, throwError} from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private url = "http://localhost:9001";
+  private url = 'http://localhost:9001';
 
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$: Observable<boolean> = this.isLoggedInSubject.asObservable();
@@ -17,7 +17,7 @@ export class AuthService {
   }
 
   signup(body: {}): Observable<any> {
-    return this.http.post(this.url + "/user/register", body)
+    return this.http.post(this.url + '/user/register.json', body)
       
   }
 
