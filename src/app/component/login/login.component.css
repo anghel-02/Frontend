@@ -9,7 +9,10 @@
   }
 .loginContent {
   margin: 10%;
-  margin-right: 18%;
+  margin-top: 8%;
+  margin-left: 31%;
+  width: 30%;
+  height: 500px !important;
   background-color: #ecf0f1;
   border-radius: 10px;
   z-index: -1;
@@ -20,8 +23,8 @@
 
 .sbarra{
   background-color: rgb(0, 176, 240);
-  align-content: center;
   border-radius: 8px;
+  height: 20px;
 }
 /* titolo */
 h1 {
@@ -33,13 +36,19 @@ h1 {
     font-weight: bold;
     font-size: 40px;
   }
+.imgUtente{
+  margin-left: 40%;
+  margin-top: 18%;
+}
+
 
 /* form  */
 form {
   text-align: center;
-  margin-top: 70px;
+  margin-top: 200px;
 }
   button[name="btninvia"] {
+    margin-top: 12%;
     background-color: rgb(0, 176, 240);
     color: white;
     display:inline-block;

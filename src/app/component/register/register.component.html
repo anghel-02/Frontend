@@ -1,33 +1,35 @@
-
-<h1>Registrazione</h1>
-<br>
-<form #homeform="ngForm" (ngSubmit)="onSubmit(homeform)">
-    <mat-form-field>
-        <mat-label>Nome</mat-label>
-        <input matInput placeholder="Inserisci il nome" name= "nome" ngModel required>
-        <mat-icon matSuffix>person</mat-icon>
-      </mat-form-field>
-      <br>
+<div class="regContainer">
+  <div class="sbarra">
+    <h1>Registrazione</h1>
+  </div>
+  <br>
+  <form #homeform="ngForm" (ngSubmit)="onSubmit(homeform)">
       <mat-form-field>
-        <mat-label>Cognome</mat-label>
-        <input matInput placeholder="Inserisci il cognome" name= "cognome" ngModel required>
-        <mat-icon matSuffix>person</mat-icon>
-      </mat-form-field>
-      <br>    
-    <mat-form-field>
-        <mat-label>Username</mat-label>
-        <input matInput placeholder="Inserisci lo username" name= "username" ngModel required>
-        <mat-icon matSuffix>account_circle</mat-icon>
-      </mat-form-field>
-      <br>
+          <mat-label>Nome</mat-label>
+          <input matInput placeholder="Inserisci il nome" name= "nome" ngModel required>
+          <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Cognome</mat-label>
+          <input matInput placeholder="Inserisci il cognome" name= "cognome" ngModel required>
+          <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+        <br>
       <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" placeholder=" Inserisci la password" name="password" ngModel required>
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-      </mat-form-field>
-      <br>
-      <button mat-raised-button type="submit" name="btninvia" [disabled]="!homeform.valid">Invia</button> 
-</form>
-
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Inserisci lo username" name= "username" ngModel required>
+          <mat-icon matSuffix>account_circle</mat-icon>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" placeholder=" Inserisci la password" name="password" ngModel required>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button type="submit" name="btninvia" [disabled]="!homeform.valid">Invia</button>
+  </form>
+</div>
