@@ -10,12 +10,7 @@ import { concatMap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-<<<<<<< HEAD
-  private url = 'http://localhost:9001';
-
-=======
   private url = "http://localhost:9001/";
->>>>>>> 34872a7d5a0ca762ab423cb12b802edcc3903f7d
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$: Observable<boolean> = this.isLoggedInSubject.asObservable();
 
@@ -24,10 +19,6 @@ export class AuthService {
   }
 
   signup(body: {}): Observable<any> {
-<<<<<<< HEAD
-    return this.http.post(this.url + '/user/register.json', body)
-      
-=======
     return this.http.post(this.url + "user/register.json", body)
       .pipe(
         catchError(error => {
@@ -35,7 +26,6 @@ export class AuthService {
           return throwError(error); // Rilancia l'errore
         })
       );
->>>>>>> 34872a7d5a0ca762ab423cb12b802edcc3903f7d
   }
 
 
