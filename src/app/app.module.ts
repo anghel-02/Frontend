@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {HttpClientModule, HttpClient, withFetch} from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -39,6 +39,9 @@ import { BuyNftAuctionComponent } from './component/buy-nft-auction/buy-nft-auct
 import { NewHomeComponent } from './new-home/new-home.component';
 import { CreatenftComponent } from './component/createnft/createnft.component';
 import { FavouritesComponent } from './favourites/favourites.component';
+
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import {RegistrationInterceptor} from "./RegistrationInterceptor";
 
 
 @NgModule ({
@@ -82,15 +85,15 @@ import { FavouritesComponent } from './favourites/favourites.component';
     MatListModule,
     MatRadioModule,
     MatToolbarModule,
+    HttpClientModule,
     RouterModule
-
   ],
   providers: [
     provideClientHydration(),
     {
-      provide: HttpClient,
-      useClass: HttpClient,
-      deps: [],
+      provide: HTTP_INTERCEPTORS,
+      useClass: RegistrationInterceptor,
+      multi: true,
     },
   ],
   bootstrap: [AppComponent]
