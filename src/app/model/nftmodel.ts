@@ -10,5 +10,4 @@ export interface Nftmodel {
     tipovendita:string;
     prezzo: number;
     durata: Time;
-    valuta: string;
 }

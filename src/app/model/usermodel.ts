@@ -4,6 +4,7 @@ export interface Usermodel {
     rank: number;
     username: string;
     password: string;
+    admin: boolean;
     portafoglioETH: number;
     portafoglioEUR: number;
 

@@ -9,19 +9,19 @@ import { AuthService } from '../../auth.service';
 })
 export class CreatenftComponent {
   img !: string;
-  valuta! : string;
+  
 
   constructor(private auth : AuthService){}
   
   onSubmit(form : NgForm){
-    this.valuta = form.value.valuta
+    
     let title = form.value.nome
     let tag: string[] = form.value.tag
     let caption = form.value.descr
     let value = form.value.prezzo
     let image = form.value.immagine 
     console.log(form);
-    this.auth.createNFT({title, tag, caption, value, image, valuta: this.valuta}).subscribe(data =>{
+    this.auth.createNFT({title, tag, caption, value, image}).subscribe(data =>{
     })
 
   }

@@ -51,13 +51,9 @@ h1 {
 
   .asta2 {
     text-align: right;
-    transform: translate(-350px,-400px)
+    transform: translate(-350px,-350px)
   }
 
-  .scegli{
-    text-align: right;
-    transform: translate(-160px,-440px)
-  }
 
   button[name="btnvendi2"] {
     background: linear-gradient(to right, black, #00bfff);
