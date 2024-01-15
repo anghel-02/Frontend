@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-createnft',
@@ -7,18 +8,19 @@ import { FormControl, NgForm } from '@angular/forms';
   styleUrl: './createnft.component.css'
 })
 export class CreatenftComponent {
-  nome = new FormControl ();
-  tag  = new FormControl ();
   img !: string;
-  descrizione  = new FormControl ();
-  prezzo = new FormControl();
 
+  constructor(private auth : AuthService){}
+  
   onSubmit(form : NgForm){
-    let nome = this.nome.value
-    let tag = this.tag.value
-    let descrizione = this.descrizione.value
-    let prezzo = this.prezzo.value
+    let title = form.value.nome
+    let tag: string[] = form.value.tag
+    let caption = form.value.descr
+    let value = form.value.prezzo
+    this.auth.createNFT({title, tag, caption, value}).subscribe(data =>{})
+
   }
+  
 
   onFileSelected(event: any): void {
     const file: File = event.target.files[0];

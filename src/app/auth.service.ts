@@ -21,6 +21,10 @@ export class AuthService {
     return this.http.put(this.url + "user/register", body)
       
   }
+  
+  createNFT(body: {}):Observable<any>{
+    return this.http.post(this.url + "nft/create", body)
+  }
 
 
   login(): void {

@@ -7,23 +7,23 @@
 <form #homeform="ngForm" (ngSubmit)="onSubmit(homeform)">
     <mat-form-field>
         <mat-label>Nome</mat-label>
-        <input matInput placeholder="Inserisci il nome" name= "nome" required [formControl]="nome">
+        <input matInput placeholder="Inserisci il nome" name= "nome" required ngModel>
     </mat-form-field>
     <br>
     <mat-form-field>
         <mat-label>Tag</mat-label>
-        <input matInput placeholder="Inserisci i tag" name= "tag" required [formControl]="tag">
+        <input matInput placeholder="Inserisci i tag" name= "tag" required ngModel>
     </mat-form-field>
     <br>
     <mat-form-field>
         <mat-label>Descrizione</mat-label>
-        <input matInput placeholder="Inserisci la descrizione" name= "descr" required [formControl]="descrizione">
+        <input matInput placeholder="Inserisci la descrizione" name= "descr" required ngModel>
     </mat-form-field>
     <br>
 
     <mat-form-field>
         <mat-label>Prezzo</mat-label>
-        <input matInput placeholder="Inserisci il prezzo" name= "prezzo" required [formControl]="prezzo">
+        <input matInput placeholder="Inserisci il prezzo" name= "prezzo" required ngModel>
     </mat-form-field>
     <br>
 
