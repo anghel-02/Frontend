@@ -3,26 +3,22 @@ html,body{
   margin: 0;
     padding: 0;
     height: 100%;
-    
 }
 
 :host {
     display: block;
-    background: url('../../../assets/img/blu.avif') no-repeat center fixed;
-    background-size: cover;
-    background-attachment: fixed;
-    
+    background: linear-gradient(to top, #c7e8ff, #ecf0f1);
   }
 
   .NFT {
     max-width: 250px;
     max-height: 360px;
   }
-  
+
   .NFT-header-img {
     background-image: url('../../../assets/img/monkey.jpg');
     background-size: cover;
-    
+
   }
 
   .imagecard{
@@ -30,4 +26,3 @@ html,body{
     max-height: 190px;
   }
 
-  
