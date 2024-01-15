@@ -1,9 +1,8 @@
 // auth.service.ts
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, catchError, Observable, throwError} from 'rxjs';
-import { of } from 'rxjs';
-import { concatMap } from 'rxjs/operators';
+import {BehaviorSubject, Observable, throwError} from 'rxjs';
+
 
 
 @Injectable({
@@ -20,14 +19,8 @@ export class AuthService {
 
   signup(body: {}): Observable<any> {
     return this.http.put(this.url + "user/register", body)
-      .pipe(
-        catchError(error => {
-          console.error('Errore durante la registrazione:', error);
-          return throwError(error); // Rilancia l'errore
-        })
-      );
+      
   }
-
 
 
   login(): void {
@@ -42,3 +35,6 @@ export class AuthService {
     return this.isLoggedInSubject.value;
   }
 }
+
+
+
