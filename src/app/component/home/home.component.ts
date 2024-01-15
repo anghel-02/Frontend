@@ -12,9 +12,9 @@ export class HomeComponent{
   isUserLoggedIn(): boolean {
     return this.authService.isUserLoggedIn();
   }
-  login(): void {
+  /*login(): void {
     return this.authService.login();
-  }
+  }*/
   logout(): void {
     return this.authService.logout();
   }

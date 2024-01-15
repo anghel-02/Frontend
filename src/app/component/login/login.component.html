@@ -1,27 +1,24 @@
-
 <div class="loginContent">
   <div class="sbarra">
     <h1>Accedi al tuo account</h1>
     <img src="/assets/img/userLogImage.png" width="80" height="80" class="imgUtente">
   </div>
-
 <br>
-
 <form (ngSubmit)="onSubmit()">
     <mat-form-field>
-        <mat-label>Username</mat-label>
-        <input matInput placeholder="Inserisci lo username" name= "username" required [formControl]="user">
-        <mat-icon matSuffix>account_circle</mat-icon>
-      </mat-form-field>
-      <br>
-      <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" placeholder=" Inserisci la password" name="password" required [formControl]="pass">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-      </mat-form-field>
-      <br>
-      <button mat-raised-button type="submit" name="btninvia">Invia</button>
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="Inserisci lo username" name= "username" required [formControl]="user">
+      <mat-icon matSuffix>account_circle</mat-icon>
+    </mat-form-field>
+  <br>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" placeholder=" Inserisci la password" name="password" required [formControl]="pass">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+  <br>
+  <button mat-raised-button type="submit" name="btninvia">Invia</button>
 </form>
 </div>
