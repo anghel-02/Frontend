@@ -9,18 +9,23 @@ import { AuthService } from '../../auth.service';
 })
 export class CreatenftComponent {
   img !: string;
+  valuta! : string;
 
   constructor(private auth : AuthService){}
   
   onSubmit(form : NgForm){
+    this.valuta = form.value.valuta
     let title = form.value.nome
     let tag: string[] = form.value.tag
     let caption = form.value.descr
     let value = form.value.prezzo
-    this.auth.createNFT({title, tag, caption, value}).subscribe(data =>{})
+    let image = form.value.immagine 
+    console.log(form);
+    this.auth.createNFT({title, tag, caption, value, image, valuta: this.valuta}).subscribe(data =>{
+    })
 
   }
-  
+
 
   onFileSelected(event: any): void {
     const file: File = event.target.files[0];
@@ -34,3 +39,6 @@ export class CreatenftComponent {
     }
   }
 }
+
+
+

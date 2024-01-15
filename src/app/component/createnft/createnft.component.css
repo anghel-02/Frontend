@@ -39,7 +39,7 @@ h1 {
   /* form  */
   form {
     text-align: left;
-    margin-top: 80px;
+    margin-top: 100px;
     margin-left: 100px;
   }
 
@@ -47,7 +47,7 @@ h1 {
     background-color: rgb(0, 176, 240);
     color: white;
     display:inline-block;
-    transform: translate(470px,-10px);
+    transform: translate(470px,-50px);
   }
 
   button[name="btnscegli"] {
@@ -61,11 +61,11 @@ h1 {
   }
 
   .immagine{
-    transform: translate(650px,-100px);
+    transform: translate(700px,-140px);
   }
 
   .viewimg{
-    transform: translate(300px,-380px);
+    transform: translate(300px,-490px);
     max-height: 320px;
     max-width: 320px;
   }
@@ -76,7 +76,7 @@ h1 {
   }
 
 .footer{
-  transform: translate(600px,-30px);
+  transform: translate(600px,-80px);
   color: black;
   font-size: 15px;
 }
