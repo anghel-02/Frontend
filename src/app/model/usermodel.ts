@@ -10,6 +10,9 @@ export interface Usermodel {
 
 }
 
+export interface AuthToken{
+    token:string;
+} 
 
 
 

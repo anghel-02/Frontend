@@ -9,14 +9,13 @@ import {AuthService} from "../../auth.service";
 })
 export class HomeComponent{
   constructor(private authService: AuthService) {}
+
   isUserLoggedIn(): boolean {
-    return this.authService.isUserLoggedIn();
+    return this.authService.isAuthenticated();
   }
-  /*login(): void {
-    return this.authService.login();
-  }*/
+  
   logout(): void {
-    return this.authService.logout();
+    this.authService.removeToken();
   }
 
   onTabChanged(event: MatTabChangeEvent): void {

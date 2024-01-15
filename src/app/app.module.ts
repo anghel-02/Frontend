@@ -41,7 +41,7 @@ import { CreatenftComponent } from './component/createnft/createnft.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptorService } from './auth-interceptor.service';
+
 
 @NgModule ({
   declarations: [
@@ -88,11 +88,7 @@ import { AuthInterceptorService } from './auth-interceptor.service';
     RouterModule
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptorService,
-      multi: true
-    }
+    
   ],
   bootstrap: [AppComponent]
 })
