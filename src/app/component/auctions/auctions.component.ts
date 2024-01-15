@@ -8,7 +8,7 @@ import { trigger, state, style } from '@angular/animations';
   animations: [
     trigger('hoverState', [
       state('hovered', style({
-        transform: 'scale(2)',
+        transform: 'scale(1.1)',
       })),
     ]),
   ],
