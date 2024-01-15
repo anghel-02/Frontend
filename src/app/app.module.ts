@@ -41,7 +41,6 @@ import { CreatenftComponent } from './component/createnft/createnft.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import {RegistrationInterceptor} from "./RegistrationInterceptor";
 
 
 @NgModule ({
@@ -89,12 +88,7 @@ import {RegistrationInterceptor} from "./RegistrationInterceptor";
     RouterModule
   ],
   providers: [
-    provideClientHydration(),
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: RegistrationInterceptor,
-      multi: true,
-    },
+    
   ],
   bootstrap: [AppComponent]
 })
