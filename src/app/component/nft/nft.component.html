@@ -1,6 +1,7 @@
-<h1>NFT</h1>
-
-<mat-card class="NFT">
+<h1>{{nome}}</h1>
+<div class="container">
+  <div class="sbarra"></div>
+  <mat-card class="NFT">
     <mat-card-header>
       <div mat-card-avatar class="NFT-header-img"></div>
       <mat-card-title>{{nome}}</mat-card-title>
@@ -15,14 +16,13 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button name="btnvendita" (click)="mettiinvendita()" >Metti in vendita</button>
+      <button mat-raised-button class="btnmettiven" (click)="mettiinvendita()" style="background-color: rgb(0, 176, 240); color: white ">Metti in vendita</button>
     </mat-card-actions>
   </mat-card>
 
-  
-
-  <div class="vendere" *ngIf="vuoivendere">
-    <mat-form-field>
+  <div class="sellCont">
+    <div class="vendere" *ngIf="vuoivendere">
+      <mat-form-field>
         <mat-label>Tipo di vendita</mat-label>
         <mat-select [(ngModel)]="tipovendita" >
           <mat-option value="null">Null</mat-option>
@@ -30,35 +30,33 @@
           <mat-option value="asta">Asta</mat-option>
         </mat-select>
       </mat-form-field>
-  </div>
+    </div>
 
-  
-  <div class="comprasubito" *ngIf="vuoivendere && tipovendita == 'compraora' ">
-    <mat-form-field>
+    <div class="comprasubito" *ngIf="vuoivendere && tipovendita == 'compraora' ">
+      <mat-form-field>
         <mat-label>Inserisci prezzo</mat-label>
         <input matInput required [formControl]="prezzo">
         <mat-icon matSuffix>monetization_on</mat-icon>
       </mat-form-field>
-  </div>
+    </div>
 
-
-  <div class="asta" *ngIf="vuoivendere && tipovendita == 'asta' ">
-    <mat-form-field>
+    <div class="asta" *ngIf="vuoivendere && tipovendita == 'asta' ">
+      <mat-form-field>
         <mat-label>Inserisci prezzo iniziale</mat-label>
         <input matInput required [formControl]="offertaattuale">
         <mat-icon matSuffix>monetization_on</mat-icon>
       </mat-form-field>
-  </div>
+    </div>
 
-  
-  <div class="asta2" *ngIf="vuoivendere && tipovendita == 'asta' ">
-    <mat-form-field>
+    <div class="asta2" *ngIf="vuoivendere && tipovendita == 'asta' ">
+      <mat-form-field>
         <mat-label>Seleziona la durata</mat-label>
         <input matInput placeholder="HH:mm" required [formControl]="durata">
       </mat-form-field>
+    </div>
+
+    <div class="btnvendi" *ngIf="vuoivendere && (tipovendita=='compraora' || tipovendita=='asta')">
+      <button mat-raised-button type="submit" name="btnvendi2">Vendi</button>
+    </div>
   </div>
-
-<div class="btnvendi" *ngIf="vuoivendere && (tipovendita=='compraora' || tipovendita=='asta')">
-  <button mat-raised-button type="submit" name="btnvendi2">Vendi</button>
 </div>
-
