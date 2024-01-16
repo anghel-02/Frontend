@@ -42,7 +42,7 @@ export class AuthService {
     const authToken = this.getToken();
     this.http.put<any>(this.url + "nft/create", {
       headers:{
-        "Authorization" : `Auth ${authToken}`,
+        "Authorization" : `Bearer ${authToken}`,
       }
     }).subscribe(response =>{
       this.setToken(response.token);

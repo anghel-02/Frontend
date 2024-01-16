@@ -38,9 +38,8 @@ import { BuyNftNowComponent } from './component/buy-nft-now/buy-nft-now.componen
 import { BuyNftAuctionComponent } from './component/buy-nft-auction/buy-nft-auction.component';
 import { NewHomeComponent } from './new-home/new-home.component';
 import { CreatenftComponent } from './component/createnft/createnft.component';
-import { FavouritesComponent } from './favourites/favourites.component';
 
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 
 
 @NgModule ({
@@ -58,7 +57,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     BuyNftAuctionComponent,
     NewHomeComponent,
     CreatenftComponent,
-    FavouritesComponent
+    
   ],
   imports: [
     BrowserModule,
