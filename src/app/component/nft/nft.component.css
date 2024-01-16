@@ -50,6 +50,7 @@ h1 {
   justify-items: center;
   flex-direction: column;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border: 2px solid #00bfff;
 }
 .vendere{
   margin-top: 25px;
