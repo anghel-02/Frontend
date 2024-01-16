@@ -1,68 +1,81 @@
 :host {
-    display: block;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: url('../../../assets/img/blu.avif') no-repeat center center fixed;
-    background-size: cover;
-    overflow: hidden;
-  }
-
+  display: block;
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* 100% of the viewport height */
+  background: linear-gradient(to top, #c7e8ff, #ecf0f1);
+}
+.container{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: #ecf0f1;
+  border-radius: 8px;
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 85%;
+}
+.sbarra{
+  background-color: rgb(0, 176, 240);
+  border-radius: 8px;
+  height: 20px;
+}
   /* titolo */
 
 h1 {
-    transform: translate(-340px,30px);
-    position: static;
-    font-size: 4em;
-    text-align: center;
-    color: black;
-    text-decoration:solid;
-    font-style: italic;
-    font-weight: bold;
-    text-shadow: 5px 5px 10px #00bfff; 
-  }
+  transform: translate(-260px,75px);
+  position: static;
+  font-size: 45px;
+  text-align: center;
+  color: black;
+  text-decoration:solid;
+  font-weight: bold;
+}
+.NFT {
+  transform: translate(150px,50px);
+  max-width: 400px;
+}
 
-  
-  .NFT {
-    transform: translate(200px,60px);
-    max-width: 400px;
-  }
-  
-  .NFT-header-img {
-    background-image: url('../../../assets/img/monkey.jpg');
-    background-size: cover;
-  }
+.NFT-header-img {
+  background-image: url('../../../assets/img/monkey.jpg');
+  background-size: cover;
+}
+.sellCont{
+  background-color: darkgray;
+  bottom: 50%;
+  width: 30%;
+  height: 50%;
+  transform: translate(670px, -400px);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.vendere{
+  margin-top: 25px;
+}
 
-  
-  .vendere {
-    text-align: right;
-    transform: translate(-350px,-400px)
-  }
+.comprasubito {
+  text-align: right;
+}
 
-  .comprasubito {
-    text-align: right;
-    transform: translate(-315px,-380px)
-  }
+.asta{
+  text-align: right;
+}
 
-  .asta{
-    text-align: right;
-    transform: translate(-315px,-380px)
-  }
-
-  .asta2 {
-    text-align: right;
-    transform: translate(-350px,-350px)
-  }
+.asta2 {
+  text-align: right;
+}
 
 
   button[name="btnvendi2"] {
-    background: linear-gradient(to right, black, #00bfff);
+    background-color: rgb(0, 176, 240);
     color: white;
     display:inline-block;
   }
 
   .btnvendi{
     text-align: right;
-    transform: translate(-410px,-350px)
   }
+
 
