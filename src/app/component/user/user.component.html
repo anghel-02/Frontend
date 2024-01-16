@@ -1,20 +1,6 @@
-<h1>Gestione Profilo</h1>
 <div class="container">
-    <div class="image-container">
-        <img mat-card-image src="https://www.chirale.it/wp-content/uploads/2021/04/Kerfin7-NEA-2203-scaled.jpg">
-    </div>
-    <div class="portfolio-container">
-      <mat-form-field class="example-full-width">
-        <mat-label>EUR wallet</mat-label>
-        <input matInput [(ngModel)]="EURwallet" name="EURwallet" disabled>
-      </mat-form-field>
-      
-      <mat-form-field class="example-full-width">
-        <mat-label>ETH wallet</mat-label>
-        <input matInput [(ngModel)]="ETHwallet" name="ETHwallet" disabled>
-      </mat-form-field>
-    </div>
-
+  <div class="sbarra"></div>
+    <h1>Gestione Profilo</h1>
 <form>
 <mat-form-field>
     <mat-label>Nome</mat-label>
@@ -43,8 +29,22 @@
   </mat-form-field>
   <br>
 </form>
- 
+  <button mat-raised-button name="btnmp" (click)="abilitacampi()" [disabled]="!campiattivi">Modifica Profilo</button>
+  <button mat-raised-button name="btnsm" (click)="abilitacampi2()" [disabled]="campiattivi">Salva Modifiche</button>
+</div>
+<div class="portfolio-container">
+  <div class="sbarra"></div>
+  <h2>Wallet</h2>
+  <img src="assets/img/walletImg.png" width="50" height="50" class="walletImg">
+  <mat-form-field class="eur">
+    <mat-label>EUR wallet</mat-label>
+    <input matInput [(ngModel)]="EURwallet" name="EURwallet" disabled>
+  </mat-form-field>
+
+  <mat-form-field class="eth">
+    <mat-label>ETH wallet</mat-label>
+    <input matInput [(ngModel)]="ETHwallet" name="ETHwallet" disabled>
+  </mat-form-field>
 </div>
 
-<button mat-raised-button name="btnmp" (click)="abilitacampi()" [disabled]="!campiattivi">Modifica Profilo</button>
-<button mat-raised-button name="btnsm" (click)="abilitacampi2()" [disabled]="campiattivi">Salva Modifiche</button>
+
