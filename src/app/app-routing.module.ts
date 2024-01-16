@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './component/home/home.component';
 import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { UserComponent } from './component/user/user.component';
@@ -11,7 +10,6 @@ import { BuyNftNowComponent } from './component/buy-nft-now/buy-nft-now.componen
 import { BuyNftAuctionComponent } from './component/buy-nft-auction/buy-nft-auction.component';
 import {NewHomeComponent} from "./new-home/new-home.component";
 import {GalleryComponent} from "./component/gallery/gallery.component";
-import { FavouritesComponent } from './favourites/favourites.component';
 import { CreatenftComponent } from './component/createnft/createnft.component';
 import { AuthGuardService } from './authguard.guard';
 
@@ -27,7 +25,6 @@ const routes: Routes = [
   {path:'buy-nft-auction', component: BuyNftAuctionComponent, canActivate:[AuthGuardService]},
   {path:'home', component: NewHomeComponent},
   {path: 'gallery', component: GalleryComponent, canActivate:[AuthGuardService]},
-  {path: 'favourites', component: FavouritesComponent},
   {path: 'createnft', component: CreatenftComponent, canActivate:[AuthGuardService]},
   {path: '**', component: NewHomeComponent}
 ];

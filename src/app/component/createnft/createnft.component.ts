@@ -19,11 +19,9 @@ export class CreatenftComponent {
     let tag: string[] = form.value.tag
     let caption = form.value.descr
     let value = form.value.prezzo
-    let image = form.value.immagine 
+    let data = form.value.immagine 
     console.log(form);
-    this.auth.createNFT({title, tag, caption, value, image}).subscribe(data =>{
-    })
-
+    this.auth.createNFT(caption,title,value,tag,data)
   }
 
 

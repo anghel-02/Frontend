@@ -17,7 +17,7 @@ export class AuthService {
   }
 
   getToken(){
-    if (this.token == undefined){
+    if (this.token !== undefined){
       this.token = localStorage.getItem("AuthToken");
     }
     return this.token;
@@ -38,13 +38,20 @@ export class AuthService {
     return this.http.put(this.url + "user/register", body);
   }
 
-  createNFT(body: {}): Observable<any> {
-    return this.http.post(this.url + "nft/create", body);
+  createNFT(caption: string, title: string, value: DoubleRange, tag : string[], data: string ){
+    const authToken = this.getToken();
+    this.http.put<any>(this.url + "nft/create", {
+      headers:{
+        "Authorization" : `Auth ${authToken}`,
+      }
+    }).subscribe(response =>{
+      this.setToken(response.token);
+    })
+      
   }
 
   login(username: string, password: string){
     const basicToken = btoa (username + ':' + password);
-    console.log(username,password);
     this.http.get<any>(this.url + 'user/login', {
       headers: {
         "Authorization": `Basic ${basicToken}`,
