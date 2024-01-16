@@ -1,88 +1,96 @@
 :host {
-    display: block;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    background: url('../../../assets/img/blu.avif') no-repeat center center fixed;
-    background-size: cover;
-    overflow: hidden;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to top, #c7e8ff, #ecf0f1);
+}
 
   /* titolo */
 
 h1 {
-    transform: translate(-400px,35px);
-    position: static;
-    font-size: 4em;
-    text-align: center;
-    color: black;
-    text-decoration:solid;
-    font-style: italic;
-    font-weight: bold;
-    text-shadow: 5px 5px 10px #00bfff; 
-  }
+  margin-top: 20px;
+  font-size: 45px;
+  color: black;
+  text-decoration:solid;
+  font-weight: bold;
+  white-space: nowrap;
+  transform: translateX(140px);
+}
+.container {
+  margin: 10%;
+  height: 70%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: #ecf0f1;
+  border-radius: 8px;
+  width: 75%;
+}
 
   /* form  */
 
   form {
     flex: 1;
     text-align: right;
-    margin-top: 180px;
-    margin-right: 270px;
+    margin-top: 40px;
+    margin-right: 30px;
+    transform: translateX(-180px);
   }
 
+button[name="btnmp"] {
+  position: absolute;
+  background-color: rgb(0, 176, 240);
+  color: white;
+  bottom: 185px;
+  left: 19%;
+}
 
-  button[name="btnmp"] {
-    position: absolute;
-    right: 430px;
-    background: linear-gradient(to right, black, #00bfff);
-    color: white;
-    display:inline-block;
-    margin-left:auto;
-  }
-
-  button[name="btnsm"] {
-    position: absolute;
-    right: 220px;
-    background: linear-gradient(to right, black, #00bfff);
-    color: white;
-    display:inline-block;
-    margin-left:auto;
-  }
-  
-  .container {
-    display: flex;
-  }
-  
-  .image-container img {
-    transform: translate(100px,80px);
-    position: static;
-    max-width: 500px;
-    height: auto;
-  }
+button[name="btnsm"] {
+  position: absolute;
+  background-color: rgb(0, 176, 240);
+  color: white;
+  left: 32%;
+  bottom: 185px;
+}
 
 /* wallet  */
-
+.portfolio-container{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: #ecf0f1;
+  border-radius: 8px;
+  height: 50%;
+  margin-right: 15%;
+}
+h2{
+  font-size: 45px;
+  color: black;
+  text-decoration:solid;
+  font-weight: bold;
+  margin-top: 20px;
+  transform: translateX(85px);
+}
   .portfolio-container mat-form-field {
-    transform: translate(-370px,330px);
     position: relative;
     padding:10px;
+    top: 20%;
+    margin-left: 20px;
+  }
+  .eur{
+    transform: translateX(-25px);
+  }
+  .eth{
+    transform: translateX(25px);
   }
 
-  .homebtn-container mat-raised-button {
-    position: relative;
-  }
+.walletImg{
+  transform: translateX(130px);
+  margin-top: 10px;
+}
+.sbarra{
+  background-color: rgb(0, 176, 240);
+  border-radius: 8px;
+  height: 20px;
+  width: 100%;
+}
 
-  
 
-  /* button[name="btnhome"] {
-    background: linear-gradient(to right, black, #00bfff);
-    color: white;
-    position: bottom left;
-    bottom: 40px;
-    left:105px;
-   margin-left: 50px; */
-
-  
 
