@@ -40,16 +40,15 @@ button[name="btnmp"] {
   position: absolute;
   background-color: rgb(0, 176, 240);
   color: white;
-  bottom: 185px;
-  left: 19%;
+  transform: translateX(-180px);
 }
 
 button[name="btnsm"] {
   position: absolute;
   background-color: rgb(0, 176, 240);
   color: white;
-  left: 32%;
-  bottom: 185px;
+  /* left: 37%;
+  bottom: 125px; */
 }
 
 /* wallet  */

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-user',
@@ -8,21 +10,22 @@ import { Component } from '@angular/core';
 export class UserComponent {
   campiattivi=true;
   forever=true;
-  camponome!: string;
-  campocognome!: string;
-  campoemail!: string;
-  campousername!: string;
-  campopassword!: string;
-  EURwallet!: number;
-  ETHwallet!: number;
   hide: any;
 
+  constructor(private auth: AuthService){}
+
+    onSubmit(form : NgForm){
+      const name = form.value.camponome
+      const surname = form.value.campocognome
+      const password = form.value.campopassword
+      console.log(password)
+      this.auth.updateuser({name, surname, password})
+      
+    }
 
   abilitacampi(){
-    this.campiattivi=false;
+    this.campiattivi = this.campiattivi ? false : true;
+    
   }
 
-  abilitacampi2(){
-    this.campiattivi=true;
-  }
 }

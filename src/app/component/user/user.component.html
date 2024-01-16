@@ -1,36 +1,37 @@
 <div class="container">
   <div class="sbarra"></div>
     <h1>Gestione Profilo</h1>
-<form>
+<form #homeform="ngForm" (ngSubmit)="onSubmit(homeform)">
 <mat-form-field>
     <mat-label>Nome</mat-label>
-    <input matInput [(ngModel)]="camponome" name="camponome" [disabled]="campiattivi">
+    <input matInput  name="camponome"  [disabled]="campiattivi" required ngModel>
     <mat-icon matSuffix>person</mat-icon>
   </mat-form-field>
   <br>
   <mat-form-field>
     <mat-label>Cognome</mat-label>
-    <input matInput [(ngModel)]="campocognome" name="campocognome" [disabled]="campiattivi">
+    <input matInput  name="campocognome" [disabled]="campiattivi" required ngModel>
     <mat-icon matSuffix>person</mat-icon>
   </mat-form-field>
   <br>
   <mat-form-field>
     <mat-label>Username</mat-label>
-    <input matInput [(ngModel)]="campousername" name="campousername"  [disabled]="forever">
+    <input matInput  name="campousername"  [disabled]="forever" required ngModel>
     <mat-icon matSuffix>account_circle</mat-icon>
   </mat-form-field>
   <br>
   <mat-form-field>
     <mat-label>Password</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="campopassword" name="campopassword" [disabled]="campiattivi">
-    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+    <input matInput [type]="hide ? 'password' : 'text'" name="campopassword" [disabled]="campiattivi" required ngModel>
+    <button mat-icon-button type="button" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
     </button>
   </mat-form-field>
   <br>
+  <button mat-raised-button type="button" name="btnmp" (click)="abilitacampi()">Modifica Profilo</button>
+  <button mat-raised-button type="submit" name="btnsm" >Salva Modifiche</button>
 </form>
-  <button mat-raised-button name="btnmp" (click)="abilitacampi()" [disabled]="!campiattivi">Modifica Profilo</button>
-  <button mat-raised-button name="btnsm" (click)="abilitacampi2()" [disabled]="campiattivi">Salva Modifiche</button>
+  
 </div>
 <div class="portfolio-container">
   <div class="sbarra"></div>
@@ -38,12 +39,12 @@
   <img src="assets/img/walletImg.png" width="50" height="50" class="walletImg">
   <mat-form-field class="eur">
     <mat-label>EUR wallet</mat-label>
-    <input matInput [(ngModel)]="EURwallet" name="EURwallet" disabled>
+    <input matInput name="EURwallet" disabled required ngModel>
   </mat-form-field>
 
   <mat-form-field class="eth">
     <mat-label>ETH wallet</mat-label>
-    <input matInput [(ngModel)]="ETHwallet" name="ETHwallet" disabled>
+    <input matInput name="ETHwallet" disabled required ngModel>
   </mat-form-field>
 </div>
 

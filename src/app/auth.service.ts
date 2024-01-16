@@ -38,11 +38,22 @@ export class AuthService {
     return this.http.put(this.url + "user/register", body);
   }
 
-  createNFT(caption: string, title: string, value: DoubleRange, tag : string[], data: string ){
+  updateuser(body: {}){
     const authToken = this.getToken();
-    this.http.put<any>(this.url + "nft/create", {
+    this.http.put<any>(this.url + "user/update", body,{
       headers:{
-        "Authorization" : `Bearer ${authToken}`,
+        "Authorization" : `Bearer ${authToken}`
+      }
+    }).subscribe(response =>{
+      this.setToken(response.token);
+    })
+  }
+
+  createNFT( body: {}){
+    const authToken = this.getToken();
+    this.http.put<any>(this.url + "nft/create", body, {
+      headers:{
+        "Authorization" : `Bearer ${authToken}`
       }
     }).subscribe(response =>{
       this.setToken(response.token);
