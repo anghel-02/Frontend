@@ -1,7 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject,  Observable} from 'rxjs';
-
+import { Router } from '@angular/router';
+import { Observable} from 'rxjs';
 
 
 @Injectable({
@@ -10,12 +10,10 @@ import { BehaviorSubject,  Observable} from 'rxjs';
 export class AuthService {
   private url = "http://localhost:9001/";
   public token?:string | null;
-  private isLoggedInSubject = new BehaviorSubject<boolean>(false);
-  isLoggedIn$: Observable<boolean> = this.isLoggedInSubject.asObservable();
-  httpOptions: { headers: HttpHeaders; } | undefined;
+  
 
-  constructor(private http: HttpClient) {
-    this.isLoggedInSubject.next(false);
+  constructor(private http: HttpClient, private route: Router) {
+    
   }
 
   getToken(){
@@ -44,14 +42,27 @@ export class AuthService {
     return this.http.post(this.url + "nft/create", body);
   }
 
-  login(username: string, password: string): Observable<any> {
-    const body = { username, password };
-    return this.http.post<any>(this.url + 'user/login', body,{withCredentials: true})
+  login(username: string, password: string){
+    const basicToken = btoa (username + ':' + password);
+    console.log(username,password);
+    this.http.get<any>(this.url + 'user/login', {
+      headers: {
+        "Authorization": `Basic ${basicToken}`,
+      },
+      withCredentials: true
+    }).subscribe(response =>{
+      this.setToken(response.token);
+      this.route.navigate(["home"])
+    })
   }
   
   isAuthenticated(){
     return this.getToken() != undefined;
   }
-
+  
   
 }
+
+
+
+

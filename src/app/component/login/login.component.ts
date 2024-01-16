@@ -16,9 +16,7 @@ export class LoginComponent {
     const username = form.value.username;
     const password = form.value.password;
 
-    this.authService.login(username, password).subscribe(response =>{
-      this.authService.setToken(response.token);
-    })
+    this.authService.login(username, password)
   }
 
 }

@@ -13,21 +13,22 @@ import {NewHomeComponent} from "./new-home/new-home.component";
 import {GalleryComponent} from "./component/gallery/gallery.component";
 import { FavouritesComponent } from './favourites/favourites.component';
 import { CreatenftComponent } from './component/createnft/createnft.component';
+import { AuthGuardService } from './authguard.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path:'user', component: UserComponent},
-  {path:'nft', component: NftComponent},
+  {path:'user', component: UserComponent, canActivate:[AuthGuardService]},
+  {path:'nft', component: NftComponent, canActivate:[AuthGuardService]},
   {path:'buy-now', component:BuyNowComponent},
   {path:'auctions', component: AuctionsComponent},
-  {path:'buy-nft-now', component: BuyNftNowComponent},
-  {path:'buy-nft-auction', component: BuyNftAuctionComponent},
+  {path:'buy-nft-now', component: BuyNftNowComponent, canActivate:[AuthGuardService]},
+  {path:'buy-nft-auction', component: BuyNftAuctionComponent, canActivate:[AuthGuardService]},
   {path:'home', component: NewHomeComponent},
-  {path: 'gallery', component: GalleryComponent},
+  {path: 'gallery', component: GalleryComponent, canActivate:[AuthGuardService]},
   {path: 'favourites', component: FavouritesComponent},
-  {path: 'createnft', component: CreatenftComponent},
+  {path: 'createnft', component: CreatenftComponent, canActivate:[AuthGuardService]},
   {path: '**', component: NewHomeComponent}
 ];
 
