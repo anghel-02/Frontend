@@ -10,10 +10,10 @@ import { Observable} from 'rxjs';
 export class AuthService {
   private url = "http://localhost:9001/";
   public token?:string | null;
-  
+
 
   constructor(private http: HttpClient, private route: Router) {
-    
+
   }
 
   getToken(){
@@ -62,12 +62,12 @@ export class AuthService {
       this.route.navigate(["home"])
     })
   }
-  
+
   isAuthenticated(){
     return this.getToken() != undefined;
   }
-  
-  
+
+
 }
 
 

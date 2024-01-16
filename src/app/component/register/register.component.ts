@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../auth.service';
-import { Router } from '@angular/router';
-
 
 
 @Component({
@@ -13,7 +11,8 @@ import { Router } from '@angular/router';
 
 export class RegisterComponent {
 
-  constructor(private authService: AuthService, private route:Router) {}
+  registrationSuccess = false;
+  constructor(private authService: AuthService, private router: Router) {}
 
 
   onSubmit = (form: NgForm) => {
@@ -23,10 +22,10 @@ export class RegisterComponent {
     const password = form.value.password;
 
     this.authService.signup({ name, surname, username, password }).subscribe(data =>{
-      this.route.navigate(['login']);
+      this.router.navigate(['login']);
       form.reset();
     })
-      
+
   }
 }
 
