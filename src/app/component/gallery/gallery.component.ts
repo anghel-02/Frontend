@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NFTService } from '../../nft.service';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-gallery',
@@ -9,14 +10,14 @@ import { NFTService } from '../../nft.service';
 export class GalleryComponent implements OnInit {
   ownedNFTs: any[] = [];
 
-  constructor(private nftService: NFTService) {}
+  constructor(private nftService: NFTService, private auth: AuthService) {}
 
   ngOnInit() {
     this.loadOwnedNFTs();
   }
 
   loadOwnedNFTs() {
-    const username: string = 'nome_utente';
+    const username= this.auth.getUsername();
     this.nftService.getOwnedNFTs(username).subscribe(
       (data: any[]) => {
         this.ownedNFTs = data;

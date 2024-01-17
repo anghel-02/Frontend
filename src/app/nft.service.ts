@@ -6,14 +6,13 @@ import {catchError, Observable, tap} from 'rxjs';
   providedIn: 'root',
 })
 export class NFTService {
-  private baseUrl = '/api';
+  private url = "http://localhost:9001/";
 
 
   constructor(private http: HttpClient) {}
 
   getOwnedNFTs(username: string): Observable<any[]> {
-    const url = `${this.baseUrl}/nft/find?owner=${username}`;
-    return this.http.get<any[]>(url).pipe(
+    return this.http.post<any[]>(this.url + "nft/find", username).pipe(
       tap((data) => console.log('Dati ottenuti con successo:', data)),
       catchError((error) => {
         console.error('Errore durante il recupero degli NFT posseduti', error);

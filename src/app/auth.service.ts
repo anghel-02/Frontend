@@ -29,7 +29,6 @@ export class AuthService {
     if (this.token !== undefined){
       this.token = localStorage.getItem("AuthToken");
     }
-    console.log(this.token);
     return this.token;
   }
 
