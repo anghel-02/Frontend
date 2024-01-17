@@ -21,12 +21,9 @@ export class UserComponent implements OnInit{
   ngOnInit(): void {
     const username = this.auth.getUsername();
     this.auth.getUserByUsername(username).subscribe(data =>{
-      this.userdata= data;
-      console.log(this.userdata)
+      this.userdata = data;
     })
   }
-
-
 
     onSubmit(form : NgForm){
       const name = form.value.camponome

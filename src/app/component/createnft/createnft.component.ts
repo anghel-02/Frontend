@@ -8,9 +8,9 @@ import { AuthService } from '../../auth.service';
   styleUrl: './createnft.component.css'
 })
 export class CreatenftComponent {
-  img !: string;
-  
+  img !: any;
 
+  
   constructor(private auth : AuthService){}
   
   onSubmit(form : NgForm){
@@ -20,8 +20,19 @@ export class CreatenftComponent {
     const tag: string[] = tags.split(',').map((tag: string) => tag.trim());
     const caption = form.value.descr
     const value = form.value.prezzo
-    const data = btoa(form.value.immagine) 
-    this.auth.createNFT({caption,title,value,tag,data});
+
+    const formData = new FormData();
+    formData.append('caption', caption);
+    formData.append('title', title);
+    formData.append('value', value);
+
+    tag.forEach((tagItem, index) => {
+    formData.append(`tag[${index}]`, tagItem);
+  });
+
+    formData.append('immagine', form.value.immagine);
+  
+    this.auth.createNFT(formData);
   }
 
 
@@ -36,6 +47,8 @@ export class CreatenftComponent {
       reader.readAsDataURL(file);
     }
   }
+
+  showImage(): void {}
 }
 
 

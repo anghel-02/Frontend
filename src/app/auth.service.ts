@@ -29,6 +29,7 @@ export class AuthService {
     if (this.token !== undefined){
       this.token = localStorage.getItem("AuthToken");
     }
+    console.log(this.token);
     return this.token;
   }
 
@@ -58,9 +59,9 @@ export class AuthService {
     })
   }
 
-  createNFT( body: {}){
+  createNFT( formData: FormData){
     const authToken = this.getToken();
-    this.http.put<any>(this.url + "nft/create", body, {
+    this.http.put<any>(this.url + "nft/create", formData, {
       headers:{
         "Authorization" : `Bearer ${authToken}`
       }
@@ -70,6 +71,7 @@ export class AuthService {
       
   }
 
+  
   getUserByUsername(username: string): Observable<any> {
     return this.http.get<any>(`${this.url}user/get/${username}`) 
   }
