@@ -84,6 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
+            "proxyConfig": "src/proxy.conf.json",
             "buildTarget": "NFTfr:build"
           }
         },

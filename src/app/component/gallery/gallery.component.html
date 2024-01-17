@@ -1,1 +1,16 @@
 <p>gallery works!</p>
+
+<div *ngIf="ownedNFTs.length > 0; else noNFTs">
+  <h2>I tuoi NFT posseduti:</h2>
+  <div *ngFor="let nft of ownedNFTs">
+    <div class="nft-item">
+      <img [src]="nft.image" alt="NFT Image">
+      <h3>{{ nft.title }}</h3>
+      <p>{{ nft.caption }}</p>
+    </div>
+  </div>
+</div>
+
+<ng-template #noNFTs>
+  <p>Non hai ancora nessun NFT.</p>
+</ng-template>
