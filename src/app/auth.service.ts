@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import {catchError, Observable} from 'rxjs';
+import { Observable} from 'rxjs';
 
 
 @Injectable({
@@ -10,10 +10,19 @@ import {catchError, Observable} from 'rxjs';
 export class AuthService {
   private url = "http://localhost:9001/";
   public token?:string | null;
+  private usernameglobal : string = "";
 
 
   constructor(private http: HttpClient, private route: Router) {
 
+  }
+
+  setUsername(username: string): void {
+    this.usernameglobal = username;
+  }
+
+  getUsername(): string {
+    return this.usernameglobal;
   }
 
   getToken(){
@@ -60,6 +69,11 @@ export class AuthService {
     })
       
   }
+
+  getUserByUsername(username: string): Observable<any> {
+    return this.http.get<any>(`${this.url}user/get/${username}`) 
+  }
+
 
   login(username: string, password: string){
     const basicToken = btoa (username + ':' + password);

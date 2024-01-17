@@ -16,13 +16,12 @@ export class CreatenftComponent {
   onSubmit(form : NgForm){
     
     const title = form.value.nome
-    const tag = form.value.tag
-    const tagsArray: string[] = tag.split(',').map((tag: string) => tag.trim());
+    const tags = form.value.tag
+    const tag: string[] = tags.split(',').map((tag: string) => tag.trim());
     const caption = form.value.descr
     const value = form.value.prezzo
-    const data = form.value.immagine 
-    console.log(tagsArray)
-    this.auth.createNFT({caption,title,value,tagsArray,data})
+    const data = btoa(form.value.immagine) 
+    this.auth.createNFT({caption,title,value,tag,data});
   }
 
 

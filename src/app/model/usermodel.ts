@@ -1,12 +1,10 @@
 export interface Usermodel {
-    nome: string;
-    cognome: string;
+    name: string;
+    surname: string;
     rank: number;
     username: string;
-    password: string;
+    encrypted_pw: string;
     admin: boolean;
-    portafoglioETH: number;
-    portafoglioEUR: number;
 
 }
 

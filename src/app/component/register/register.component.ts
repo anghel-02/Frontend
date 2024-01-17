@@ -15,13 +15,11 @@ export class RegisterComponent {
   registrationSuccess = false;
   constructor(private authService: AuthService, private router: Router) {}
 
-
   onSubmit = (form: NgForm) => {
     const name = form.value.nome;
     const surname = form.value.cognome;
     const username = form.value.username;
     const password = form.value.password;
-
     this.authService.signup({ name, surname, username, password }).subscribe(data =>{
       this.router.navigate(['login']);
       form.reset();
