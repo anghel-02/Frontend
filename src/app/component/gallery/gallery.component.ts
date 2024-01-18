@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NFTService } from '../../nft.service';
 import { AuthService } from '../../auth.service';
 import { Router } from '@angular/router';
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-gallery',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class GalleryComponent implements OnInit {
   ownedNFTs: any[] = [];
   imageUrl!: any;
-  
+
   constructor(private nftService: NFTService, private auth: AuthService, private router: Router) {}
 
   ngOnInit() {
@@ -31,7 +32,7 @@ export class GalleryComponent implements OnInit {
     );
   }
 
-  image(){
+  image() {
     const img = "download.png";
 
     this.nftService.getImage(img).subscribe(
@@ -44,11 +45,22 @@ export class GalleryComponent implements OnInit {
       },
       (error) => {
         console.error('Errore durante il recupero dell\'immagine', error);
+
+        if (error instanceof HttpErrorResponse) {
+          if (error.status === 404) {
+            console.error('Immagine non trovata. Verifica il percorso e il nome del file.');
+          } else {
+            console.error(`Errore ${error.status}: ${error.statusText}`);
+          }
+        } else {
+          console.error('Errore sconosciuto:', error);
+        }
       }
     );
   }
 
-    info(nftid: string){
+
+  info(nftid: string){
       this.nftService.setnftid(nftid);
       this.router.navigate(['/nft'])
     }
