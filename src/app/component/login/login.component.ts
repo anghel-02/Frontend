@@ -9,7 +9,7 @@ import {MatInput} from "@angular/material/input";
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements AfterViewInit{
-  hide = true;
+  hide: any;
 
   constructor(private authService: AuthService) {}
 

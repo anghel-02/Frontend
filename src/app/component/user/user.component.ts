@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../auth.service';
-import { RegisterComponent } from '../register/register.component';
 import { Usermodel } from '../../model/usermodel';
+import { payment } from '../../model/payment';
 
 @Component({
   selector: 'app-user',
@@ -14,6 +14,9 @@ export class UserComponent implements OnInit{
   forever=true;
   hide: any;
   userdata! : Usermodel;
+  userpayment: any[]= [];
+  selectedWallet!: any;
+  type = -1;
 
   constructor(private auth: AuthService){}
 
@@ -23,9 +26,22 @@ export class UserComponent implements OnInit{
     this.auth.getUserByUsername(username).subscribe(data =>{
       this.userdata = data;
     })
+    this.auth.getwallet().subscribe((data: any[]) => {
+      this.userpayment = data.map(item => item.balance);
+    });
   }
+  
   inviaForm(form : NgForm){
-
+      const address = form.value.indirizzo;
+      
+      if (this.selectedWallet === 'opzione1'){
+        this.type = 1;
+      }
+      else if(this.selectedWallet === 'opzione2') {
+        this.type = 0;
+      }
+      const username = this.auth.getUsername();
+      this.auth.addwallet({address, username, type: this.type})
   }
 
     onSubmit(form : NgForm){
@@ -36,6 +52,7 @@ export class UserComponent implements OnInit{
       this.abilitacampi();
 
     }
+
 
   abilitacampi(){
     this.campiattivi = this.campiattivi ? false : true;

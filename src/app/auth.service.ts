@@ -60,6 +60,7 @@ export class AuthService {
   })
 }
 
+
   updateuser(body: {}){
     const authToken = this.getToken();
     this.http.put<any>(this.url + "user/update", body,{
@@ -89,6 +90,14 @@ export class AuthService {
     return this.http.get<any>(`${this.url}user/get/${username}`) 
   }
 
+  getwallet():  Observable<any>{
+    const authToken = this.getToken();
+    return this.http.get<any>(this.url + 'payment/get', {
+      headers:{
+        "Authorization" : `Bearer ${authToken}`
+      }
+    })
+  }
 
   login(username: string, password: string){
     const basicToken = btoa (username + ':' + password);
