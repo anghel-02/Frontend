@@ -9,7 +9,6 @@ import { AuthService } from './auth.service';
 export class NFTService {
   private url = "http://localhost:9001/";
 
-
   constructor(private http: HttpClient, private auth: AuthService) {}
 
   getOwnedNFTs(username: string): Observable<any[]> {

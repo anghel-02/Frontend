@@ -7,7 +7,7 @@
 <form #homeform="ngForm" (ngSubmit)="onSubmit(homeform)">
     <mat-form-field>
       <mat-label>Username</mat-label>
-      <input matInput placeholder="Inserisci lo username" name= "username" required ngModel>
+      <input matInput placeholder="Inserisci lo username" name="username" required ngModel #usernameInput>
       <mat-icon matSuffix>account_circle</mat-icon>
     </mat-form-field>
   <br>

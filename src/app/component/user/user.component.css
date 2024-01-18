@@ -27,7 +27,6 @@ h1 {
 }
 
   /* form  */
-
   form {
     flex: 1;
     text-align: right;
@@ -35,20 +34,22 @@ h1 {
     margin-right: 30px;
     transform: translateX(-180px);
   }
+  button{
+
+  }
 
 button[name="btnmp"] {
   position: absolute;
   background-color: rgb(0, 176, 240);
   color: white;
-  transform: translateX(-180px);
+  transform: translate(-300px, 15px);
 }
 
 button[name="btnsm"] {
   position: absolute;
   background-color: rgb(0, 176, 240);
   color: white;
-  /* left: 37%;
-  bottom: 125px; */
+  transform: translate(-120px, 15px);
 }
 
 /* wallet  */
@@ -56,32 +57,30 @@ button[name="btnsm"] {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   background-color: #ecf0f1;
   border-radius: 8px;
-  height: 50%;
+  height: 75%;
   margin-right: 15%;
+  width: 40%;
 }
 h2{
-  font-size: 45px;
+  font-size: 30px;
   color: black;
   text-decoration:solid;
   font-weight: bold;
-  margin-top: 20px;
-  transform: translateX(85px);
+  transform: translate(25px, -20px);
 }
-  .portfolio-container mat-form-field {
-    position: relative;
-    padding:10px;
-    top: 20%;
-    margin-left: 20px;
-  }
-  .eur{
-    transform: translateX(-25px);
-  }
-  .eth{
-    transform: translateX(25px);
-  }
-
+.portfolio-container mat-form-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:10px;
+  top: 15%;
+  margin-left: 20px;
+}
+.wallet{
+  transform: translateX(100px);
+}
 .walletImg{
-  transform: translateX(130px);
+  transform: translateX(135px);
   margin-top: 10px;
 }
 .sbarra{
@@ -90,6 +89,32 @@ h2{
   height: 20px;
   width: 100%;
 }
-
-
+select{
+  font-size: 25px;
+  transform: translate(90px, -10px);
+}
+.eth{
+  transform: translate(-10px, -20px);
+}
+.eur{
+  transform: translate(-10px);
+}
+.indirizzoscritta{
+  font-size: 20px;
+  transform: translate(30px, 30px);
+}
+.indirizzo{
+  transform: translate(30px, 25px);
+  font-size: 20px;
+}
+.invia {
+  background-color: rgb(0, 176, 240);
+  color: white;
+  display: inline-block;
+  transform: translate(30px, 40px);
+  border: 0px;
+  border-radius: 6px;
+  width: 100px;
+  height: 25px;
+}
 

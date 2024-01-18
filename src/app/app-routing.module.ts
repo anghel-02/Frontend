@@ -22,7 +22,7 @@ const routes: Routes = [
   {path:'buy-now', component:BuyNowComponent},
   {path:'auctions', component: AuctionsComponent},
   {path:'buy-nft-now', component: BuyNftNowComponent, canActivate:[AuthGuardService]},
-  {path:'buy-nft-auction', component: BuyNftAuctionComponent},
+  {path:'buy-nft-auction', component: BuyNftAuctionComponent, canActivate:[AuthGuardService]},
   {path:'home', component: NewHomeComponent},
   {path: 'gallery', component: GalleryComponent, canActivate:[AuthGuardService]},
   {path: 'createnft', component: CreatenftComponent, canActivate:[AuthGuardService]},
