@@ -28,6 +28,7 @@ export class UserComponent implements OnInit{
     })
     this.auth.getwallet().subscribe((data: any[]) => {
       this.userpayment = data.map(item => item.balance);
+      console.log(this.userpayment)
     });
   }
   

@@ -3,7 +3,7 @@
   <div *ngFor="let nft of ownedNFTs">
     <div class="nft-item">
       <h3>{{ nft.title }}</h3>
-      <p>{{nft.tags}}</p>
+      <p>{{nft.tagsAsString}}</p>
       <img [src]="imageUrl" (click)="info(nft.id)"  class="pointer-on-hover">
       <p>{{ nft.caption }}</p>
       <p>{{ nft.author.username }}</p>
