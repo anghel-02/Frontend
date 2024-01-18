@@ -8,8 +8,17 @@ import { AuthService } from './auth.service';
 })
 export class NFTService {
   private url = "http://localhost:9001/";
+  idnft!: string;
 
   constructor(private http: HttpClient, private auth: AuthService) {}
+
+  getnftid(){
+    return this.idnft;
+  }
+
+  setnftid(idnft: string){
+    this.idnft = idnft;
+  }
 
   getOwnedNFTs(username: string): Observable<any[]> {
     const authToken = this.auth.getToken();
@@ -29,18 +38,18 @@ export class NFTService {
     );
   }
 
-  getImage(id: string): Observable<Blob> {
+  getdbnft(id : string): Observable<any>{
+    return this.http.get<any>(this.url + `nft/get/${id}`)
+  }
+
+  getImage(id: string): Observable<any> {
     const options = {
       responseType: 'blob' as 'json'
     };
-
-    return this.http.get<Blob>(this.url + `nft/get/${id}/image`, options).pipe(
-      catchError((error) => {
-        console.error('Errore durante il recupero dell\'immagine', error);
-        throw error;
-      })
-    );
+    return this.http.get<Blob>(this.url + `nft/get/${id}/image`,options)
   }
+
+  
 
 }
 
