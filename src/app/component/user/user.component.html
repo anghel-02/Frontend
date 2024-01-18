@@ -46,15 +46,21 @@
     <mat-label>ETH wallet</mat-label>
     <input matInput name="ETHwallet" disabled required ngModel>
   </mat-form-field>
-  <h2>Seleziona un'opzione:</h2>
-  <select>
-    <option value="" disabled selected>Scegli wallet</option>
-    <option value="opzione1">EUR Wallet</option>
-    <option value="opzione2">ETH Wallet</option>
-  </select>
-  <h3 class="indirizzoscritta">Indirizzo:</h3>
-  <input type="text" class="indirizzo" placeholder="Inserisci indirizzo">
-  <button class="invia">Invia</button>
+  <mat-form-field class="seleziona">
+    <mat-label>Scegli wallet</mat-label>
+    <mat-select placeholder="Scegli wallet">
+      <mat-option value="opzione1">EUR Wallet</mat-option>
+      <mat-option value="opzione2">ETH Wallet</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="indirizzo">
+    <mat-label>Indirizzo:</mat-label>
+    <input matInput type="text" placeholder="Inserisci indirizzo" class="indirizzo">
+  </mat-form-field>
+
+  <button mat-raised-button class="invia">Invia</button>
+
 </div>
 
 
