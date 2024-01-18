@@ -16,9 +16,11 @@ export class LoginComponent implements AfterViewInit{
   @ViewChildren(MatInput) matInputs!: QueryList<MatInput>;
 
   ngAfterViewInit() {
-    if (this.matInputs && this.matInputs.first) {
-      this.matInputs.first.focus();
-    }
+    setTimeout(() => {
+      if (this.matInputs && this.matInputs.first) {
+        this.matInputs.first.focus();
+      }
+    });
   }
 
   onSubmit(form: NgForm) {

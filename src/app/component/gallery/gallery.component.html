@@ -1,17 +1,24 @@
-<div *ngIf="ownedNFTs.length > 0; else noNFTs">
-  <h2>I tuoi NFT posseduti:</h2>
-  <div *ngFor="let nft of ownedNFTs">
-    <div class="nft-item">
-      <h3>{{ nft.title }}</h3>
-      <p>{{nft.tagsAsString}}</p>
-      <img [src]="imageUrl" (click)="info(nft.id)"  class="pointer-on-hover">
-      <p>{{ nft.caption }}</p>
-      <p>{{ nft.author.username }}</p>
-      <p>{{ nft.value }}</p>
+<h1>Galleria</h1>
+<div class="container">
+  <div *ngIf="ownedNFTs.length > 0; else noNFTs">
+    <h2>I tuoi NFT posseduti:</h2>
+    <div class="nft-list">
+      <div *ngFor="let nft of ownedNFTs" class="nft-item">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ nft.title }}</h5>
+            <img src="assets/img/download.png" (click)="info(nft.id)" class="card-img-top pointer-on-hover" alt="{{ nft.title }}">
+            <p class="card-text">{{ nft.tag }}</p>
+            <p class="card-text">{{ nft.caption }}</p>
+            <p class="card-text">{{ nft.author }}</p>
+            <p class="card-text">{{ nft.value }}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<ng-template #noNFTs>
-  <p>Non hai ancora nessun NFT.</p>
-</ng-template>
+  <ng-template #noNFTs>
+    <p>Non hai ancora nessun NFT.</p>
+  </ng-template>
+</div>
