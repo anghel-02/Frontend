@@ -13,7 +13,7 @@ import { Nftmodel } from '../../model/nftmodel';
 export class NftComponent implements OnInit{
     tipovendita!:string;
     vuoivendere: boolean = false;
-    nftmodel!: Nftmodel;
+    nftmodel!: any;
     imageUrl!: any;
 
 

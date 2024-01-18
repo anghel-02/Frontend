@@ -34,9 +34,7 @@ h1 {
     margin-right: 30px;
     transform: translateX(-180px);
   }
-  button{
-
-  }
+  
 
 button[name="btnmp"] {
   position: absolute;

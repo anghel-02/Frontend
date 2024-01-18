@@ -14,6 +14,7 @@ export class UserComponent implements OnInit{
   forever=true;
   hide: any;
   userdata! : Usermodel;
+  userpayment!: any;
   
   constructor(private auth: AuthService){}
 
@@ -22,6 +23,9 @@ export class UserComponent implements OnInit{
     const username = this.auth.getUsername();
     this.auth.getUserByUsername(username).subscribe(data =>{
       this.userdata = data;
+    })
+    this.auth.getwallet().subscribe(data =>{
+      this.userpayment=data;
     })
   }
 
@@ -33,6 +37,13 @@ export class UserComponent implements OnInit{
       this.abilitacampi();
       
     }
+
+  onSubmit2(form: NgForm){
+      const address ="";
+      const type = "";
+      const username = this.auth.getUsername();
+      this.auth.addwallet({address, username, type})
+  }
 
   abilitacampi(){
     this.campiattivi = this.campiattivi ? false : true;
