@@ -24,7 +24,10 @@ export class RegisterComponent {
       this.router.navigate(['login']);
       form.reset();
     })
-
+    const id = 1;
+    const type= 0;
+    const balance=5000;
+    this.authService.addwallet({id, username, type, balance })
   }
 }
 

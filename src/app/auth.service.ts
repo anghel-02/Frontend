@@ -11,6 +11,7 @@ export class AuthService {
   private url = "http://localhost:9001/";
   public token?:string | null;
   private usernameglobal : string = "";
+  private prova: boolean = false;
 
 
   constructor(private http: HttpClient, private route: Router) {
@@ -29,6 +30,7 @@ export class AuthService {
     if (this.token !== undefined){
       this.token = localStorage.getItem("AuthToken");
     }
+    
     return this.token;
   }
 
@@ -46,6 +48,17 @@ export class AuthService {
   signup(body: {}): Observable<any> {
     return this.http.put(this.url + "user/register", body);
   }
+
+  addwallet(body: {}){
+    const authToken = this.getToken();
+    this.http.put<any>(this.url + "payment/add", body, {
+      headers:{
+        "Authorization" : `Bearer ${authToken}`
+      }
+    }).subscribe(response =>{
+      this.setToken(response.token);
+  })
+}
 
   updateuser(body: {}){
     const authToken = this.getToken();
@@ -93,8 +106,11 @@ export class AuthService {
     return this.getToken() != undefined;
   }
 
-
 }
+
+
+
+
 
 
 

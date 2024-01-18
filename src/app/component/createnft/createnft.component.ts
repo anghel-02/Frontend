@@ -30,7 +30,7 @@ export class CreatenftComponent {
     formData.append(`tag[${index}]`, tagItem);
   });
 
-    formData.append('immagine', form.value.immagine);
+    formData.append('data', form.value.immagine);
   
     this.auth.createNFT(formData);
   }
