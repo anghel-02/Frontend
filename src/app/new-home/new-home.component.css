@@ -4,16 +4,13 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  background: linear-gradient(to top, #c7e8ff, #ecf0f1);
 }
 
 .banner {
   width: 106%;
   height: 80vh;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.welcome-container {
-  position: relative;
 }
 
 .welcome-text {
@@ -34,4 +31,7 @@ h1 {
   font-weight: bold;
   text-align: center;
   color: black;
+}
+h2{
+  font-size: 26px;
 }

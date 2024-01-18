@@ -1,37 +1,40 @@
-<h1>NFT</h1>
 
-<mat-card class="NFT">
-  <mat-card-header>
-    <div mat-card-avatar class="NFT-header-img"></div>
-    <mat-card-title>{{ nome }}</mat-card-title>
-    <mat-card-subtitle>{{ tag }} </mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="{{ img }}" />
-  <mat-card-content> </mat-card-content>
+<div class="container">
+  <div class="sbarra">
+    <h1>Partecipa all'asta</h1>
+  </div>
+  <mat-card class="NFT">
+    <mat-card-header>
+      <div mat-card-avatar class="NFT-header-img"></div>
+      <mat-card-title>{{ nome }}</mat-card-title>
+      <mat-card-subtitle>{{ tag }} </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{ img }}" />
+    <mat-card-content> </mat-card-content>
 </mat-card>
 
 
+  <div class="nft-container">
+    <p id="tit">Descrizione:</p>
+    <p id="comp">{{ descrizione }}</p>
+    <br /><br />
+    <p id="tit">Possessore:</p>
+    <p id="comp">{{ possessore }}</p>
+    <br /><br />
+    <p id="tit">Prezzo attuale:</p>
+    <a id="comp"> {{offertaattuale}} {{ valuta }}</a>
+    <br /><br /><br />
+    <p id="tit">Durata:</p>
+    <a id="comp">{{ durata }}</a>
+  </div>
 
-<div class="nft-container">
-  <p id="tit">Descrizione:</p>
-  <p id="comp">{{ descrizione }}</p>
-  <br /><br />
-  <p id="tit">Possessore:</p>
-  <p id="comp">{{ possessore }}</p>
-  <br /><br />
-  <p id="tit">Prezzo attuale:</p>
-  <a id="comp"> {{offertaattuale}} {{ valuta }}</a>
-  <br /><br /><br />
-  <p id="tit">Durata:</p>
-  <a id="comp">{{ durata }}</a>
-</div>
+  <button mat-raised-button type="submit" name="btncompra">Fai offerta</button>
 
-<button mat-raised-button type="submit" name="btncompra">Fai offerta</button>
-
-<div class="comprasubito">
-  <mat-form-field>
+  <div class="comprasubito">
+    <mat-form-field>
       <mat-label>Offerta</mat-label>
       <input matInput required [formControl]="offertautente">
       <mat-icon matSuffix>monetization_on</mat-icon>
     </mat-form-field>
+  </div>
 </div>
