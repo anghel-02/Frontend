@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <h1>Galleria</h1>
 <div class="container">
   <div *ngIf="ownedNFTs.length > 0; else noNFTs">
@@ -16,18 +15,6 @@
           </div>
         </div>
       </div>
-=======
-<div *ngIf="ownedNFTs.length > 0; else noNFTs">
-  <h2>I tuoi NFT posseduti:</h2>
-  <div *ngFor="let nft of ownedNFTs">
-    <div class="nft-item">
-      <h3>{{ nft.title }}</h3>
-      <p>{{nft.tags}}</p>
-      <img [src]="imageUrl" (click)="info(nft.id)"  class="pointer-on-hover">
-      <p>{{ nft.caption }}</p>
-      <p>{{ nft.author.username }}</p>
-      <p>{{ nft.value }}</p>
->>>>>>> 54ed5b6ed11082777a4f069c086437a09436c173
     </div>
   </div>
 
