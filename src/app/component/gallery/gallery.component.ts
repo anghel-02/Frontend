@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NFTService } from '../../nft.service';
 import { AuthService } from '../../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gallery',
@@ -9,10 +10,9 @@ import { AuthService } from '../../auth.service';
 })
 export class GalleryComponent implements OnInit {
   ownedNFTs: any[] = [];
-  id!: string;
-  imageUrl!: string;
-
-  constructor(private nftService: NFTService, private auth: AuthService) {}
+  imageUrl!: any;
+  
+  constructor(private nftService: NFTService, private auth: AuthService, private router: Router) {}
 
   ngOnInit() {
     this.loadOwnedNFTs();
@@ -23,10 +23,7 @@ export class GalleryComponent implements OnInit {
     const username= this.auth.getUsername();
     this.nftService.getOwnedNFTs(username).subscribe(
       (data: any[]) => {
-        this.ownedNFTs = data.map(nft =>{
-          this.id= nft.id;
-        })
-        console.log('NFT posseduti:', this.ownedNFTs);
+        this.ownedNFTs = data;
       },
       (error: any) => {
         console.error('Errore nel recupero degli NFT posseduti', error);
@@ -35,14 +32,27 @@ export class GalleryComponent implements OnInit {
   }
 
   image(){
-    this.nftService.getImage(this.id).subscribe((imageBlob: Blob) => {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        this.imageUrl = reader.result as string;
-      };
-      reader.readAsDataURL(imageBlob);
-    });
+    const img = "download.png";
+
+    this.nftService.getImage(img).subscribe(
+      (data: Blob) => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          this.imageUrl = reader.result as string;
+        };
+        reader.readAsDataURL(data);
+      },
+      (error) => {
+        console.error('Errore durante il recupero dell\'immagine', error);
+      }
+    );
   }
 
+    info(nftid: string){
+      this.nftService.setnftid(nftid);
+      this.router.navigate(['/nft'])
+    }
 
 }
+
+
