@@ -14,7 +14,7 @@ export class UserComponent implements OnInit{
   forever=true;
   hide: any;
   userdata! : Usermodel;
-  
+
   constructor(private auth: AuthService){}
 
 
@@ -24,6 +24,9 @@ export class UserComponent implements OnInit{
       this.userdata = data;
     })
   }
+  inviaForm(form : NgForm){
+
+  }
 
     onSubmit(form : NgForm){
       const name = form.value.camponome
@@ -31,12 +34,12 @@ export class UserComponent implements OnInit{
       const password = form.value.campopassword
       this.auth.updateuser({name, surname, password})
       this.abilitacampi();
-      
+
     }
 
   abilitacampi(){
     this.campiattivi = this.campiattivi ? false : true;
-    
+
   }
 
 }
