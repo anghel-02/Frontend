@@ -78,7 +78,7 @@ h2{
   transform: translateX(100px);
 }
 .walletImg{
-  transform: translateX(135px);
+  transform: translateX(50px);
   margin-top: 10px;
 }
 .sbarra{
@@ -88,25 +88,25 @@ h2{
   width: 100%;
 }
 .seleziona{
-  transform: translateX(-10px);
+  transform: translate(180px, -20px);
 }
 .eth{
-  transform: translate(-10px, -20px);
+  transform: translate(180px, -20px);
 }
 .eur{
-  transform: translate(-10px);
+  transform: translate(180px);
 }
 
 .indirizzo{
   font-size: 20px;
-  transform: translate(-10px);
+  transform: translate(180px, -20px);
 }
 
 .invia {
   background-color: rgb(0, 176, 240);
   color: white;
   display: inline-block;
-  transform: translate(30px);
+  transform: translate(30px, -20px);
   border: 0px;
   border-radius: 6px;
   width: 100px;
