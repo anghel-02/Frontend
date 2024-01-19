@@ -39,10 +39,10 @@ h1 {
   background-size: cover;
 }
 .sellCont{
-  background-color: darkgray;
+  background-color: #c7e8ff;
   bottom: 50%;
   width: 30%;
-  height: 50%;
+  height: 60%;
   transform: translate(670px, -400px);
   border-radius: 8px;
   display: flex;
