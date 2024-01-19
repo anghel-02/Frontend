@@ -30,7 +30,7 @@ export class AuthService {
     if (this.token !== undefined){
       this.token = localStorage.getItem("AuthToken");
     }
-    
+
     return this.token;
   }
 
@@ -55,7 +55,7 @@ export class AuthService {
       headers:{
         "Authorization" : `Bearer ${authToken}`
       }
-    }).subscribe(response =>{
+      }).subscribe(response =>{
       this.setToken(response.token);
   })
 }
@@ -82,12 +82,12 @@ export class AuthService {
     }).subscribe(response =>{
       this.setToken(response.token);
     })
-      
+
   }
 
-  
+
   getUserByUsername(username: string): Observable<any> {
-    return this.http.get<any>(`${this.url}user/get/${username}`) 
+    return this.http.get<any>(`${this.url}user/get/${username}`)
   }
 
   getwallet():  Observable<any>{

@@ -4,7 +4,7 @@
       <mat-icon>menu</mat-icon>
     </button>
     <div class="search-container">
-      <input type="text" id="searchInput" placeholder="Cerca..." />
+      <input #searchInput type="text" id="searchInput" placeholder="Cerca..." (input)="updateSearch(searchInput.value)" />
     </div>
     <div *ngIf="isUserLoggedIn(); else showLoginButtons">
       <div class="utente">

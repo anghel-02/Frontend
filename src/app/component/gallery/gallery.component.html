@@ -1,9 +1,9 @@
 <h1>Galleria</h1>
 <div class="container">
-  <div *ngIf="ownedNFTs.length > 0; else noNFTs">
+  <div *ngIf="filteredNfts.length > 0; else noNFTs">
     <h2>I tuoi NFT posseduti:</h2>
     <div class="nft-list">
-      <div *ngFor="let nft of ownedNFTs" class="nft-item">
+      <div *ngFor="let nft of filteredNfts" class="nft-item">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">{{ nft.title }}</h5>
