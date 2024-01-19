@@ -30,3 +30,4 @@ export class AuctionsComponent {
   offertaattuale : string = "Prezzo: 100€"
 }
 
+

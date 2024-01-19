@@ -58,12 +58,10 @@ export class GalleryComponent implements OnInit {
       }
     );
   }
-
-
   info(nftid: string){
-      this.nftService.setnftid(nftid);
-      this.router.navigate(['/nft'])
-    }
+    this.nftService.setnftid(nftid);
+    this.router.navigate(['/nft'])
+  }
 
 }
 
