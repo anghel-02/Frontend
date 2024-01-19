@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import {catchError, Observable, tap} from 'rxjs';
 import { AuthService } from './auth.service';
 
@@ -42,8 +42,12 @@ export class NFTService {
     return this.http.get<any>(this.url + `nft/get/${id}`)
   }
 
-  getImage(id: string): Observable<ArrayBuffer> {
-    return this.http.get<ArrayBuffer>(this.url + `nft/get/${id}/image`)
+  // getImage(id: string): Observable<Blob> {
+  //   return this.http.get<Blob>(this.url + `nft/get/${id}/image`)
+  // }
+
+  getImage(id: string): Observable<any> {
+    return this.http.get(this.url + `nft/get/${id}/image`, { responseType: 'arraybuffer' });
   }
 
   createNFT( body: {}){

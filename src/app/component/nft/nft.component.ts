@@ -15,7 +15,7 @@ export class NftComponent implements OnInit, AfterViewInit{
     tipovendita!:string;
     vuoivendere: boolean = false;
     nftmodel!: any;
-    imageUrl: string | undefined;
+    imageUrl: any;
 
     prezzobuynow! : number;
     prezzoauction! : number;
@@ -42,7 +42,10 @@ export class NftComponent implements OnInit, AfterViewInit{
     
       this.nftservice.getImage(id).subscribe(
         (data: ArrayBuffer) => {
-          this.imageUrl = 'data:image/png;base64,' + btoa(String.fromCharCode(...new Uint8Array(data)));
+          const uint8Array = new Uint8Array(data);
+          const byteCharacters = uint8Array.reduce((acc, byte) => acc + String.fromCharCode(byte), '');
+          const imageUrl = 'data:image/png;base64,' + btoa(byteCharacters);
+          this.imageUrl = imageUrl;
         },
         (error) => {
           console.error('Errore durante il recupero dell\'immagine', error);
@@ -76,6 +79,9 @@ export class NftComponent implements OnInit, AfterViewInit{
     }
 
     
+
+
+
 
     
 }
