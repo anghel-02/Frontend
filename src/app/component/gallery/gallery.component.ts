@@ -2,26 +2,29 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { NFTService } from '../../nft.service';
 import { AuthService } from '../../auth.service';
 import { Router } from '@angular/router';
-import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {SearchService} from "../../search.service";
-import { Blob } from 'buffer';
+import { After } from 'v8';
+
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.css'],
 })
-export class GalleryComponent implements OnInit {
+export class GalleryComponent implements OnInit , AfterViewInit{
   ownedNFTs: any[] = [];
   imageUrl!: string;
   filteredNfts: any[] = [];
 
   constructor(private nftService: NFTService, private auth: AuthService, private router: Router, private searchService: SearchService) {}
-  
-
-    ngOnInit() {
+ 
+ 
+    ngAfterViewInit(): void {
       this.loadOwnedNFTs();
     }
+  
+
+    ngOnInit() {}
   
   loadOwnedNFTs() {
     const username= this.auth.getUsername();
@@ -59,6 +62,18 @@ export class GalleryComponent implements OnInit {
   }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
