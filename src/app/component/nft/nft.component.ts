@@ -1,8 +1,9 @@
 import { Time } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { NFTService } from '../../nft.service';
 import { Nftmodel } from '../../model/nftmodel';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-nft',
@@ -10,32 +11,38 @@ import { Nftmodel } from '../../model/nftmodel';
   styleUrl: './nft.component.css'
 })
 
-export class NftComponent implements OnInit{
+export class NftComponent implements OnInit, AfterViewInit{
     tipovendita!:string;
     vuoivendere: boolean = false;
     nftmodel!: any;
-    imageUrl!: any;
+    imageUrl: string | undefined;
 
+    prezzobuynow! : number;
+    prezzoauction! : number;
+    datavendita! : Time;
+    fineasta! : Time;
+    price! : number; 
+    wallet: any[]= [];
 
-    constructor(private nftservice: NFTService){}
+    constructor(private nftservice: NFTService, private auth: AuthService){}
+  
+    ngAfterViewInit(): void {
+      this.image();
+    }
   
     ngOnInit(): void {
       this.nftservice.getdbnft(this.nftservice.getnftid()).subscribe(data =>{
         this.nftmodel= data;
       })
-      this.image();
+      
     }
 
-    image(){
-      const img = "download.png";
-  
-      this.nftservice.getImage(img).subscribe(
-        (data: Blob) => {
-          const reader = new FileReader();
-          reader.onloadend = () => {
-            this.imageUrl = reader.result as string;
-          };
-          reader.readAsDataURL(data);
+    image() {
+      const id = this.nftservice.getnftid();
+    
+      this.nftservice.getImage(id).subscribe(
+        (data: ArrayBuffer) => {
+          this.imageUrl = 'data:image/png;base64,' + btoa(String.fromCharCode(...new Uint8Array(data)));
         },
         (error) => {
           console.error('Errore durante il recupero dell\'immagine', error);
@@ -45,6 +52,27 @@ export class NftComponent implements OnInit{
     
     mettiinvendita(){
       this.vuoivendere= this.vuoivendere ? false : true;
+    }
+
+    vendi(){
+      const nft_id = this.nftservice.getnftid();
+
+      if(this.prezzobuynow!=null){
+        this.price = this.prezzobuynow;
+      }
+      else{
+        this.price = this.prezzoauction;
+      }
+      
+      const creation_date = this.datavendita;
+      const end_time = this.fineasta;
+
+      this.auth.getwallet().subscribe((data: any[]) => {
+        this.wallet = data.map(item => item.address);
+        const destination_address = this.wallet[0];
+        this.nftservice.vendinft({nft_id, destination_address, price: this.price,creation_date, end_time})
+     });
+      
     }
 
     

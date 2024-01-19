@@ -17,7 +17,6 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit() {
     this.loadOwnedNFTs();
-    this.image();
   }
 
   loadOwnedNFTs() {
@@ -25,6 +24,9 @@ export class GalleryComponent implements OnInit {
     this.nftService.getOwnedNFTs(username).subscribe(
       (data: any[]) => {
         this.ownedNFTs = data;
+        for (let element of this.ownedNFTs){
+          this.image(element.id);
+        }
       },
       (error: any) => {
         console.error('Errore nel recupero degli NFT posseduti', error);
@@ -32,16 +34,12 @@ export class GalleryComponent implements OnInit {
     );
   }
 
-  image() {
-    const img = "download.png";
-
-    this.nftService.getImage(img).subscribe(
-      (data: Blob) => {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          this.imageUrl = reader.result as string;
-        };
-        reader.readAsDataURL(data);
+  image(id : string) {
+    
+    this.nftService.getImage(id).subscribe(
+      (data: ArrayBuffer) => {
+        const base64Image = btoa(String.fromCharCode(...new Uint8Array(data)));;
+        this.imageUrl = 'data:image/jpeg;base64,' + base64Image;
       },
       (error) => {
         console.error('Errore durante il recupero dell\'immagine', error);

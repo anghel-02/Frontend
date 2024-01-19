@@ -42,15 +42,43 @@ export class NFTService {
     return this.http.get<any>(this.url + `nft/get/${id}`)
   }
 
-  getImage(id: string): Observable<any> {
-    const options = {
-      responseType: 'blob' as 'json'
-    };
-    return this.http.get<Blob>(this.url + `nft/get/${id}/image`,options)
+  getImage(id: string): Observable<ArrayBuffer> {
+    return this.http.get<ArrayBuffer>(this.url + `nft/get/${id}/image`)
   }
 
-  
+  createNFT( body: {}){
+    const authToken = this.auth.getToken();
+    this.http.put<any>(this.url + "nft/create", body, {
+      headers:{
+        "Authorization" : `Bearer ${authToken}`
+      }
+    }).subscribe(response =>{
+      this.auth.setToken(response.token);
+    })
+      
+  }
+
+  vendinft(body : {}){
+    const authToken = this.auth.getToken();
+    this.http.put<any>(this.url + "sale/create", body, {
+      headers:{
+        "Authorization" : `Bearer ${authToken}`
+      }
+    }).subscribe(response =>{
+      this.auth.setToken(response.token);
+  })
+}
 
 }
+
+
+
+
+
+
+
+
+
+
 
 

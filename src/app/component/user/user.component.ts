@@ -17,6 +17,9 @@ export class UserComponent implements OnInit{
   userpayment: any[]= [];
   selectedWallet!: any;
   type = -1;
+  
+
+  
 
   constructor(private auth: AuthService){}
 
@@ -28,21 +31,22 @@ export class UserComponent implements OnInit{
     })
     this.auth.getwallet().subscribe((data: any[]) => {
       this.userpayment = data.map(item => item.balance);
-      console.log(this.userpayment)
     });
   }
   
   inviaForm(form : NgForm){
       const address = form.value.indirizzo;
-      
       if (this.selectedWallet === 'opzione1'){
         this.type = 1;
+        this.auth.seteurwallet(address);
       }
       else if(this.selectedWallet === 'opzione2') {
         this.type = 0;
+        this.auth.setethwallet(address);
       }
       const username = this.auth.getUsername();
       this.auth.addwallet({address, username, type: this.type})
+      
   }
 
     onSubmit(form : NgForm){

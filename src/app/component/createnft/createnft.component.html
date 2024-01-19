@@ -30,7 +30,7 @@
     <div class="immagine">
     <mat-label class="custom-label">Carica un'immagine</mat-label>
     <br> <br>
-    <input type="file" (change)="onFileSelected($event)" accept="image/*" style="display: none" #fileInput name="immagine" required ngModel>
+    <input type="file" (change)="onFileSelected($event)" accept="image/*" style="display: none" #fileInput name="immagine" required ngModel [(ngModel)]="img">
     <button mat-raised-button  type="button" name="btnscegli" (click)="fileInput.click()">Scegli un file</button>
     </div>
 
@@ -41,7 +41,7 @@
     </div>
 
     <div class="viewimg">
-    <img *ngIf="img" [src]="img">
+        <img *ngIf="imageUrl" [src]="imageUrl">
     </div>
 </form>
 </div>

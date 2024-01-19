@@ -7,10 +7,10 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">{{ nft.title }}</h5>
-            <img src="assets/img/download.png" (click)="info(nft.id)" class="card-img-top pointer-on-hover" alt="{{ nft.title }}">
-            <p class="card-text">{{ nft.tag }}</p>
+            <img [src]="nft.imageUrl" (click)="info(nft.id)" class="card-img-top pointer-on-hover" alt="{{ nft.title }}">
+            <p class="card-text">{{ nft.tagsAsString }}</p>
             <p class="card-text">{{ nft.caption }}</p>
-            <p class="card-text">{{ nft.author }}</p>
+            <p class="card-text">{{ nft.author.username}}</p>
             <p class="card-text">{{ nft.value }}</p>
           </div>
         </div>
@@ -22,3 +22,6 @@
     <p>Non hai ancora nessun NFT.</p>
   </ng-template>
 </div>
+
+
+

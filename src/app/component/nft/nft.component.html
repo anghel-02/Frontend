@@ -7,7 +7,8 @@
       <mat-card-title>{{nftmodel.title}}</mat-card-title>
       <mat-card-subtitle> {{nftmodel.tagsAsString}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image [src]='imageUrl'>
+    <img mat-card-image *ngIf="imageUrl" [src]="imageUrl">
+    <!-- "../../assets/img/download.png" -->
     <mat-card-content>
       <p>
         {{nftmodel.caption}}
@@ -35,7 +36,7 @@
     <div class="comprasubito" *ngIf="vuoivendere && tipovendita == 'compraora' ">
       <mat-form-field>
         <mat-label>Inserisci prezzo</mat-label>
-        <input matInput required>
+        <input matInput required [(ngModel)]="prezzobuynow">
         <mat-icon matSuffix>monetization_on</mat-icon>
       </mat-form-field>
     </div>
@@ -43,7 +44,7 @@
     <div class="asta" *ngIf="vuoivendere && tipovendita == 'asta' ">
       <mat-form-field>
         <mat-label>Inserisci prezzo iniziale</mat-label>
-        <input matInput required>
+        <input matInput required [(ngModel)]="prezzoauction">
         <mat-icon matSuffix>monetization_on</mat-icon>
       </mat-form-field>
     </div>
@@ -51,18 +52,22 @@
     <div class="asta2" *ngIf="vuoivendere && (tipovendita == 'asta' || tipovendita == 'compraora')">
       <mat-form-field>
         <mat-label>Imposta inizio</mat-label>
-        <input matInput placeholder="HH:mm" required>
+        <input matInput placeholder="HH:mm" required [(ngModel)]="datavendita">
       </mat-form-field>
     </div>
     <div class="asta3" *ngIf="vuoivendere && tipovendita == 'asta' ">
       <mat-form-field>
         <mat-label>Durata</mat-label>
-        <input matInput placeholder="HH:mm" required>
+        <input matInput placeholder="HH:mm" required [(ngModel)]="fineasta">
       </mat-form-field>
     </div>
 
     <div class="btnvendi" *ngIf="vuoivendere && (tipovendita=='compraora' || tipovendita=='asta')">
-      <button mat-raised-button type="submit" name="btnvendi2">Vendi</button>
+      <button mat-raised-button type="submit" name="btnvendi2" (click)="vendi()">Vendi</button>
     </div>
   </div>
 </div>
+
+
+
+
