@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { trigger, state, style } from '@angular/animations';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-auctions',
@@ -16,8 +17,14 @@ import { trigger, state, style } from '@angular/animations';
 export class AuctionsComponent {
   hoverState = 'initial';
 
+  constructor(private router: Router) {
+  }
+
   onTileHover() {
     this.hoverState = (this.hoverState === 'initial') ? 'hovered' : 'initial';
+  }
+  buyNFT() {
+    this.router.navigate(['/buy-nft-auction']);
   }
 
   nome: string = "monkeygold";

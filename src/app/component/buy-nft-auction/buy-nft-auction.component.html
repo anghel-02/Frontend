@@ -1,8 +1,6 @@
 
 <div class="container">
-  <div class="sbarra">
-    <h1>Partecipa all'asta</h1>
-  </div>
+  <h1>Partecipa all'asta</h1>
   <mat-card class="NFT">
     <mat-card-header>
       <div mat-card-avatar class="NFT-header-img"></div>
@@ -28,9 +26,10 @@
     <a id="comp">{{ durata }}</a>
   </div>
 
-  <button mat-raised-button type="submit" name="btncompra">Fai offerta</button>
+
 
   <div class="comprasubito">
+    <button mat-raised-button type="submit" name="btncompra">Fai offerta</button>
     <mat-form-field>
       <mat-label>Offerta</mat-label>
       <input matInput required [formControl]="offertautente">
