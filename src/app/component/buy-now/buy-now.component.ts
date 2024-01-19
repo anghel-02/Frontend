@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { trigger, state, style } from '@angular/animations';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-buy-now',
@@ -14,10 +15,15 @@ import { trigger, state, style } from '@angular/animations';
   ],
 })
 export class BuyNowComponent {
+  constructor(private router: Router) {
+  }
   hoverState = 'initial';
 
   onTileHover() {
     this.hoverState = (this.hoverState === 'initial') ? 'hovered' : 'initial';
+  }
+  buyNFT() {
+    this.router.navigate(['/buy-nft-now']);
   }
   nome: string = "monkeygold";
     tag : string [] = ["monkey","uuuhaha"];
