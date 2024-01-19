@@ -1,59 +1,69 @@
 :host {
-    display: block;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: url('../../../assets/img/blu.avif') no-repeat center center fixed;
-    background-size: cover;
-    overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 105vh;
+  background: linear-gradient(to top, #c7e8ff, #ecf0f1);
   }
 
+.container {
+  display: flex;
+  width: 55%;
+  background-color: #ecf0f1;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-top: 20px solid rgb(0, 176, 240);
+}
   /* titolo */
 
 h1 {
-    transform: translate(-340px,30px);
-    position: static;
-    font-size: 4em;
-    text-align: center;
-    color: black;
-    text-decoration:solid;
-    font-style: italic;
-    font-weight: bold;
-    text-shadow: 5px 5px 10px #00bfff; 
-  }
+  font-size: 4em;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+}
 
   .NFT {
-    transform: translate(200px,60px);
-    max-width: 400px;
+    margin-left: 30px;
+    width: 300px;
+    height: 580px;
   }
-  
+
   .NFT-header-img {
     background-image: url('../../../assets/img/monkey.jpg');
     background-size: cover;
   }
 
-  
-
-  .nft-container{
-    position: absolute;
-    top: 120px;
-    right: 300px;
-  }
-
+.compra{
+  margin-left: 50px;
+  margin-top: 100px;
+}
+#prezzo{
+  font-weight: bold;
+  font-size: 28px;
+}
+#cash{
+  font-size: 22px;
+}
   #comp {
     font-size: 18px;
   }
 
   #tit {
-    font-weight: bold; 
+    font-weight: bold;
     font-size: 22px;
   }
+.form{
+  width: 280px;
+}
 
-  button[name="btncompra"] {
-    position: absolute;
-    bottom: 230px;
-    right: 370px;
-    background: linear-gradient(to right, black, #00bfff);
-    color: white;
+button[name="btncompra"] {
+  background-color: rgb(0, 176, 240);
+  color: white;
+  transform: translate(0px, 140px);
+  width: 180px;
+}
+#avv{
+  transform: translate(0px, 240px);
+}
 
-  }

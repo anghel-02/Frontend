@@ -47,7 +47,7 @@ export class AuthService {
     if (this.token == undefined){
       this.token = localStorage.getItem("AuthToken");
     }
-    
+
     return this.token;
   }
 
@@ -72,7 +72,7 @@ export class AuthService {
       headers:{
         "Authorization" : `Bearer ${authToken}`
       }
-    }).subscribe(response =>{
+      }).subscribe(response =>{
       this.setToken(response.token);
   })
 }
@@ -89,10 +89,22 @@ export class AuthService {
     })
   }
 
-  
-  
+  createNFT( formData: FormData){
+    const authToken = this.getToken();
+    this.http.put<any>(this.url + "nft/create", formData, {
+      headers:{
+        "Authorization" : `Bearer ${authToken}`,
+        'Content-Type': 'application/json'
+      }
+    }).subscribe(response =>{
+      this.setToken(response.token);
+    })
+
+  }
+
+
   getUserByUsername(username: string): Observable<any> {
-    return this.http.get<any>(`${this.url}user/get/${username}`) 
+    return this.http.get<any>(`${this.url}user/get/${username}`)
   }
 
   getwallet():  Observable<any>{

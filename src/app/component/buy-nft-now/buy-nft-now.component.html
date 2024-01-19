@@ -1,27 +1,36 @@
-<h1>NFT</h1>
+<div class="container">
+  <mat-card class="NFT">
+    <mat-card-header>
+      <div mat-card-avatar class="NFT-header-img"></div>
+      <mat-card-title>{{ nome }}</mat-card-title>
+      <mat-card-subtitle>{{ tag }} </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{ img }}" />
+    <mat-card-content>
+      <p id="tit">Descrizione:</p>
+      <p id="comp">{{ descrizione }}</p>
+      <br /><br />
+      <p id="tit"> Possessore: </p>
+      <p id="comp"> {{ possessore }}</p>
+      <br /><br />
+    </mat-card-content>
+  </mat-card>
 
-<mat-card class="NFT">
-  <mat-card-header>
-    <div mat-card-avatar class="NFT-header-img"></div>
-    <mat-card-title>{{ nome }}</mat-card-title>
-    <mat-card-subtitle>{{ tag }} </mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="{{ img }}" />
-  <mat-card-content> </mat-card-content>
-</mat-card>
+  <div class="compra">
+    <p id="prezzo"> Prezzo:</p>
+    <p id="cash">{{ prezzo }} {{valuta}} </p>
+    <mat-form-field appearance="fill" class="form">
+      <mat-label>Metodo di Pagamento</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let metodo of metodiPagamento" [value]="metodo">
+          {{ metodo }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button type="submit" name="btncompra" routerLink="/buy-now">Acquista</button>
+    <p id="avv">*Una volta acquistato l'oggetto sarà disponibile<br>nella propria galleria</p>
 
 
+  </div>
 
-
-<div class="nft-container">
-  <p id="tit">Descrizione:</p>
-  <p id="comp">{{ descrizione }}</p>
-  <br /><br />
-  <p id="tit"> Possessore: </p>
-  <p id="comp"> {{ possessore }}</p>
-  <br /><br />
-  <p id="tit"> Prezzo:</p>
-  <p id="comp">{{ prezzo }} {{valuta}} </p>
 </div>
-
-<button mat-raised-button type="submit" name="btncompra" routerLink="/buy-now">Acquista</button>
