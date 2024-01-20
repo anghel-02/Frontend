@@ -9,11 +9,13 @@
     </mat-card-header>
     <img mat-card-image *ngIf="imageUrl" [src]="imageUrl">
     <mat-card-content>
-      <p>
+      <p *ngIf="nftmodel && nftmodel.author">
         {{nftmodel.caption}}
         <br>
         {{nftmodel.author.username}}
       </p>
+
+
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button class="btnmettiven" (click)="mettiinvendita()" style="background-color: rgb(0, 176, 240); color: white ">Metti in vendita</button>
@@ -35,6 +37,7 @@
     <div class="comprasubito" *ngIf="vuoivendere && tipovendita == 'compraora' ">
       <mat-form-field>
         <mat-label>Inserisci prezzo</mat-label>
+        <input matInput [(ngModel)]="price" required>
         <input matInput required [(ngModel)]="prezzobuynow">
         <mat-icon matSuffix>monetization_on</mat-icon>
       </mat-form-field>
@@ -43,6 +46,7 @@
     <div class="asta" *ngIf="vuoivendere && tipovendita == 'asta' ">
       <mat-form-field>
         <mat-label>Inserisci prezzo iniziale</mat-label>
+        <input matInput [(ngModel)]="price" required>
         <input matInput required [(ngModel)]="prezzoauction">
         <mat-icon matSuffix>monetization_on</mat-icon>
       </mat-form-field>
@@ -51,13 +55,20 @@
     <div class="asta2" *ngIf="vuoivendere && (tipovendita == 'asta' || tipovendita == 'compraora')">
       <mat-form-field>
         <mat-label>Imposta inizio</mat-label>
+
+        <input matInput placeholder="HH:mm" [(ngModel)]="" required>
+
         <input matInput placeholder="HH:mm" required [(ngModel)]="datavendita">
+
       </mat-form-field>
     </div>
     <div class="asta3" *ngIf="vuoivendere && tipovendita == 'asta' ">
       <mat-form-field>
         <mat-label>Durata</mat-label>
+        <input matInput placeholder="HH:mm" [(ngModel)]="" required>
+
         <input matInput placeholder="HH:mm" required [(ngModel)]="fineasta">
+
       </mat-form-field>
     </div>
 

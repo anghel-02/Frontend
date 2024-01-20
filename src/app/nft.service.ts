@@ -37,6 +37,43 @@ export class NFTService {
       })
     );
   }
+  getSales(username: string): Observable<any[]> {
+    const authToken = this.auth.getToken();
+
+    return this.http.post<any[]>(this.url + "nft/find",{
+      headers:{
+        "Authorization" : `Bearer ${authToken}`,
+        'Content-Type': 'application/json'
+      }}).pipe(
+      tap((data) => console.log('Dati ottenuti con successo:', data)),
+      catchError((error) => {
+        console.error('Errore durante il recupero degli NFT posseduti', error);
+        throw error;
+      })
+    );
+  }
+  addSale(nftId: string, price: number, type: string): Observable<any> {
+    const authToken = this.auth.getToken();
+    const createParams = {
+      idNft: nftId,
+      price: price,
+      creationDate: new Date(), // Usa la data e l'ora correnti
+      duration: type === 'asta' ? 24 : 0 // Se è un'asta, imposta la durata
+    };
+    return this.http.put<any>(this.url + "sale/create", createParams, {
+      headers:{
+        "Authorization" : `Bearer ${authToken}`,
+        'Content-Type': 'application/json'
+      }}).pipe(
+      tap((data) => console.log('Vendita creata con successo:', data)),
+      catchError((error) => {
+        console.error('Errore durante la creazione della vendita', error);
+        throw error;
+      })
+    );
+  }
+
+
 
   getdbnft(id : string): Observable<any>{
     return this.http.get<any>(this.url + `nft/get/${id}`)
@@ -47,7 +84,7 @@ export class NFTService {
     return this.http.get(this.url + `nft/get/${id}/image`, { responseType: 'arraybuffer' });
   }
 
-  createNFT( body: {}){
+ /* createNFT( body: {}){
     const authToken = this.auth.getToken();
     this.http.put<any>(this.url + "nft/create", body, {
       headers:{
@@ -56,7 +93,7 @@ export class NFTService {
     }).subscribe(response =>{
       this.auth.setToken(response.token);
     })
-      
+
   }
 
 //   vendinft(body : {}){
@@ -90,6 +127,7 @@ addSale(nftId: string, price: number, type: string): Observable<any> {
     })
   );
 }
+>>>>>>> 732c849219e05cd749da1bbf071884b70b9023d5*/
 
 }
 
