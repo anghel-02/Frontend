@@ -57,25 +57,45 @@ export class NftComponent implements OnInit, AfterViewInit{
       this.vuoivendere= this.vuoivendere ? false : true;
     }
 
-    vendi(){
-      const nft_id = this.nftservice.getnftid();
+    // vendi(){
+    //   const nft_id = this.nftservice.getnftid();
 
-      if(this.prezzobuynow!=null){
-        this.price = this.prezzobuynow;
-      }
-      else{
-        this.price = this.prezzoauction;
-      }
+    //   if(this.prezzobuynow!=null){
+    //     this.price = this.prezzobuynow;
+    //   }
+    //   else{
+    //     this.price = this.prezzoauction;
+    //   }
       
-      const creation_date = this.datavendita;
-      const end_time = this.fineasta;
+    //   const creation_date = this.datavendita;
+    //   const end_time = this.fineasta;
 
-      this.auth.getwallet().subscribe((data: any[]) => {
-        this.wallet = data.map(item => item.address);
-        const destination_address = this.wallet[0];
-        this.nftservice.vendinft({nft_id, destination_address, price: this.price,creation_date, end_time})
-     });
+    //   this.auth.getwallet().subscribe((data: any[]) => {
+    //     this.wallet = data.map(item => item.address);
+    //     const destination_address = this.wallet[0];
+    //     this.nftservice.vendinft({nft_id, destination_address, price: this.price,creation_date, end_time})
+    //  });
       
+    vendi() {
+      let nftId = this.nftmodel.id; // ID dell'NFT
+      let price = this.price; // Prezzo
+      let type = this.tipovendita; // Tipo di vendita
+  
+      console.log('nftId:', nftId);
+      console.log('price:', price);
+      console.log('type:', type);
+  
+      this.nftservice.addSale(nftId, price, type).subscribe(
+        (data) => {
+          console.log('Vendita creata con successo:', data);
+        },
+        (error) => {
+          console.error('Errore durante la creazione della vendita', error);
+        }
+      );
+    }
+
+    
     }
 
     
@@ -84,4 +104,4 @@ export class NftComponent implements OnInit, AfterViewInit{
 
 
     
-}
+

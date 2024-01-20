@@ -89,20 +89,7 @@ export class AuthService {
     })
   }
 
-  createNFT( formData: FormData){
-    const authToken = this.getToken();
-    this.http.put<any>(this.url + "nft/create", formData, {
-      headers:{
-        "Authorization" : `Bearer ${authToken}`,
-        'Content-Type': 'application/json'
-      }
-    }).subscribe(response =>{
-      this.setToken(response.token);
-    })
-
-  }
-
-
+  
   getUserByUsername(username: string): Observable<any> {
     return this.http.get<any>(`${this.url}user/get/${username}`)
   }
