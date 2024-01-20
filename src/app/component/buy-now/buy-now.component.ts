@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { trigger, state, style } from '@angular/animations';
 import {Router} from "@angular/router";
+import {NFTService} from "../../nft.service";
+import {AuthService} from "../../auth.service";
 
 @Component({
   selector: 'app-buy-now',
@@ -15,9 +17,21 @@ import {Router} from "@angular/router";
   ],
 })
 export class BuyNowComponent {
-  constructor(private router: Router) {
+  constructor(private router: Router, private nftService: NFTService, private auth: AuthService) {
   }
   hoverState = 'initial';
+  saleNFTs: any[] = [];
+  loadSaleNFTs() {
+    const username= this.auth.getUsername();
+    this.nftService.getOwnedNFTs(username).subscribe(
+      (data: any[]) => {
+        this.saleNFTs = data;
+      },
+      (error: any) => {
+        console.error('Errore nel recupero degli NFT posseduti', error);
+      }
+    );
+  }
 
   onTileHover() {
     this.hoverState = (this.hoverState === 'initial') ? 'hovered' : 'initial';
