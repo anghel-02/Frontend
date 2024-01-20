@@ -55,20 +55,14 @@
     <div class="asta2" *ngIf="vuoivendere && (tipovendita == 'asta' || tipovendita == 'compraora')">
       <mat-form-field>
         <mat-label>Imposta inizio</mat-label>
-
-        <input matInput placeholder="HH:mm" [(ngModel)]="" required>
-
         <input matInput placeholder="HH:mm" required [(ngModel)]="datavendita">
-
       </mat-form-field>
     </div>
+    
     <div class="asta3" *ngIf="vuoivendere && tipovendita == 'asta' ">
       <mat-form-field>
         <mat-label>Durata</mat-label>
-        <input matInput placeholder="HH:mm" [(ngModel)]="" required>
-
         <input matInput placeholder="HH:mm" required [(ngModel)]="fineasta">
-
       </mat-form-field>
     </div>
 

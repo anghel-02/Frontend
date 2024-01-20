@@ -84,7 +84,7 @@ export class NFTService {
     return this.http.get(this.url + `nft/get/${id}/image`, { responseType: 'arraybuffer' });
   }
 
- /* createNFT( body: {}){
+   createNFT( body: {}){
     const authToken = this.auth.getToken();
     this.http.put<any>(this.url + "nft/create", body, {
       headers:{
@@ -96,38 +96,7 @@ export class NFTService {
 
   }
 
-//   vendinft(body : {}){
-//     const authToken = this.auth.getToken();
-//     this.http.put<any>(this.url + "sale/create", body, {
-//       headers:{
-//         "Authorization" : `Bearer ${authToken}`
-//       }
-//     }).subscribe(response =>{
-//       this.auth.setToken(response.token);
-//   })
-// }
 
-addSale(nftId: string, price: number, type: string): Observable<any> {
-  const authToken = this.auth.getToken();
-  const createParams = {
-    idNft: nftId,
-    price: price,
-    creationDate: new Date(), // Usa la data e l'ora correnti
-    duration: type === 'asta' ? 24 : 0 // Se è un'asta, imposta la durata
-  };
-  return this.http.put<any>(this.url + "sale/create", createParams, {
-    headers:{
-      "Authorization" : `Bearer ${authToken}`,
-      'Content-Type': 'application/json'
-    }}).pipe(
-    tap((data) => console.log('Vendita creata con successo:', data)),
-    catchError((error) => {
-      console.error('Errore durante la creazione della vendita', error);
-      throw error;
-    })
-  );
-}
->>>>>>> 732c849219e05cd749da1bbf071884b70b9023d5*/
 
 }
 
