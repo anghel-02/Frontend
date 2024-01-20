@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
 import { AuthService } from '../../auth.service';
+import { NFTService } from '../../nft.service';
 
 @Component({
   selector: 'app-createnft',
@@ -8,31 +9,22 @@ import { AuthService } from '../../auth.service';
   styleUrl: './createnft.component.css'
 })
 export class CreatenftComponent {
-  img !: any;
+  img !: ArrayBuffer;
+  imageUrl: string | undefined;
 
   
-  constructor(private auth : AuthService){}
+  constructor(private auth : AuthService, private nftservice: NFTService){}
   
   onSubmit(form : NgForm){
     
     const title = form.value.nome
-    const tags = form.value.tag
-    const tag: string[] = tags.split(',').map((tag: string) => tag.trim());
+    const tag = form.value.tag
+    const tags: string[] = tag.split(',').map((tag: string) => tag.trim());
     const caption = form.value.descr
     const value = form.value.prezzo
+    const data = btoa(String.fromCharCode(...new Uint8Array(this.img)));
 
-    const formData = new FormData();
-    formData.append('caption', caption);
-    formData.append('title', title);
-    formData.append('value', value);
-
-    tag.forEach((tagItem, index) => {
-    formData.append(`tag[${index}]`, tagItem);
-  });
-
-    formData.append('data', form.value.immagine);
-  
-    this.auth.createNFT(formData);
+    this.nftservice.createNFT({title, tags, caption, value, data});
   }
 
 
@@ -43,12 +35,12 @@ export class CreatenftComponent {
       const reader = new FileReader();
       reader.onload = (e: any) => {
         this.img = e.target.result;
+        this.imageUrl = 'data:image/png;base64,' + btoa(String.fromCharCode(...new Uint8Array(this.img)));
       };
-      reader.readAsDataURL(file);
+      reader.readAsArrayBuffer(file);
     }
   }
 
-  showImage(): void {}
 }
 
 

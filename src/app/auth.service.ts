@@ -12,7 +12,8 @@ export class AuthService {
   private url = "http://localhost:9001/";
   public token?:string | null;
   private usernameglobal : string = "";
-  private prova: boolean = false;
+  private eurwallet! : string;
+  private ethwallet! : string;
 
 
   constructor(private http: HttpClient, private route: Router) {
@@ -27,8 +28,24 @@ export class AuthService {
     return this.usernameglobal;
   }
 
+  seteurwallet(eurwallet: string): void {
+    this.eurwallet = eurwallet;
+  }
+
+  geteurwallet() : string {
+    return this.eurwallet;
+  }
+
+  setethwallet(ethwallet: string): void {
+    this.ethwallet = ethwallet;
+  }
+
+  getethwallet() : string {
+    return this.ethwallet;
+  }
+
   getToken(){
-    if (this.token !== undefined){
+    if (this.token == undefined){
       this.token = localStorage.getItem("AuthToken");
     }
 
@@ -117,7 +134,7 @@ export class AuthService {
   }
 
 }
-
+ 
 
 
 

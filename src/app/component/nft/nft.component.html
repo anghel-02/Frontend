@@ -5,9 +5,10 @@
     <mat-card-header>
       <div mat-card-avatar class="NFT-header-img"></div>
       <mat-card-title>{{nftmodel.title}}</mat-card-title>
-      <mat-card-subtitle> {{nftmodel.tags}}</mat-card-subtitle>
+      <mat-card-subtitle> {{nftmodel.tagsAsString}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image [src]='imageUrl'>
+    <img mat-card-image *ngIf="imageUrl" [src]="imageUrl">
+    <!-- "../../assets/img/download.png" -->
     <mat-card-content>
       <p *ngIf="nftmodel && nftmodel.author">
         {{nftmodel.caption}}
@@ -37,7 +38,8 @@
     <div class="comprasubito" *ngIf="vuoivendere && tipovendita == 'compraora' ">
       <mat-form-field>
         <mat-label>Inserisci prezzo</mat-label>
-        <input matInput [(ngModel)]="prezzo" required>
+        <input matInput [(ngModel)]="price" required>
+        <input matInput required [(ngModel)]="prezzobuynow">
         <mat-icon matSuffix>monetization_on</mat-icon>
       </mat-form-field>
     </div>
@@ -45,7 +47,8 @@
     <div class="asta" *ngIf="vuoivendere && tipovendita == 'asta' ">
       <mat-form-field>
         <mat-label>Inserisci prezzo iniziale</mat-label>
-        <input matInput [(ngModel)]="prezzo" required>
+        <input matInput [(ngModel)]="price" required>
+        <input matInput required [(ngModel)]="prezzoauction">
         <mat-icon matSuffix>monetization_on</mat-icon>
       </mat-form-field>
     </div>
@@ -53,13 +56,20 @@
     <div class="asta2" *ngIf="vuoivendere && (tipovendita == 'asta' || tipovendita == 'compraora')">
       <mat-form-field>
         <mat-label>Imposta inizio</mat-label>
-        <input matInput placeholder="HH:mm" [(ngModel)]="inizio" required>
+
+        <input matInput placeholder="HH:mm" [(ngModel)]="" required>
+
+        <input matInput placeholder="HH:mm" required [(ngModel)]="datavendita">
+
       </mat-form-field>
     </div>
     <div class="asta3" *ngIf="vuoivendere && tipovendita == 'asta' ">
       <mat-form-field>
         <mat-label>Durata</mat-label>
-        <input matInput placeholder="HH:mm" [(ngModel)]="durata" required>
+        <input matInput placeholder="HH:mm" [(ngModel)]="" required>
+
+        <input matInput placeholder="HH:mm" required [(ngModel)]="fineasta">
+
       </mat-form-field>
     </div>
 
@@ -68,3 +78,7 @@
     </div>
   </div>
 </div>
+
+
+
+
