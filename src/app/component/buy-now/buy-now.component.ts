@@ -22,7 +22,7 @@ export class BuyNowComponent {
   hoverState = 'initial';
   saleNFTs: any[] = [];
   loadSaleNFTs() {
-    const username= this.auth.getUsername();
+    const username= this.auth.getUsername() ?? '';
     this.nftService.getOwnedNFTs(username).subscribe(
       (data: any[]) => {
         this.saleNFTs = data;

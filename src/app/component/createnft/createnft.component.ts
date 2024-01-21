@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
 import { AuthService } from '../../auth.service';
 import { NFTService } from '../../nft.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-createnft',
@@ -13,7 +14,7 @@ export class CreatenftComponent {
   imageUrl: string | undefined;
 
   
-  constructor(private auth : AuthService, private nftservice: NFTService){}
+  constructor(private auth : AuthService, private nftservice: NFTService, private route: Router){}
   
   onSubmit(form : NgForm){
     
@@ -25,6 +26,7 @@ export class CreatenftComponent {
     const data = btoa(String.fromCharCode(...new Uint8Array(this.img)));
 
     this.nftservice.createNFT({title, tags, caption, value, data});
+    this.route.navigate(['home'])
   }
 
 

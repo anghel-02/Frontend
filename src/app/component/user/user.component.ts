@@ -25,7 +25,7 @@ export class UserComponent implements OnInit{
 
 
   ngOnInit(): void {
-    const username = this.auth.getUsername();
+    const username = this.auth.getUsername() ?? '';
     this.auth.getUserByUsername(username).subscribe(data =>{
       this.userdata = data;
     })
@@ -38,11 +38,11 @@ export class UserComponent implements OnInit{
       const address = form.value.indirizzo;
       if (this.selectedWallet === 'opzione1'){
         this.type = 1;
-        this.auth.seteurwallet(address);
+        // this.auth.seteurwallet(address);
       }
       else if(this.selectedWallet === 'opzione2') {
         this.type = 0;
-        this.auth.setethwallet(address);
+        // this.auth.setethwallet(address);
       }
       const username = this.auth.getUsername();
       this.auth.addwallet({address, username, type: this.type})

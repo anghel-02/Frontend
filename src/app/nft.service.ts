@@ -23,8 +23,7 @@ export class NFTService {
   getOwnedNFTs(username: string): Observable<any[]> {
     const authToken = this.auth.getToken();
     const findParams = {
-      owner: username,
-      onSale: true
+      owner: username
     };
     return this.http.post<any[]>(this.url + "nft/find", findParams,{
       headers:{
@@ -38,10 +37,13 @@ export class NFTService {
       })
     );
   }
-  getSales(username: string): Observable<any[]> {
+  
+  getSales(): Observable<any[]> {
     const authToken = this.auth.getToken();
-
-    return this.http.post<any[]>(this.url + "nft/find",{
+    const findbody = {
+      onSale: true
+    }
+    return this.http.post<any[]>(this.url + "nft/find",findbody,{
       headers:{
         "Authorization" : `Bearer ${authToken}`,
         'Content-Type': 'application/json'
@@ -53,6 +55,7 @@ export class NFTService {
       })
     );
   }
+
   addSale(body :{}) {
     const authToken = this.auth.getToken();
     this.http.put<any>(this.url + "sale/create", body, {

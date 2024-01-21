@@ -11,7 +11,7 @@ import {Nftmodel} from "./model/nftmodel";
 export class AuthService {
   private url = "http://localhost:9001/";
   public token?:string | null;
-  private usernameglobal : string = "";
+  private usernameglobal?:string | null;
   private eurwallet! : string;
   private ethwallet! : string;
 
@@ -20,30 +20,36 @@ export class AuthService {
 
   }
 
-  setUsername(username: string): void {
-    this.usernameglobal = username;
+ 
+  // seteurwallet(eurwallet: string): void {
+  //   this.eurwallet = eurwallet;
+  // }
+
+  // geteurwallet() : string {
+  //   return this.eurwallet;
+  // }
+
+  // setethwallet(ethwallet: string): void {
+  //   this.ethwallet = ethwallet;
+  // }
+
+  // getethwallet() : string {
+  //   return this.ethwallet;
+  // }
+
+  setUsername(usernameglobal: string){
+    this.usernameglobal = usernameglobal;
+    localStorage.setItem("Username", usernameglobal);
   }
 
-  getUsername(): string {
+  getUsername(){
+    if(this.usernameglobal == undefined){
+      this.usernameglobal = localStorage.getItem("Username");
+    }
     return this.usernameglobal;
   }
 
-  seteurwallet(eurwallet: string): void {
-    this.eurwallet = eurwallet;
-  }
-
-  geteurwallet() : string {
-    return this.eurwallet;
-  }
-
-  setethwallet(ethwallet: string): void {
-    this.ethwallet = ethwallet;
-  }
-
-  getethwallet() : string {
-    return this.ethwallet;
-  }
-
+  
   getToken(){
     if (this.token == undefined){
       this.token = localStorage.getItem("AuthToken");

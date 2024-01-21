@@ -3,7 +3,7 @@ import { NFTService } from '../../nft.service';
 import { AuthService } from '../../auth.service';
 import { Router } from '@angular/router';
 import {SearchService} from "../../search.service";
-import { After } from 'v8';
+
 
 
 @Component({
@@ -27,7 +27,7 @@ export class GalleryComponent implements OnInit , AfterViewInit{
     ngOnInit() {}
   
   loadOwnedNFTs() {
-    const username= this.auth.getUsername();
+    const username = this.auth.getUsername() ?? '';
     this.nftService.getOwnedNFTs(username).subscribe(
       (data: any[]) => {
         this.ownedNFTs = data;
@@ -40,6 +40,13 @@ export class GalleryComponent implements OnInit , AfterViewInit{
         console.error('Errore nel recupero degli NFT posseduti', error);
       }
     );
+
+    this.nftService.getSales().subscribe(data =>{
+      console.log('Dati ricevuti:', data);
+  }, error => {
+      console.error('Errore durante la chiamata:', error);
+      
+  })
   }
 
   image(id : string) {
