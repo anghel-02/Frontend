@@ -14,8 +14,7 @@ import {SearchService} from "../../search.service";
 export class GalleryComponent implements OnInit , AfterViewInit{
   ownedNFTs: any[] = [];
   imageUrl!: string;
-  filteredNfts: any[] = [];
-
+  
   constructor(private nftService: NFTService, private auth: AuthService, private router: Router, private searchService: SearchService) {}
  
  
@@ -41,12 +40,7 @@ export class GalleryComponent implements OnInit , AfterViewInit{
       }
     );
 
-    this.nftService.getSales().subscribe(data =>{
-      console.log('Dati ricevuti:', data);
-  }, error => {
-      console.error('Errore durante la chiamata:', error);
-      
-  })
+    
   }
 
   image(id : string) {
