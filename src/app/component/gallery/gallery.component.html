@@ -8,7 +8,7 @@
           <div class="card-body">
             <h5 class="card-title">{{ nft.title }}</h5>
             <img [src]="imageUrl" (click)="info(nft.id)" class="card-img-top pointer-on-hover" alt="{{ nft.title }}">
-            <p class="card-text">{{ nft.tagsAsString }}</p>
+            <p class="card-text">{{ nft.tags }}</p>
             <p class="card-text">{{ nft.caption }}</p>
             <p class="card-text">{{ nft.author.username}}</p>
             <p class="card-text">{{ nft.value }}</p>

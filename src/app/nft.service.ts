@@ -23,7 +23,8 @@ export class NFTService {
   getOwnedNFTs(username: string): Observable<any[]> {
     const authToken = this.auth.getToken();
     const findParams = {
-      owner: username
+      owner: username,
+      onSale: true
     };
     return this.http.post<any[]>(this.url + "nft/find", findParams,{
       headers:{
@@ -52,25 +53,14 @@ export class NFTService {
       })
     );
   }
-  addSale(nftId: string, price: number, type: string): Observable<any> {
+  addSale(body :{}) {
     const authToken = this.auth.getToken();
-    const createParams = {
-      idNft: nftId,
-      price: price,
-      creationDate: new Date(), // Usa la data e l'ora correnti
-      duration: type === 'asta' ? 24 : 0 // Se è un'asta, imposta la durata
-    };
-    return this.http.put<any>(this.url + "sale/create", createParams, {
+    this.http.put<any>(this.url + "sale/create", body, {
       headers:{
-        "Authorization" : `Bearer ${authToken}`,
-        'Content-Type': 'application/json'
-      }}).pipe(
-      tap((data) => console.log('Vendita creata con successo:', data)),
-      catchError((error) => {
-        console.error('Errore durante la creazione della vendita', error);
-        throw error;
+        "Authorization" : `Bearer ${authToken}`
+      }}).subscribe(response =>{
+        this.auth.setToken(response.token);
       })
-    );
   }
 
 

@@ -1,12 +1,8 @@
-import { Time } from '@angular/common';
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-
-import { FormControl } from '@angular/forms';
+import {Component, OnInit } from '@angular/core';
 import { NFTService } from '../../nft.service';
-import { Nftmodel } from '../../model/nftmodel';
 import { AuthService } from '../../auth.service';
-import {type} from "os";
-import {error} from "@angular/compiler-cli/src/transformers/util";
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -21,16 +17,11 @@ export class NftComponent implements OnInit{
   nftmodel!: any;
   imageUrl: any;
 
-  prezzobuynow! : number;
-  prezzoauction! : number;
-  datavendita! : Time;
-  fineasta! : Time;
+  fineasta! : number;
   price! : number;
-  wallet: any[]= [];
+  wallet!: string;
 
-  constructor(private nftservice: NFTService){
-    this.nftmodel = {};
-  }
+  constructor(private nftservice: NFTService, private auth: AuthService, private route: Router){}
 
   
   ngOnInit(): void {
@@ -62,38 +53,16 @@ export class NftComponent implements OnInit{
 
  
     vendi() {
-      let nftId = this.nftmodel.id; // ID dell'NFT
-      let price = this.price; // Prezzo
-      let type = this.tipovendita; // Tipo di vendita
+      let idNft = this.nftservice.getnftid(); 
+      let price = this.price;
+      let duration = this.fineasta;
   
-      console.log('nftId:', nftId);
-      console.log('price:', price);
-      console.log('type:', type);
-  
-      this.nftservice.addSale(nftId, price, type).subscribe(
-        (data) => {
-          console.log('Vendita creata con successo:', data);
-        },
-        (error) => {
-          console.error('Errore durante la creazione della vendita', error);
-        }
-      );
-    }
-      
+      this.auth.getwallet().subscribe((data: any[]) => {
+        let destinationAddress = data.map(item => item.address)[0];
+        this.nftservice.addSale({idNft,price, destinationAddress, duration })
+      });
+
+      this.route.navigate(['home']);
     }
 
-
-
-
-
-
-
-    
-
-    
-
-
-
-
-    
-
+    }
