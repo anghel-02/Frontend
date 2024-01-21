@@ -13,7 +13,9 @@ import {SearchService} from "../../search.service";
 })
 export class GalleryComponent implements OnInit , AfterViewInit{
   ownedNFTs: any[] = [];
+  saleNFT: any[] = [];
   imageUrl!: string;
+  bool = true;
   
   constructor(private nftService: NFTService, private auth: AuthService, private router: Router, private searchService: SearchService) {}
 
@@ -31,7 +33,6 @@ export class GalleryComponent implements OnInit , AfterViewInit{
         const uint8Array = new Uint8Array(data);
         const byteCharacters = uint8Array.reduce((acc, byte) => acc + String.fromCharCode(byte), '');
         const imageUrl = 'data:image/png;base64,' + btoa(byteCharacters);
-        // Assegna l'URL dell'immagine direttamente all'oggetto NFT
         nft.imageUrl = imageUrl;
       },
       (error) => {
@@ -44,10 +45,27 @@ export class GalleryComponent implements OnInit , AfterViewInit{
     const username = this.auth.getUsername() ?? '';
     this.nftService.getOwnedNFTs(username).subscribe(
       (data: any[]) => {
-        this.ownedNFTs = data;
+        this.nftService.getSales().subscribe((resp: any[]) =>{
+          this.saleNFT = resp
+          console.log(this.saleNFT)
+        
+        for (let el of data){
+          this.bool = true;
+          for (let ele of this.saleNFT){
+            if (el.id==ele.id){
+              this.bool= false
+            }
+          }
+          if(this.bool){
+            this.ownedNFTs.push(el)
+          }
+        }
+        console.log(this.ownedNFTs)
         for (let el of this.ownedNFTs){
           this.image(el);
         }
+        })
+        
       },
       (error: any) => {
         console.error('Errore nel recupero degli NFT posseduti', error);

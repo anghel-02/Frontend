@@ -1,19 +1,26 @@
 <div class="card-container">
-  <div *ngFor="let numero of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]" class="card-wrapper">
-    <mat-card class="NFT" (click)="buyNFT()" [@hoverState]="hoverState" (@hoverState.start)="onTileHover()" (@hoverState.done)="onTileHover()">
+  <div *ngIf="saleNFTs.length > 0; else noNFT" class="card-wrapper">
+    <div *ngFor="let nft of saleNFTs">
+    <mat-card class="NFT" [@hoverState]="hoverState" (@hoverState.start)="onTileHover()" (@hoverState.done)="onTileHover()">
       <mat-card-header>
         <div mat-card-avatar class="NFT-header-img"></div>
-        <mat-card-title>{{nome}}</mat-card-title>
-        <mat-card-subtitle>{{tag}} </mat-card-subtitle>
+        <mat-card-title>{{nft.title}}</mat-card-title>
+        <mat-card-subtitle>{{nft.tags}} </mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image class="imagecard" src={{img}}>
+      <img mat-card-image class="imagecard" [src]="nft.imageUrl" (click)="info(nft.id)">
       <mat-card-content>
-        {{descrizione}}
+        {{nft.caption}}
         <br>
-        {{possessore}}
+        {{nft.owner.username}}
         <br>
-        {{prezzo}}
+        {{nft.price}}
       </mat-card-content>
     </mat-card>
+
+    <ng-template #noNFT>
+      <p>Nessun NFT sul mercato.</p>
+    </ng-template>
+
   </div>
+</div>
 </div>
