@@ -23,7 +23,7 @@ export class NftComponent implements OnInit{
 
   constructor(private nftservice: NFTService, private auth: AuthService, private route: Router){}
 
-  
+
   ngOnInit(): void {
     this.nftservice.getdbnft(this.nftservice.getnftid()).subscribe(data =>{
       this.nftmodel= data;
@@ -31,7 +31,7 @@ export class NftComponent implements OnInit{
     })
 
   }
-  
+
     image() {
       const id = this.nftservice.getnftid();
 
@@ -51,12 +51,12 @@ export class NftComponent implements OnInit{
       this.vuoivendere= this.vuoivendere ? false : true;
     }
 
- 
+
     vendi() {
-      let idNft = this.nftservice.getnftid(); 
+      let idNft = this.nftservice.getnftid();
       let price = this.price;
       let duration = this.fineasta;
-  
+
       this.auth.getwallet().subscribe((data: any[]) => {
         let destinationAddress = data.map(item => item.address)[0];
         this.nftservice.addSale({idNft,price, destinationAddress, duration })
