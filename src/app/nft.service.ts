@@ -37,7 +37,7 @@ export class NFTService {
       })
     );
   }
-  
+
   getSales(): Observable<any[]> {
     const authToken = this.auth.getToken();
     const findbody = {
@@ -66,6 +66,9 @@ export class NFTService {
       })
   }
 
+  getsaletabel(nftId: string): Observable<any>{
+    return this.http.get<any>(this.url + `sale/get/${nftId}`)
+  }
 
 
   getdbnft(id : string): Observable<any>{
@@ -88,6 +91,8 @@ export class NFTService {
     })
 
   }
+
+ 
 
 
 

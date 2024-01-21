@@ -1,6 +1,6 @@
 <div class="card-container">
-  <div *ngIf="saleNFTs.length > 0; else noNFT" class="card-wrapper">
-    <div *ngFor="let nft of saleNFTs">
+  <div *ngIf="saleNFTs.length > 0; else noNFT">
+    <div *ngFor="let nft of saleNFTs" class="card-wrapper">
     <mat-card class="NFT" [@hoverState]="hoverState" (@hoverState.start)="onTileHover()" (@hoverState.done)="onTileHover()">
       <mat-card-header>
         <div mat-card-avatar class="NFT-header-img"></div>

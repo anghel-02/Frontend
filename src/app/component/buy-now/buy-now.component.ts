@@ -19,20 +19,18 @@ import {AuthService} from "../../auth.service";
 export class BuyNowComponent implements OnInit {
 
 
-
   constructor(private router: Router, private nftService: NFTService, private auth: AuthService) {}
   
-
   hoverState = 'initial';
   saleNFTs: any[] = [];
   noNFT: any;
+  imageUrl!: string;
   
 
   onTileHover() {
     this.hoverState = (this.hoverState === 'initial') ? 'hovered' : 'initial';
   }
 
-  
 
   ngOnInit(): void {
    this.viewnft();
@@ -54,15 +52,21 @@ export class BuyNowComponent implements OnInit {
 
     viewnft(){
       this.nftService.getSales().subscribe(data=> {
-        console.log(data);
-        // for (let element of data){
-        //   if (data[element].end_time==null){
-        //     this.saleNFTs.push(data[element]);
-        //   }
-        // }
-        // for (let el of this.saleNFTs){
-        //   this.image(el);
-        // }
+        
+        for (let element of data){
+          this.nftService.getsaletabel(element.id).subscribe(res=>{
+            if (!res.end_time){
+              console.log(res.end_time)
+              element['price']=res.price;
+              this.saleNFTs.push(element);
+            }
+
+            for (let el of this.saleNFTs){
+              this.image(el);
+            }
+          })  
+        }
+
       },
       (error: any) => {
         console.error('Errore nel recupero degli NFT posseduti', error);
