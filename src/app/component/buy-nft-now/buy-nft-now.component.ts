@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NFTService } from '../../nft.service';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-buy-nft-now',
@@ -10,14 +11,17 @@ export class BuyNftNowComponent implements OnInit{
 
   nftmodel!: any;
   imageUrl: any;
+  idsale!: any;
+  address!: any;
   
   
-  constructor(private nftservice : NFTService){}
+  constructor(private nftservice : NFTService, private auth : AuthService){}
 
   ngOnInit(): void {
     this.nftservice.getdbnft(this.nftservice.getnftid() ?? '').subscribe(data =>{
       
       this.nftservice.getsaletabel(data.id).subscribe(res=>{
+        this.idsale=data.id;
         this.nftmodel= data;
         this.nftmodel['price']=res.price;
         this.image();
@@ -41,7 +45,15 @@ export class BuyNftNowComponent implements OnInit{
     );
   }
 
-  compra(){}
+  compra(){
+    this.nftservice.getsaletabel(this.idsale).subscribe(res=>{
+      this.auth.getwallet().subscribe((data: any[]) => {
+        this.address = data.map(item => item.address)[0];
+        this.nftservice.buyNFT(res.id, {idNft : this.nftservice.getnftid() ?? '', address: this.address, price : res.price})
+      });
+      
+    })
+  }
 
   
 

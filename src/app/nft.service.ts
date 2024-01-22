@@ -96,20 +96,19 @@ export class NFTService {
 
   }
 
- 
 
-
+  buyNFT(id: string, body: {}){
+    const authToken = this.auth.getToken();
+    this.http.put<any>(this.url + `sale/buy/${id}`, body, {
+     headers:{
+      "Authorization" : `Bearer ${authToken}`
+     }
+  }).subscribe(response =>{
+    this.auth.setToken(response.token);
+  })
 
 }
 
 
 
-
-
-
-
-
-
-
-
-
+}
