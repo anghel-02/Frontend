@@ -56,7 +56,6 @@ export class BuyNowComponent implements OnInit {
         for (let element of data){
           this.nftService.getsaletabel(element.id).subscribe(res=>{
             if (!res.end_time){
-              console.log(res.end_time)
               element['price']=res.price;
               this.saleNFTs.push(element);
             }

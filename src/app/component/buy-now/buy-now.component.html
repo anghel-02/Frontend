@@ -3,7 +3,6 @@
     <div *ngFor="let nft of saleNFTs" class="card-wrapper">
     <mat-card class="NFT" [@hoverState]="hoverState" (@hoverState.start)="onTileHover()" (@hoverState.done)="onTileHover()">
       <mat-card-header>
-        <div mat-card-avatar class="NFT-header-img"></div>
         <mat-card-title>{{nft.title}}</mat-card-title>
         <mat-card-subtitle>{{nft.tags}} </mat-card-subtitle>
       </mat-card-header>

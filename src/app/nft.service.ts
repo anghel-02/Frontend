@@ -8,16 +8,20 @@ import { AuthService } from './auth.service';
 })
 export class NFTService {
   private url = "http://localhost:9001/";
-  idnft!: string;
+  idnft?:string | null;
 
   constructor(private http: HttpClient, private auth: AuthService) {}
 
   getnftid(){
+    if(this.idnft == undefined){
+      this.idnft = localStorage.getItem("IDnft")
+    }
     return this.idnft;
   }
 
   setnftid(idnft: string){
     this.idnft = idnft;
+    localStorage.setItem("IDnft", idnft);
   }
 
   getOwnedNFTs(username: string): Observable<any[]> {

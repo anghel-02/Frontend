@@ -25,7 +25,7 @@ export class NftComponent implements OnInit{
 
 
   ngOnInit(): void {
-    this.nftservice.getdbnft(this.nftservice.getnftid()).subscribe(data =>{
+    this.nftservice.getdbnft(this.nftservice.getnftid() ?? '').subscribe(data =>{
       this.nftmodel= data;
       this.image();
     })
@@ -33,7 +33,7 @@ export class NftComponent implements OnInit{
   }
 
     image() {
-      const id = this.nftservice.getnftid();
+      const id = this.nftservice.getnftid() ?? '';
 
       this.nftservice.getImage(id).subscribe(
         (data: ArrayBuffer) => {

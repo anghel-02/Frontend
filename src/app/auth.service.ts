@@ -12,30 +12,9 @@ export class AuthService {
   private url = "http://localhost:9001/";
   public token?:string | null;
   private usernameglobal?:string | null;
-  private eurwallet! : string;
-  private ethwallet! : string;
+  
+  constructor(private http: HttpClient, private route: Router) {}
 
-
-  constructor(private http: HttpClient, private route: Router) {
-
-  }
-
- 
-  // seteurwallet(eurwallet: string): void {
-  //   this.eurwallet = eurwallet;
-  // }
-
-  // geteurwallet() : string {
-  //   return this.eurwallet;
-  // }
-
-  // setethwallet(ethwallet: string): void {
-  //   this.ethwallet = ethwallet;
-  // }
-
-  // getethwallet() : string {
-  //   return this.ethwallet;
-  // }
 
   setUsername(usernameglobal: string){
     this.usernameglobal = usernameglobal;
