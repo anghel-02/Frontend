@@ -19,10 +19,10 @@
   color: black;
   text-align: center;
   position: absolute;
-  top: 30%; /* Mette il 50% dell'altezza dell'elemento */
-  left: 50%; /* Mette il 50% della larghezza dell'elemento */
-  transform: translate(-50%, -50%); /* Centra l'elemento rispetto al suo punto di riferimento */
-  text-shadow: 2px 2px 4px white; /* Esempio di ombra textuale */
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -200px);
+  text-shadow: 2px 2px 4px white;
 }
 
 h1 {

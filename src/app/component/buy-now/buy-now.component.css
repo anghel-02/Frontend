@@ -2,7 +2,7 @@
   display: block;
   margin: 0;
   padding: 0;
-  height: auto;
+  height: 100vh;
   background: linear-gradient(to top, #c7e8ff, #ecf0f1);
 }
 .card-container {
@@ -12,30 +12,39 @@
 }
 
 .card-wrapper {
-  flex: 1 0 calc(17%);
+  flex: 0 0 calc(20% - 20px);
+  box-sizing: border-box;
+}
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  flex: 0 0 calc(30% - 10px);
   margin-bottom: 20px;
-  margin-top: 10px;
-  margin-left: 5px;
+  box-sizing: border-box;
 }
-
-
 .NFT {
-  max-width: 250px;
-  max-height: 360px;
+  width: 300px;
+  height: 400px;
   transition: transform 200ms ease-in-out;
+  margin: 10px;
 }
+
+.imagecard {
+  width: 300px;
+  height: 260px;
+}
+
+
 .NFT:hover {
   transform: scale(1.1);
 }
 
-.NFT-header-img {
-  background-image: url('../../../assets/img/monkey.jpg');
-  background-size: cover;
-}
 
-.imagecard{
-  max-width: 250px;
-  max-height: 190px;
-}
+
+
 
 

@@ -34,7 +34,7 @@ export class AuctionsComponent {
   possessore: string = "Possessore: Angelo";
   tipovendita!:string;
   durata: string = "Durata: 24 h"
-  offertaattuale : string = "Prezzo: 100€"
+  offertaattuale : string = "Prezzo: 100$"
 }
 
 
