@@ -58,3 +58,10 @@ export class BuyNftNowComponent implements OnInit{
   
 
 }
+
+
+
+
+
+
+
