@@ -65,7 +65,7 @@ h1 {
   }
 
   .viewimg{
-    transform: translate(300px,-380px);
+    transform: translate(300px,-400px);
     max-height: 320px;
     max-width: 320px;
   }

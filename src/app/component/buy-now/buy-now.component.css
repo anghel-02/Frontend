@@ -18,7 +18,7 @@
 .row{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .card {
@@ -27,18 +27,16 @@
   box-sizing: border-box;
 }
 .NFT {
-  width: 300px;
-  height: 400px;
+  width: 260px;
+  height: 370px;
   transition: transform 200ms ease-in-out;
   margin: 10px;
 }
 
 .imagecard {
-  width: 300px;
-  height: 260px;
+  width: 260px;
+  height: 220px;
 }
-
-
 .NFT:hover {
   transform: scale(1.1);
 }

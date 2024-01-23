@@ -12,20 +12,23 @@
 }
 
 .card-wrapper {
-  flex: 1 0 calc(17%);
-  margin-bottom: 20px;
-  margin-top: 10px;
-  margin-left: 5px;
+  flex: 0 0 calc(20% - 20px);
+  box-sizing: border-box;
 }
-
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
 
 .NFT {
-  max-width: 250px;
-  max-height: 360px;
+  width: 260px;
+  height: 370px;
   transition: transform 200ms ease-in-out;
+  margin: 10px;
 }
 .NFT:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .NFT-header-img {
@@ -34,8 +37,8 @@
 }
 
 .imagecard{
-  max-width: 250px;
-  max-height: 190px;
+  width: 260px;
+  height: 220px;
 }
 
 
