@@ -60,10 +60,17 @@ h1 {
 button[name="btncompra"] {
   background-color: rgb(0, 176, 240);
   color: white;
-  transform: translate(0px, 140px);
+
   width: 180px;
 }
+button[name="btnreport"] {
+  background-color: rgb(0, 176, 240);
+  color: red;
+  transform: translate(-130px, 250px);
+}
 #avv{
+  transform: translate(0px, 50px);
+}
+#avv2{
   transform: translate(0px, 240px);
 }
-
