@@ -60,15 +60,6 @@ export class NFTService {
     );
   }
 
-  addSale(body :{}) {
-    const authToken = this.auth.getToken();
-    this.http.put<any>(this.url + "sale/create", body, {
-      headers:{
-        "Authorization" : `Bearer ${authToken}`
-      }}).subscribe(response =>{
-        this.auth.setToken(response.token);
-      })
-  }
 
   getsaletabel(nftId: string): Observable<any>{
     return this.http.get<any>(this.url + `sale/get/${nftId}`)
@@ -94,6 +85,17 @@ export class NFTService {
       this.auth.setToken(response.token);
     })
 
+  }
+
+  addSale(body :{}) {
+    const authToken = this.auth.getToken();
+    this.http.put<any>(this.url + "sale/create", body, {
+      headers:{
+        "Authorization" : `Bearer ${authToken}`
+      }
+    }).subscribe(response =>{
+        this.auth.setToken(response.token);
+      })
   }
 
 

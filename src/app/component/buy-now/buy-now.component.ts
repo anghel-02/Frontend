@@ -74,7 +74,7 @@ export class BuyNowComponent implements OnInit {
 
     info(nftid: string){
       this.nftService.setnftid(nftid);
-      this.router.navigate(['/buy-nft-now'])
+      this.router.navigate(['/buy-nft-now'],{ queryParams: { nftid: nftid } })
     }
 
 

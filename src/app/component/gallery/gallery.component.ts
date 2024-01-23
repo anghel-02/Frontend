@@ -75,7 +75,7 @@ export class GalleryComponent implements OnInit , AfterViewInit{
 
   info(nftid: string){
     this.nftService.setnftid(nftid);
-    this.router.navigate(['/nft'])
+    this.router.navigate(['/nft'], { queryParams: { nftid: nftid } })
   }
 
 }
