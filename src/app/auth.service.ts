@@ -24,23 +24,25 @@ export class AuthService {
   getUsername(){
     if(this.usernameglobal == undefined){
       this.usernameglobal = localStorage.getItem("Username");
+      
     }
     return this.usernameglobal;
   }
 
   
   getToken(){
-    if (this.token == undefined){
+    if (this.token === undefined){
       this.token = localStorage.getItem("AuthToken");
     }
 
     return this.token;
   }
 
-  setToken(token:string){
-    this.token = token;
-    localStorage.setItem("AuthToken", token);
-
+  setToken(token: string) {
+    if (token !== null && token !== undefined) {
+      this.token = token;
+      localStorage.setItem("AuthToken", token);
+    }
   }
 
   removeToken(){
