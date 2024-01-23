@@ -2,7 +2,7 @@
   display: block;
   margin: 0;
   padding: 0;
-  height: auto;
+  height: 100vh;
   background: linear-gradient(to top, #c7e8ff, #ecf0f1);
 }
 .card-container {

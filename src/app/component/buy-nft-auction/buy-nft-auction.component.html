@@ -1,4 +1,3 @@
-
 <div class="container">
   <h1>Partecipa all'asta</h1>
   <mat-card class="NFT">
@@ -9,7 +8,6 @@
     <img mat-card-image *ngIf="imageUrl" [src]="imageUrl" />
     <mat-card-content> </mat-card-content>
 </mat-card>
-
 
   <div class="nft-container">
     <p id="tit">Descrizione:</p>
@@ -25,8 +23,6 @@
     <a id="comp">{{ nftmodel.durata }}</a>
   </div>
 
-
-
   <div class="comprasubito">
     <button mat-raised-button type="submit" name="btncompra" (click)="compra()">Fai offerta</button>
     <mat-form-field>
@@ -34,5 +30,9 @@
       <input matInput required>
       <mat-icon matSuffix>monetization_on</mat-icon>
     </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" name="btnreport">Report</button>
+    <p id="avv2">*Alcuni NFT potrebbero non rispettare gli standard di qualità o<br>contenere contenuti inappropriati.
+      La comunità è incoraggiata a<br> segnalare tali casiper preservare
+      un ambiente NFT sicuro e <br>rispettoso per tutti gli utenti.</p>
   </div>
 </div>

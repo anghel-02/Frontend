@@ -63,10 +63,17 @@ button[name="btncompra"] {
   margin-top: 10px;
   width: 100px;
   height: 30px;
-  transform: translate(170px, 90px);
+  transform: translate(170px, 60px);
 }
 
-  .comprasubito {
-    transform: translate(-650px, 0px);
-  }
-
+.comprasubito {
+  transform: translate(-520px, -120px);
+}
+button[name="btnreport"]{
+  transform: translate(-170px, 340px);
+  background-color: rgb(0, 176, 240);
+  color: red;
+}
+#avv2{
+  transform: translate(15px, 340px);
+}
