@@ -74,8 +74,8 @@ export class NftComponent implements OnInit{
     vendi() {
       let idNft = this.nftservice.getnftid();
       let price = this.price;
-      let duration = this.convertStringToSeconds(this.fineasta);
-      console.log(duration)
+      let duration = 0;
+      if(this.fineasta!=null){duration = this.convertStringToSeconds(this.fineasta);}
       this.auth.getwallet().subscribe((data: any[]) => {
         let destinationAddress = data.map(item => item.address)[0];
         this.nftservice.addSale({idNft,price, destinationAddress, duration })
