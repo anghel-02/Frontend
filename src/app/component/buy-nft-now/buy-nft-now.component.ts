@@ -55,6 +55,11 @@ export class BuyNftNowComponent implements OnInit{
     })
   }
 
+  report(){
+    const id = this.nftservice.getnftid() ?? '';
+    this.nftservice.reportnft(id);
+  }
+
   
 
 }
