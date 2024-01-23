@@ -4,12 +4,12 @@ import { AuthService } from '../../auth.service';
 import { Router } from '@angular/router';
 
 
-
 @Component({
   selector: 'app-nft',
   templateUrl: './nft.component.html',
   styleUrl: './nft.component.css'
 })
+
 
 export class NftComponent implements OnInit{
   tipovendita!:string;
@@ -17,7 +17,7 @@ export class NftComponent implements OnInit{
   nftmodel!: any;
   imageUrl: any;
 
-  fineasta! : number;
+  fineasta! : string;
   price! : number;
   wallet!: string;
 
@@ -52,11 +52,30 @@ export class NftComponent implements OnInit{
     }
 
 
+    convertStringToSeconds(timeString: string): number {
+      const timeArray = timeString.split(':');
+    
+      if (timeArray.length !== 3) {
+        throw new Error('Formato della stringa di tempo non valido. Utilizza il formato HH:mm:ss');
+      }
+    
+      const hours = parseInt(timeArray[0], 10);
+      const minutes = parseInt(timeArray[1], 10);
+      const seconds = parseInt(timeArray[2], 10);
+    
+      if (isNaN(hours) || isNaN(minutes) || isNaN(seconds)) {
+        throw new Error('Formato della stringa di tempo non valido. Assicurati che ore, minuti e secondi siano numeri.');
+      }
+    
+      const totalSeconds = hours * 3600 + minutes * 60 + seconds;
+      return totalSeconds;
+    }
+
     vendi() {
       let idNft = this.nftservice.getnftid();
       let price = this.price;
-      let duration = this.fineasta;
-
+      let duration = this.convertStringToSeconds(this.fineasta);
+      console.log(duration)
       this.auth.getwallet().subscribe((data: any[]) => {
         let destinationAddress = data.map(item => item.address)[0];
         this.nftservice.addSale({idNft,price, destinationAddress, duration })
