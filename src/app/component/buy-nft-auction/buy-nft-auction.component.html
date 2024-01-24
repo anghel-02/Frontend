@@ -24,13 +24,13 @@
   </div>
 
   <div class="comprasubito">
-    <button mat-raised-button type="submit" name="btncompra" (click)="compra()">Fai offerta</button>
+    <button mat-raised-button type="submit" name="btncompra">Fai offerta</button>
     <mat-form-field>
       <mat-label>Offerta</mat-label>
       <input matInput required>
       <mat-icon matSuffix>monetization_on</mat-icon>
     </mat-form-field>
-    <button mat-raised-button color="primary" type="submit" name="btnreport">Report</button>
+    <button mat-raised-button color="primary" type="submit" name="btnreport" (click)="report()">Report</button>
     <input matInput placeholder="Segnala" id="reportinput" />
     <p id="avv2">*Alcuni NFT potrebbero non rispettare gli standard di qualità o<br>contenere contenuti inappropriati.
       La comunità è incoraggiata a<br> segnalare tali casiper preservare

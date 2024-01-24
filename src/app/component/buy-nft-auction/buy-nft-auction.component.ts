@@ -46,7 +46,6 @@ export class BuyNftAuctionComponent {
         this.idsale=data.id;
         this.nftmodel= data;
         let durata = this.formatSecondsToTime(this.calcolaDifferenzaTraTimestamp(res.creationDate ,res.endTime));
-        console.log(durata)
         this.nftmodel['durata'] = durata;
         this.nftmodel['price']=res.price;
         this.image();
@@ -70,16 +69,20 @@ export class BuyNftAuctionComponent {
     );
   }
 
-  compra(){
-    this.nftservice.getsaletabel(this.idsale).subscribe(res=>{
-      this.auth.getwallet().subscribe((data: any[]) => {
-        this.address = data.map(item => item.address)[0];
-        this.nftservice.buyNFT(res.id, {idNft : this.nftservice.getnftid() ?? '', address: this.address, price : res.price})
-      });
+  // compra(){
+  //   this.nftservice.getsaletabel(this.idsale).subscribe(res=>{
+  //     this.auth.getwallet().subscribe((data: any[]) => {
+  //       this.address = data.map(item => item.address)[0];
+  //       this.nftservice.buyNFT(res.id, {idNft : this.nftservice.getnftid() ?? '', address: this.address, price : res.price})
+  //     });
       
-    })
-  }
+  //   })
+  // }
 
+  report(){
+    const id = this.nftservice.getnftid() ?? '';
+    this.nftservice.reportnft(id, {});
+  }
   
 
 }

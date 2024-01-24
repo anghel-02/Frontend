@@ -2,8 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { NFTService } from '../../nft.service';
 import { AuthService } from '../../auth.service';
 import { Router } from '@angular/router';
-import {SearchService} from "../../search.service";
-
+import { SearchService } from '../../search.service';
 
 
 @Component({
