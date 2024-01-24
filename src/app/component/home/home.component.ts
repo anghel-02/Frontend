@@ -29,6 +29,5 @@ export class HomeComponent{
     console.log('Scheda cambiata:', event.index);
   }
 
-  protected readonly HTMLInputElement = HTMLInputElement;
 
 }
