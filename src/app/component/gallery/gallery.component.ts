@@ -16,14 +16,16 @@ export class GalleryComponent implements OnInit , AfterViewInit{
   saleNFT: any[] = [];
   imageUrl!: string;
   bool = true;
-  
-  constructor(private nftService: NFTService, private auth: AuthService, private router: Router, private searchService: SearchService) {}
 
+  constructor(private nftService: NFTService, private auth: AuthService, private router: Router, private searchService: SearchService) {
+    this.searchService.searchSubject.subscribe((search: string) => {
+      this.filterNFTs(search);
+    });
+  }
 
     ngAfterViewInit(): void {
       this.loadOwnedNFTs();
     }
-
 
     ngOnInit() {}
 
@@ -40,6 +42,21 @@ export class GalleryComponent implements OnInit , AfterViewInit{
       }
     );
   }
+  filterNFTs(search: string) {
+    console.log('Before filter:', this.ownedNFTs);
+
+    if (!search || search.trim() === '') {
+      // Se la stringa di ricerca è vuota, reimposta la lista degli NFT posseduti
+      this.ownedNFTs = []
+      this.loadOwnedNFTs();
+    } else {
+      // Filtra gli NFT in base al titolo
+      this.ownedNFTs = this.ownedNFTs.filter((nft) => nft.title.toLowerCase().includes(search.toLowerCase()));
+    }
+
+    console.log('After filter:', this.ownedNFTs);
+  }
+
 
   loadOwnedNFTs() {
     const username = this.auth.getUsername() ?? '';
@@ -48,7 +65,7 @@ export class GalleryComponent implements OnInit , AfterViewInit{
         this.nftService.getSales().subscribe((resp: any[]) =>{
           this.saleNFT = resp
           console.log(this.saleNFT)
-        
+
         for (let el of data){
           this.bool = true;
           for (let ele of this.saleNFT){
@@ -65,7 +82,7 @@ export class GalleryComponent implements OnInit , AfterViewInit{
           this.image(el);
         }
         })
-        
+
       },
       (error: any) => {
         console.error('Errore nel recupero degli NFT posseduti', error);
@@ -79,21 +96,3 @@ export class GalleryComponent implements OnInit , AfterViewInit{
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
