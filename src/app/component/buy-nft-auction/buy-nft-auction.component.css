@@ -13,8 +13,8 @@
   height: 80vh;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   background-color: #ecf0f1;
-  width:70%;
-  margin-left: 12%;
+  width:80%;
+  margin-left: 8%;
   border-radius: 8px;
   white-space: nowrap;
   margin-top: 5%;
@@ -34,19 +34,13 @@ h1 {
   }
 
 .NFT {
-
-  width: 400px;
-  height: 360px;
+  width: 280px;
+  height: 320px;
   transform: translate(-500px);
 }
 .nft-container{
   transform: translate(-450px);
 }
-
-  .NFT-header-img {
-    background-image: url('../../../assets/img/monkey.jpg');
-    background-size: cover;
-  }
 
   #comp {
     font-size: 18px;
@@ -70,10 +64,16 @@ button[name="btncompra"] {
   transform: translate(-520px, -120px);
 }
 button[name="btnreport"]{
-  transform: translate(-170px, 340px);
+  transform: translate(-250px, 330px);
   background-color: rgb(0, 176, 240);
   color: red;
 }
 #avv2{
-  transform: translate(15px, 340px);
+  transform: translate(80px, 340px);
+}
+#reportinput{
+  width: 300px;
+  height: 100px;
+  border-radius: 8px;
+  transform: translate(-220px, 330px);
 }

@@ -13,6 +13,7 @@ export class BuyNftNowComponent implements OnInit{
   imageUrl: any;
   idsale!: any;
   address!: any;
+  message!: string;
   
   
   constructor(private nftservice : NFTService, private auth : AuthService){}
@@ -57,7 +58,9 @@ export class BuyNftNowComponent implements OnInit{
 
   report(){
     const id = this.nftservice.getnftid() ?? '';
-    this.nftservice.reportnft(id);
+    let message = this.message;
+    this.nftservice.reportnft(id, {message});
+
   }
 
   
