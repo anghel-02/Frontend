@@ -3,6 +3,7 @@ import { trigger, state, style } from '@angular/animations';
 import {Router} from "@angular/router";
 import {NFTService} from "../../nft.service";
 import {AuthService} from "../../auth.service";
+import {SearchService} from "../../search.service";
 
 @Component({
   selector: 'app-buy-now',
@@ -19,13 +20,18 @@ import {AuthService} from "../../auth.service";
 export class BuyNowComponent implements OnInit {
 
 
-  constructor(private router: Router, private nftService: NFTService, private auth: AuthService) {}
-  
+  constructor(private router: Router, private nftService: NFTService, private auth: AuthService, private searchService: SearchService) {
+    this.searchService.searchSubject.subscribe((search: string) => {
+      this.filterNFTs(search);
+    });
+  }
+
   hoverState = 'initial';
   saleNFTs: any[] = [];
   noNFT: any;
   imageUrl!: string;
-  
+  allNFTs: any[] = [];
+
 
   onTileHover() {
     this.hoverState = (this.hoverState === 'initial') ? 'hovered' : 'initial';
@@ -49,21 +55,29 @@ export class BuyNowComponent implements OnInit {
       }
     );
   }
+  filterNFTs(search: string) {
+    if (!search || search.trim() === '') {
+      this.saleNFTs = [...this.allNFTs];
+    } else {
+      this.saleNFTs= this.allNFTs.filter((nft) => nft.title.toLowerCase().includes(search.toLowerCase()));
+    }
+  }
 
     viewnft(){
       this.nftService.getSales().subscribe(data=> {
-        
+
         for (let element of data){
           this.nftService.getsaletabel(element.id).subscribe(res=>{
             if (!res.endTime){
               element['price']=res.price;
+              this.allNFTs.push(element);
               this.saleNFTs.push(element);
             }
 
             for (let el of this.saleNFTs){
               this.image(el);
             }
-          })  
+          })
         }
 
       },
