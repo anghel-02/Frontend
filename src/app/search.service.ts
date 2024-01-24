@@ -10,11 +10,11 @@ export class SearchService {
 
   constructor() { }
 
-  // Funzione per aggiornare la stringa di ricerca
   updateSearch(search: string) {
     this.searchSubject.next(search);
   }
   getSearchUpdates(): Observable<string> {
     return this.searchSubject.asObservable();
   }
+
 }

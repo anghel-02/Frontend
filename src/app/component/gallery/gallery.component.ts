@@ -11,11 +11,12 @@ import {SearchService} from "../../search.service";
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.css'],
 })
-export class GalleryComponent implements OnInit , AfterViewInit{
+export class GalleryComponent implements AfterViewInit{
   ownedNFTs: any[] = [];
   saleNFT: any[] = [];
   imageUrl!: string;
   bool = true;
+  allNFTs: any[] = [];
 
   constructor(private nftService: NFTService, private auth: AuthService, private router: Router, private searchService: SearchService) {
     this.searchService.searchSubject.subscribe((search: string) => {
@@ -26,8 +27,6 @@ export class GalleryComponent implements OnInit , AfterViewInit{
     ngAfterViewInit(): void {
       this.loadOwnedNFTs();
     }
-
-    ngOnInit() {}
 
   image(nft: any) {
     this.nftService.getImage(nft.id).subscribe(
@@ -47,11 +46,10 @@ export class GalleryComponent implements OnInit , AfterViewInit{
 
     if (!search || search.trim() === '') {
       // Se la stringa di ricerca è vuota, reimposta la lista degli NFT posseduti
-      this.ownedNFTs = []
-      this.loadOwnedNFTs();
+      this.ownedNFTs = [...this.allNFTs];
     } else {
       // Filtra gli NFT in base al titolo
-      this.ownedNFTs = this.ownedNFTs.filter((nft) => nft.title.toLowerCase().includes(search.toLowerCase()));
+      this.ownedNFTs = this.allNFTs.filter((nft) => nft.title.toLowerCase().includes(search.toLowerCase()));
     }
 
     console.log('After filter:', this.ownedNFTs);
@@ -66,21 +64,22 @@ export class GalleryComponent implements OnInit , AfterViewInit{
           this.saleNFT = resp
           console.log(this.saleNFT)
 
-        for (let el of data){
-          this.bool = true;
-          for (let ele of this.saleNFT){
-            if (el.id==ele.id){
-              this.bool= false
+          for (let el of data){
+            this.bool = true;
+            for (let ele of this.saleNFT){
+              if (el.id==ele.id){
+                this.bool= false
+              }
+            }
+            if(this.bool){
+              this.allNFTs.push(el)
+              this.ownedNFTs.push(el)
             }
           }
-          if(this.bool){
-            this.ownedNFTs.push(el)
+          console.log(this.ownedNFTs)
+          for (let el of this.ownedNFTs){
+            this.image(el);
           }
-        }
-        console.log(this.ownedNFTs)
-        for (let el of this.ownedNFTs){
-          this.image(el);
-        }
         })
 
       },
