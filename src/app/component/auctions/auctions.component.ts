@@ -83,18 +83,16 @@ export class AuctionsComponent implements OnInit , AfterViewInit{
   }
 
   viewnft(){
-    this.nftService.getSales().subscribe(data=> {
+    this.nftService.getauctions().subscribe(data=> {
 
         for (let element of data){
-          this.nftService.getsaletabel(element.id).subscribe(res=>{
-            if (res.endTime){
+          this.nftService.getdbnft(element.nft.id).subscribe(res=>{
               let durata = this.formatSecondsToTime(this.calcolaDifferenzaTraTimestamp(res.creationDate ,res.endTime));
-              console.log(durata)
-              element['durata'] = durata;
-              element['price']=res.price;
-              this.allNFTs.push(element);
-              this.saleNFTs.push(element);
-            }
+              res['durata'] = durata;
+              res['price']=element.price;
+              this.allNFTs.push(res);
+              this.saleNFTs.push(res);
+            
 
             for (let el of this.saleNFTs){
               this.image(el);

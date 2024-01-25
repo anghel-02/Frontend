@@ -42,25 +42,6 @@ export class NFTService {
     );
   }
 
-  getSales(): Observable<any[]> {
-    const authToken = this.auth.getToken();
-    const findbody = {
-      onSale: true
-    }
-    return this.http.post<any[]>(this.url + "nft/find",findbody,{
-      headers:{
-        "Authorization" : `Bearer ${authToken}`,
-        'Content-Type': 'application/json'
-      }}).pipe(
-      tap((data) => console.log('Dati ottenuti con successo:', data)),
-      catchError((error) => {
-        console.error('Errore durante il recupero degli NFT posseduti', error);
-        throw error;
-      })
-    );
-  }
-
-
   getsaletabel(nftId: string): Observable<any>{
     return this.http.get<any>(this.url + `sale/get/${nftId}`)
   }
@@ -123,8 +104,12 @@ export class NFTService {
 
 }
 
+getsales2(){
+  return this.http.get<any>(this.url + "sale/get/sales")
+}
 
-
-
+getauctions(){
+  return this.http.get<any>(this.url + "sale/get/auctions")
+}
 
 }

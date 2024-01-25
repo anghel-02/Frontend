@@ -64,16 +64,14 @@ export class BuyNowComponent implements OnInit {
   }
 
     viewnft(){
-      this.nftService.getSales().subscribe(data=> {
-
+      this.nftService.getsales2().subscribe(data=> {
+        console.log(data)
         for (let element of data){
-          this.nftService.getsaletabel(element.id).subscribe(res=>{
-            if (!res.endTime){
-              element['price']=res.price;
-              this.allNFTs.push(element);
-              this.saleNFTs.push(element);
-            }
-
+          this.nftService.getdbnft(element.nft.id).subscribe(res=>{
+             res['price']=element.price;
+              this.allNFTs.push(res);
+              this.saleNFTs.push(res);
+            
             for (let el of this.saleNFTs){
               this.image(el);
             }

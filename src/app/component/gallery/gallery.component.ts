@@ -59,14 +59,14 @@ export class GalleryComponent implements AfterViewInit{
     const username = this.auth.getUsername() ?? '';
     this.nftService.getOwnedNFTs(username).subscribe(
       (data: any[]) => {
-        this.nftService.getSales().subscribe((resp: any[]) =>{
+        this.nftService.getsales2().subscribe((resp: any[]) =>{
           this.saleNFT = resp
           console.log(this.saleNFT)
 
           for (let el of data){
             this.bool = true;
             for (let ele of this.saleNFT){
-              if (el.id==ele.id){
+              if (el.id==ele.nft.id){
                 this.bool= false
               }
             }
