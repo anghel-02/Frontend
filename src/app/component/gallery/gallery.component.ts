@@ -60,8 +60,9 @@ export class GalleryComponent implements AfterViewInit{
     this.nftService.getOwnedNFTs(username).subscribe(
       (data: any[]) => {
         this.nftService.getsales2().subscribe((resp: any[]) =>{
-          this.saleNFT = resp
-          console.log(this.saleNFT)
+          this.nftService.getauctions().subscribe((respo: any[])=>{
+          for (let el of resp){this.saleNFT.push(el);}
+          for (let el of respo){this.saleNFT.push(el);}
 
           for (let el of data){
             this.bool = true;
@@ -86,7 +87,9 @@ export class GalleryComponent implements AfterViewInit{
         console.error('Errore nel recupero degli NFT posseduti', error);
       }
     );
+  })
   }
+  
 
   info(nftid: string){
     this.nftService.setnftid(nftid);
