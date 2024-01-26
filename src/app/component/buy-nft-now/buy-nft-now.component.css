@@ -61,23 +61,26 @@ button[name="btncompra"] {
   background-color: rgb(0, 176, 240);
   color: white;
   width: 180px;
-  transform: translate(0px, -40px);
 }
 button[name="btnreport"] {
   background-color: rgb(0, 176, 240);
   color: red;
-  transform: translate(120px, 250px);
+  transform: translate(-150px, 200px);
 }
 #avv{
-  transform: translate(0px, -40px);
+  transform: translate(0px, -100px);
 }
 #avv2{
-  transform: translate(0px, 150px);
+  transform: translate(0px, 80px);
 }
 #reportinput{
   width: 250px;
   height: 100px;
   border-radius: 8px;
-  transform: translate(0px, 180px);
+  transform: translate(0px, 100px);
   margin-right: 10px;
+}
+.method{
+  margin-left: 40px;
+  transform: translate(40px);
 }

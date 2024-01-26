@@ -19,7 +19,6 @@ import {SearchService} from "../../search.service";
 })
 export class BuyNowComponent implements OnInit {
 
-
   constructor(private router: Router, private nftService: NFTService, private auth: AuthService, private searchService: SearchService) {
     this.searchService.searchSubject.subscribe((search: string) => {
       this.filterNFTs(search);
@@ -32,11 +31,9 @@ export class BuyNowComponent implements OnInit {
   imageUrl!: string;
   allNFTs: any[] = [];
 
-
   onTileHover() {
     this.hoverState = (this.hoverState === 'initial') ? 'hovered' : 'initial';
   }
-
 
   ngOnInit(): void {
    this.viewnft();
@@ -71,7 +68,7 @@ export class BuyNowComponent implements OnInit {
              res['price']=element.price;
               this.allNFTs.push(res);
               this.saleNFTs.push(res);
-            
+
             for (let el of this.saleNFTs){
               this.image(el);
             }
@@ -88,6 +85,5 @@ export class BuyNowComponent implements OnInit {
       this.nftService.setnftid(nftid);
       this.router.navigate(['/buy-nft-now'],{ queryParams: { nftid: nftid } })
     }
-
 
 }
