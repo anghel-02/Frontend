@@ -14,13 +14,15 @@ export class BuyNftNowComponent implements OnInit{
   idsale!: any;
   address!: any;
   message!: string;
-  
-  
+  paymentMethods: string[] = ['USD', 'ETH'];
+  selectedPaymentMethod: string = '';
+
+
   constructor(private nftservice : NFTService, private auth : AuthService){}
 
   ngOnInit(): void {
     this.nftservice.getdbnft(this.nftservice.getnftid() ?? '').subscribe(data =>{
-      
+
       this.nftservice.getsaletabel(data.id).subscribe(res=>{
         this.idsale=data.id;
         this.nftmodel= data;
@@ -52,7 +54,7 @@ export class BuyNftNowComponent implements OnInit{
         this.address = data.map(item => item.address)[1];
         this.nftservice.buyNFT(this.nftservice.getnftid() ?? '', {idNft : this.nftservice.getnftid() ?? '', address: this.address, price : res.price})
       });
-      
+
     })
   }
 
@@ -63,7 +65,7 @@ export class BuyNftNowComponent implements OnInit{
 
   }
 
-  
+
 
 }
 
