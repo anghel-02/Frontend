@@ -51,7 +51,7 @@ export class BuyNftNowComponent implements OnInit{
   compra(){
     this.nftservice.getsaletabel(this.idsale).subscribe(res=>{
       this.auth.getwallet().subscribe((data: any[]) => {
-        this.address = data.map(item => item.address)[1];
+        this.address = data.map(item => item.address)[0];
         this.nftservice.buyNFT(this.nftservice.getnftid() ?? '', {idNft : this.nftservice.getnftid() ?? '', address: this.address, price : res.price})
       });
 
@@ -61,7 +61,7 @@ export class BuyNftNowComponent implements OnInit{
   report(){
     const id = this.nftservice.getnftid() ?? '';
     let message = this.message;
-    this.nftservice.reportnft(id, {message});
+    this.nftservice.reportnft(id);
 
   }
 

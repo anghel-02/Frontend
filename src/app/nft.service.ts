@@ -68,9 +68,9 @@ export class NFTService {
 
   }
 
-  reportnft(id: string, body: {}) {
+  reportnft(id: string) {
     const authToken = this.auth.getToken();
-    this.http.put<any>(this.url + `nft/report/${id}`, body,  {
+    this.http.put<any>(this.url + `nft/report/${id}`,{},{
        headers:{
         "Authorization" : `Bearer ${authToken}`
        }

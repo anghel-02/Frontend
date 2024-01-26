@@ -82,7 +82,7 @@ export class BuyNftAuctionComponent {
 
   report(){
     const id = this.nftservice.getnftid() ?? '';
-    this.nftservice.reportnft(id, {});
+    this.nftservice.reportnft(id);
   }
 
 
