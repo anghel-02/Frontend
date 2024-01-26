@@ -20,6 +20,8 @@ export class NftComponent implements OnInit{
   fineasta! : string;
   price! : number;
   wallet!: string;
+  wallets: string[] = ['USD', 'ETH'];
+  selectedWallet: string = '';
 
   constructor(private nftservice: NFTService, private auth: AuthService, private route: Router){}
 
@@ -54,19 +56,19 @@ export class NftComponent implements OnInit{
 
     convertStringToSeconds(timeString: string): number {
       const timeArray = timeString.split(':');
-    
+
       if (timeArray.length !== 3) {
         throw new Error('Formato della stringa di tempo non valido. Utilizza il formato HH:mm:ss');
       }
-    
+
       const hours = parseInt(timeArray[0], 10);
       const minutes = parseInt(timeArray[1], 10);
       const seconds = parseInt(timeArray[2], 10);
-    
+
       if (isNaN(hours) || isNaN(minutes) || isNaN(seconds)) {
         throw new Error('Formato della stringa di tempo non valido. Assicurati che ore, minuti e secondi siano numeri.');
       }
-    
+
       const totalSeconds = hours * 3600 + minutes * 60 + seconds;
       return totalSeconds;
     }

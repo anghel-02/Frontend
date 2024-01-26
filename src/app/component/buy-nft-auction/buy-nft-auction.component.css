@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 75vh;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   background-color: #ecf0f1;
   width:80%;
@@ -24,22 +24,22 @@
   /* titolo */
 
 h1 {
-  margin-left: 65%;
+  margin-left: 55%;
   position: static;
   font-size: 4em;
   text-align: center;
   color: black;
   font-weight: bold;
-  transform: translate(-80px,-270px);
+  transform: translate(-80px,-250px);
   }
 
 .NFT {
   width: 280px;
   height: 320px;
-  transform: translate(-500px);
+  transform: translate(-600px);
 }
 .nft-container{
-  transform: translate(-450px);
+  transform: translate(-550px);
 }
 
   #comp {
@@ -55,25 +55,20 @@ button[name="btncompra"] {
   background-color: rgb(0, 176, 240);
   color: white;
   margin-top: 10px;
-  width: 100px;
-  height: 30px;
-  transform: translate(170px, 60px);
+  transform: translate(0px, 200px);
 }
 
 .comprasubito {
-  transform: translate(-520px, -120px);
+  transform: translate(-520px, -100px);
+  display: flex;
+  flex-direction: column;
 }
 button[name="btnreport"]{
-  transform: translate(-250px, 330px);
+  transform: translate(0px, 300px);
   background-color: rgb(0, 176, 240);
   color: red;
 }
 #avv2{
-  transform: translate(80px, 340px);
+  transform: translate(0px, 170px);
 }
-#reportinput{
-  width: 300px;
-  height: 100px;
-  border-radius: 8px;
-  transform: translate(-220px, 330px);
-}
+

@@ -11,7 +11,7 @@
   border-radius: 8px;
   margin-left: 10%;
   margin-right: 10%;
-  height: 85%;
+  height: 70%;
 }
 .sbarra{
   background-color: rgb(0, 176, 240);
@@ -35,15 +35,14 @@ h1 {
 }
 
 .NFT-header-img {
-
   background-size: cover;
 }
 .sellCont{
   background-color: #c7e8ff;
   bottom: 50%;
   width: 30%;
-  height: 60%;
-  transform: translate(670px, -400px);
+  height: 70%;
+  transform: translate(670px, -380px);
   border-radius: 8px;
   display: flex;
   align-items: center;

@@ -30,8 +30,15 @@
       <input matInput required>
       <mat-icon matSuffix>monetization_on</mat-icon>
     </mat-form-field>
+    <mat-form-field class="method">
+      <mat-label>Metodo di pagamento</mat-label>
+      <mat-select [(ngModel)]="selectedPaymentMethod">
+        <mat-option *ngFor="let paymentMethod of paymentMethods" [value]="paymentMethod">
+          {{ paymentMethod }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
     <button mat-raised-button color="primary" type="submit" name="btnreport" (click)="report()">Report</button>
-    <input matInput placeholder="Segnala" id="reportinput" />
     <p id="avv2">*Alcuni NFT potrebbero non rispettare gli standard di qualità o<br>contenere contenuti inappropriati.
       La comunità è incoraggiata a<br> segnalare tali casiper preservare
       un ambiente NFT sicuro e <br>rispettoso per tutti gli utenti.</p>

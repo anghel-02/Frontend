@@ -14,8 +14,6 @@
         <br>
         {{nftmodel.author.username}}
       </p>
-
-
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button class="btnmettiven" (click)="mettiinvendita()" style="background-color: rgb(0, 176, 240); color: white ">Metti in vendita</button>
@@ -54,6 +52,17 @@
       <mat-form-field>
         <mat-label>Durata</mat-label>
         <input matInput placeholder="HH:mm::ss" required [(ngModel)]="fineasta">
+      </mat-form-field>
+    </div>
+
+    <div class="wallet" *ngIf="vuoivendere">
+      <mat-form-field>
+        <mat-label>Scegli il wallet</mat-label>
+        <mat-select [(ngModel)]="selectedWallet">
+          <mat-option *ngFor="let wallet of wallets" [value]="wallet">
+            {{ wallet }}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
     </div>
 

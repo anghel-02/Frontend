@@ -13,17 +13,18 @@ export class BuyNftAuctionComponent {
   imageUrl: any;
   idsale!: any;
   address!: any;
-  
-  
+  paymentMethods: string[] = ['USD', 'ETH'];
+  selectedPaymentMethod: string = '';
+
   constructor(private nftservice : NFTService, private auth : AuthService){}
 
   calcolaDifferenzaTraTimestamp(timestamp1: string, timestamp2: string): number {
     const data1 = new Date(timestamp1);
     const data2 = new Date(timestamp2);
-  
+
     const differenzaInMillisecondi = data2.getTime() - data1.getTime();
     const differenzaInSecondi = differenzaInMillisecondi / 1000;
-  
+
     return differenzaInSecondi;
   }
 
@@ -31,17 +32,17 @@ export class BuyNftAuctionComponent {
     const hours = Math.floor(seconds / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
     const remainingSeconds = seconds % 60;
-  
+
     const hoursString = String(hours).padStart(2, '0');
     const minutesString = String(minutes).padStart(2, '0');
     const secondsString = String(remainingSeconds).padStart(2, '0');
-  
+
     return `${hoursString}:${minutesString}:${secondsString}`;
   }
 
   ngOnInit(): void {
     this.nftservice.getdbnft(this.nftservice.getnftid() ?? '').subscribe(data =>{
-      
+
       this.nftservice.getsaletabel(data.id).subscribe(res=>{
         this.idsale=data.id;
         this.nftmodel= data;
@@ -75,7 +76,7 @@ export class BuyNftAuctionComponent {
   //       this.address = data.map(item => item.address)[0];
   //       this.nftservice.buyNFT(res.id, {idNft : this.nftservice.getnftid() ?? '', address: this.address, price : res.price})
   //     });
-      
+
   //   })
   // }
 
@@ -83,7 +84,7 @@ export class BuyNftAuctionComponent {
     const id = this.nftservice.getnftid() ?? '';
     this.nftservice.reportnft(id, {});
   }
-  
+
 
 }
 

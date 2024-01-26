@@ -37,6 +37,8 @@ h1 {
 .compra{
   margin-left: 50px;
   margin-top: 100px;
+  display: flex;
+  flex-direction: column;
 }
 #prezzo{
   font-weight: bold;
@@ -60,27 +62,15 @@ h1 {
 button[name="btncompra"] {
   background-color: rgb(0, 176, 240);
   color: white;
-  width: 180px;
 }
 button[name="btnreport"] {
   background-color: rgb(0, 176, 240);
   color: red;
-  transform: translate(-150px, 200px);
-}
-#avv{
-  transform: translate(0px, -100px);
+
 }
 #avv2{
-  transform: translate(0px, 80px);
-}
-#reportinput{
-  width: 250px;
-  height: 100px;
-  border-radius: 8px;
-  transform: translate(0px, 100px);
-  margin-right: 10px;
+  margin-top: 80px;
 }
 .method{
-  margin-left: 40px;
-  transform: translate(40px);
+
 }
