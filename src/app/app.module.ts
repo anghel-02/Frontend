@@ -38,6 +38,7 @@ import { BuyNftNowComponent } from './component/buy-nft-now/buy-nft-now.componen
 import { BuyNftAuctionComponent } from './component/buy-nft-auction/buy-nft-auction.component';
 import { NewHomeComponent } from './new-home/new-home.component';
 import { CreatenftComponent } from './component/createnft/createnft.component';
+import { EndAuctionComponent } from './component/end-auction/end-auction.component';
 
 
 
@@ -57,7 +58,8 @@ import { CreatenftComponent } from './component/createnft/createnft.component';
     BuyNftAuctionComponent,
     NewHomeComponent,
     CreatenftComponent,
-    
+    EndAuctionComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -87,7 +89,7 @@ import { CreatenftComponent } from './component/createnft/createnft.component';
     RouterModule
   ],
   providers: [
-    
+
   ],
   bootstrap: [AppComponent]
 })

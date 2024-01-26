@@ -1,0 +1,33 @@
+:host{
+  background: linear-gradient(to top, #c7e8ff, #ecf0f1);
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+.container{
+  width: 60%;
+  border-radius: 8px;
+  background-color: #ecf0f1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  border-top: 20px solid rgb(0, 176, 240);
+  height: 65%;
+  margin-top: 10%;
+}
+.NFT{
+  height: 500px;
+  width: 300px;
+  margin-left: 40px;
+}
+.cont{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 0 10px rgb(0, 176, 240);
+  margin: 20px;
+  border-radius: 8px;
+}
+.h1{
+  font-size: 80px;
+  margin-top: 30px;
+}
