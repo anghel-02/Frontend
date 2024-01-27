@@ -18,8 +18,9 @@ export class BuyNftAuctionComponent implements AfterViewInit{
   paymentMethods: string[] = ['USD', 'ETH'];
   selectedPaymentMethod!: any;
   alladdress: any []= [];
-  offerta!: number;
+  offerta!: any;
   endtime!: any;
+  offermaker!: any;
   intervalSubscription!: Subscription;
 
 
@@ -96,6 +97,7 @@ export class BuyNftAuctionComponent implements AfterViewInit{
     const nftId = this.nftservice.getnftid() ?? '';
     this.nftservice.getsaletabel(this.idsale).subscribe(res=>{
       this.endtime=res.endTime;
+      this.offermaker = res.offerMaker;
     })
   }
 
@@ -103,10 +105,16 @@ export class BuyNftAuctionComponent implements AfterViewInit{
       const endtime= new Date(this.endtime);
       const currentTime = new Date();
       
-      if(endtime <= currentTime){
+      if(endtime <= currentTime && this.offermaker!=null){
         this.route.navigate(['/end-auction'])
         this.intervalSubscription.unsubscribe();
       }
+    if(endtime <= currentTime && this.offermaker==null){
+        this.route.navigate(['/home'])
+        this.intervalSubscription.unsubscribe();
+      }
+    
+      
     
   }
 
@@ -149,7 +157,7 @@ export class BuyNftAuctionComponent implements AfterViewInit{
             }
           }
         }
-        const offer = this.offerta;
+        const offer = parseInt(this.offerta, 10);
         this.nftservice.offer(nftId, {address: this.address, offer})
       });
       })
