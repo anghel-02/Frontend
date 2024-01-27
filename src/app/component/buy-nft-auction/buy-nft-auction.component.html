@@ -17,14 +17,15 @@
     <p id="comp">{{ nftmodel.owner.username }}</p>
     <br /><br />
     <p id="tit">Offerta attuale:</p>
-    <a id="comp"> {{ nftmodel.price }}</a>
+    <p id="prezzo" *ngIf="nftmodel.price<=200" id="comp"> {{ nftmodel.price }} ETH </p>
+    <p id="prezzo" *ngIf="nftmodel.price>200" id="comp">{{ nftmodel.price }} $</p>
     <br /><br /><br />
     <p id="tit">Durata:</p>
     <a id="comp">{{ nftmodel.durata }}</a>
   </div>
 
   <div class="comprasubito">
-    <button mat-raised-button type="submit" name="btncompra">Fai offerta</button>
+    <button mat-raised-button type="submit" name="btncompra" (click)="makeoffer()">Fai offerta</button>
     <mat-form-field>
       <mat-label>Offerta</mat-label>
       <input matInput required>

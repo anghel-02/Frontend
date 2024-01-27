@@ -1,9 +1,10 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import { trigger, state, style } from '@angular/animations';
 import {Router} from "@angular/router";
 import { NFTService } from '../../nft.service';
 import { AuthService } from '../../auth.service';
 import {SearchService} from "../../search.service";
+import { AuctionserviceService } from '../../auctionservice.service';
 
 @Component({
   selector: 'app-auctions',
@@ -17,8 +18,8 @@ import {SearchService} from "../../search.service";
     ]),
   ],
 })
-export class AuctionsComponent implements OnInit , AfterViewInit{
-  constructor(private router: Router, private nftService: NFTService, private auth: AuthService, private searchService: SearchService) {
+export class AuctionsComponent implements OnInit{
+  constructor(private router: Router, private nftService: NFTService, private auth: AuthService, private searchService: SearchService, private astas: AuctionserviceService) {
     this.searchService.searchSubject.subscribe((search: string) => {
       this.filterNFTs(search);
     });
@@ -33,11 +34,11 @@ export class AuctionsComponent implements OnInit , AfterViewInit{
   onTileHover() {
     this.hoverState = (this.hoverState === 'initial') ? 'hovered' : 'initial';
   }
-  ngAfterViewInit(): void {
+  
+  ngOnInit(): void {
     this.viewnft();
   }
-  ngOnInit(): void {
-  }
+
   filterNFTs(search: string) {
     if (!search || search.trim() === '') {
       this.saleNFTs = [...this.allNFTs];
@@ -56,6 +57,15 @@ export class AuctionsComponent implements OnInit , AfterViewInit{
     return differenzaInSecondi;
   }
 
+
+  // formatSecondsToTime(totalSeconds: number): string {
+  //   const hours = Math.floor(totalSeconds / 3600);
+  //   const minutes = Math.floor((totalSeconds % 3600) / 60);
+  //   const remainingSeconds = totalSeconds % 60;
+  
+  //   return `${this.padZero(hours)}:${this.padZero(minutes)}:${this.padZero(remainingSeconds)}`;
+  // }
+
   formatSecondsToTime(seconds: number): string {
     const hours = Math.floor(seconds / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
@@ -66,6 +76,10 @@ export class AuctionsComponent implements OnInit , AfterViewInit{
     const secondsString = String(remainingSeconds).padStart(2, '0');
 
     return `${hoursString}:${minutesString}:${secondsString}`;
+  }
+  
+  padZero(value: number): string {
+    return value < 10 ? `0${value}` : `${value}`;
   }
 
   image(nft: any) {
@@ -87,13 +101,20 @@ export class AuctionsComponent implements OnInit , AfterViewInit{
       console.log(data)
         for (let element of data){
           this.nftService.getdbnft(element.nft.id).subscribe(res=>{
+
+            // const secondsRemaining = this.calcolaDifferenzaTraTimestamp(element.creationDate, element.endTime);
+            // this.astas.addAuction(element.nft.id, secondsRemaining);
+            // this.astas.getTimeRemaining(element.nft.id).subscribe(timeRemaining => {
+            //   const durata = this.formatSecondsToTime(timeRemaining);
+            //   res['durata'] = durata;
+            // });
+            
               let durata = this.formatSecondsToTime(this.calcolaDifferenzaTraTimestamp(element.creationDate ,element.endTime));
               res['durata'] = durata;
               res['price']=element.price;
               this.allNFTs.push(res);
               this.saleNFTs.push(res);
             
-
             for (let el of this.saleNFTs){
               this.image(el);
             }
@@ -112,3 +133,4 @@ export class AuctionsComponent implements OnInit , AfterViewInit{
 
 
 }
+

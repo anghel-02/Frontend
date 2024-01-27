@@ -2,21 +2,45 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { NFTService } from '../../nft.service';
 import { AuthService } from '../../auth.service';
+import { Subscription, interval } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-buy-nft-auction',
   templateUrl: './buy-nft-auction.component.html',
   styleUrl: './buy-nft-auction.component.css'
 })
-export class BuyNftAuctionComponent {
+export class BuyNftAuctionComponent{
   nftmodel!: any;
   imageUrl: any;
   idsale!: any;
   address!: any;
   paymentMethods: string[] = ['USD', 'ETH'];
-  selectedPaymentMethod: string = '';
+  selectedPaymentMethod!: any;
+  alladdress: any []= [];
 
-  constructor(private nftservice : NFTService, private auth : AuthService){}
+  intervalSubscription!: Subscription;
+
+
+  constructor(private nftservice : NFTService, private auth : AuthService, private route: Router){}
+
+  createEventSource() {
+    var eventSource = new EventSource("http://localhost:9001/rt/test");
+
+    eventSource.onmessage = (e) => {
+        const obj = JSON.parse(e.data);
+        obj.event; // Può essere "newOffer" o "end"
+        obj.nftId; // Id dell'nft
+        obj.value; // (Solo per newOffer) nuovo valore dell'nft
+    };
+
+    eventSource.onerror = (e) => {
+        eventSource.close();
+        eventSource = this.createEventSource();
+    }
+
+    return eventSource;
+}
 
   calcolaDifferenzaTraTimestamp(timestamp1: string, timestamp2: string): number {
     const data1 = new Date(timestamp1);
@@ -52,6 +76,30 @@ export class BuyNftAuctionComponent {
         this.image();
       });
     });
+    this.createEventSource();
+
+    const checkInterval = 1000;
+    this.intervalSubscription = interval(checkInterval).subscribe(() => {
+      this.checkduration();
+    });
+  }
+
+  checkduration(){
+    const nftId = this.nftservice.getnftid() ?? '';
+    this.nftservice.getsaletabel(this.idsale).subscribe(res=>{
+      const endtime= new Date(res.endTime);
+      const currentTime = new Date();
+      
+      if(endtime <= currentTime){
+        this.route.navigate(['/end-auction'])
+      }
+    })
+  }
+
+  ngOnDestroy(): void {
+    if (this.intervalSubscription) {
+      this.intervalSubscription.unsubscribe();
+    }
   }
 
   image() {
@@ -70,15 +118,31 @@ export class BuyNftAuctionComponent {
     );
   }
 
-  // compra(){
-  //   this.nftservice.getsaletabel(this.idsale).subscribe(res=>{
-  //     this.auth.getwallet().subscribe((data: any[]) => {
-  //       this.address = data.map(item => item.address)[0];
-  //       this.nftservice.buyNFT(res.id, {idNft : this.nftservice.getnftid() ?? '', address: this.address, price : res.price})
-  //     });
-
-  //   })
-  // }
+  makeoffer(){
+    const nftId = this.nftservice.getnftid() ?? '';
+    this.nftservice.getsaletabel(this.idsale).subscribe(res=>{
+      this.auth.getwallet().subscribe((data: any[]) => {
+        this.alladdress = data;
+        if (this.selectedPaymentMethod=='USD'){
+          for (let el of this.alladdress){
+            if(el.type==1 && el.balance!=0){
+              this.address= el.address;
+            }
+          }
+        }
+        if (this.selectedPaymentMethod=='ETH'){
+          for (let el of this.alladdress){
+            if(el.type==0 && el.balance!=0){
+              this.address= el.address;
+            }
+          }
+        }
+        this.nftservice.offer(nftId, {idNft : this.nftservice.getnftid() ?? '', address: this.address, price : res.price})
+      });
+      })
+    
+    
+  }
 
   report(){
     const id = this.nftservice.getnftid() ?? '';

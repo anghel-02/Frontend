@@ -99,6 +99,7 @@ export class NftComponent implements OnInit{
         this.nftservice.addSale({idNft,price, sellerAddress: this.sellerAddress, duration })
       });
 
+        
       this.route.navigate(['home']);
     }
 

@@ -91,6 +91,10 @@ export class NFTService {
       })
   }
 
+  offer(nftId: string, body: {}){
+    this.http.get<any>(this.url+ `sale/offer/${nftId}`, body).subscribe(data=>{})
+  }
+
 
   buyNFT(id: string, body: {}){
     const authToken = this.auth.getToken();
