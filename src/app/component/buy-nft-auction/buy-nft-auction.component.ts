@@ -1,16 +1,16 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { NFTService } from '../../nft.service';
 import { AuthService } from '../../auth.service';
 import { Subscription, interval } from 'rxjs';
-import { Router } from '@angular/router';
+import { InitialNavigationFeature, Router } from '@angular/router';
 
 @Component({
   selector: 'app-buy-nft-auction',
   templateUrl: './buy-nft-auction.component.html',
   styleUrl: './buy-nft-auction.component.css'
 })
-export class BuyNftAuctionComponent{
+export class BuyNftAuctionComponent implements AfterViewInit{
   nftmodel!: any;
   imageUrl: any;
   idsale!: any;
@@ -18,14 +18,17 @@ export class BuyNftAuctionComponent{
   paymentMethods: string[] = ['USD', 'ETH'];
   selectedPaymentMethod!: any;
   alladdress: any []= [];
-
+  offerta!: number;
+  endtime!: any;
   intervalSubscription!: Subscription;
 
 
   constructor(private nftservice : NFTService, private auth : AuthService, private route: Router){}
+  
+  
 
   createEventSource() {
-    var eventSource = new EventSource("http://localhost:9001/rt/test");
+    var eventSource = new EventSource("http://localhost:9001/" + `sale/get/updates/${this.nftservice.getnftid()}`);
 
     eventSource.onmessage = (e) => {
         const obj = JSON.parse(e.data);
@@ -76,30 +79,39 @@ export class BuyNftAuctionComponent{
         this.image();
       });
     });
+
     this.createEventSource();
 
+  }
+
+  ngAfterViewInit(): void {
+    this.getendtime();
     const checkInterval = 1000;
     this.intervalSubscription = interval(checkInterval).subscribe(() => {
       this.checkduration();
     });
   }
 
-  checkduration(){
+  getendtime(){
     const nftId = this.nftservice.getnftid() ?? '';
     this.nftservice.getsaletabel(this.idsale).subscribe(res=>{
-      const endtime= new Date(res.endTime);
+      this.endtime=res.endTime;
+    })
+  }
+
+  checkduration(){
+      const endtime= new Date(this.endtime);
       const currentTime = new Date();
       
       if(endtime <= currentTime){
         this.route.navigate(['/end-auction'])
+        this.intervalSubscription.unsubscribe();
       }
-    })
+    
   }
 
   ngOnDestroy(): void {
-    if (this.intervalSubscription) {
-      this.intervalSubscription.unsubscribe();
-    }
+    console.log('distrutto')
   }
 
   image() {
@@ -137,7 +149,8 @@ export class BuyNftAuctionComponent{
             }
           }
         }
-        this.nftservice.offer(nftId, {idNft : this.nftservice.getnftid() ?? '', address: this.address, price : res.price})
+        const offer = this.offerta;
+        this.nftservice.offer(nftId, {address: this.address, offer})
       });
       })
     

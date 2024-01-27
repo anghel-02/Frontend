@@ -92,7 +92,14 @@ export class NFTService {
   }
 
   offer(nftId: string, body: {}){
-    this.http.get<any>(this.url+ `sale/offer/${nftId}`, body).subscribe(data=>{})
+    const authToken = this.auth.getToken();
+    this.http.put<any>(this.url+ `sale/offer/${nftId}`, body, {
+      headers:{
+        "Authorization" : `Bearer ${authToken}`
+      }
+    }).subscribe(response =>{
+        this.auth.setToken(response.token);
+      })
   }
 
 

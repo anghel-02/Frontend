@@ -28,7 +28,7 @@
     <button mat-raised-button type="submit" name="btncompra" (click)="makeoffer()">Fai offerta</button>
     <mat-form-field>
       <mat-label>Offerta</mat-label>
-      <input matInput required>
+      <input matInput required [(ngModel)]="offerta">
       <mat-icon matSuffix>monetization_on</mat-icon>
     </mat-form-field>
     <mat-form-field class="method">
