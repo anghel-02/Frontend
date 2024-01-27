@@ -21,7 +21,9 @@ export class NftComponent implements OnInit{
   price! : number;
   wallet!: string;
   wallets: string[] = ['USD', 'ETH'];
-  selectedWallet: string = '';
+  selectedWallet!: string;
+  sellerAddress: any;
+  alladdress: any[]= [];
 
   constructor(private nftservice: NFTService, private auth: AuthService, private route: Router){}
 
@@ -79,8 +81,22 @@ export class NftComponent implements OnInit{
       let duration = 0;
       if(this.fineasta!=null){duration = this.convertStringToSeconds(this.fineasta);}
       this.auth.getwallet().subscribe((data: any[]) => {
-        let sellerAddress = data.map(item => item.address)[0];
-        this.nftservice.addSale({idNft,price, sellerAddress, duration })
+        this.alladdress = data;
+        if(this.selectedWallet === 'USD'){
+          for (let el of this.alladdress){
+            if(el.type==1){
+              this.sellerAddress = el.address;
+            }
+          }
+        }
+        if(this.selectedWallet === 'ETH'){
+          for (let el of this.alladdress){
+            if(el.type==0){
+              this.sellerAddress = el.address;
+            }
+          }
+        }
+        this.nftservice.addSale({idNft,price, sellerAddress: this.sellerAddress, duration })
       });
 
       this.route.navigate(['home']);

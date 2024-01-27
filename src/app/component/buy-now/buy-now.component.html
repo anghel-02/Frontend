@@ -13,7 +13,8 @@
             <br>
             {{nft.owner.username}}
             <br>
-            {{nft.price}}
+            <p *ngIf="nft.price<=200">{{nft.price}} ETH</p>
+            <p *ngIf="nft.price>200">{{nft.price}} USD</p>
           </mat-card-content>
         </mat-card>
       </div>

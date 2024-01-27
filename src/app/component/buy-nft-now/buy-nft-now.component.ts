@@ -12,10 +12,11 @@ export class BuyNftNowComponent implements OnInit{
   nftmodel!: any;
   imageUrl: any;
   idsale!: any;
-  address!: any;
+  alladdress: any []= [];
   message!: string;
   paymentMethods: string[] = ['USD', 'ETH'];
-  selectedPaymentMethod: string = '';
+  selectedPaymentMethod!: any;
+  address!: any;
 
 
   constructor(private nftservice : NFTService, private auth : AuthService){}
@@ -51,7 +52,21 @@ export class BuyNftNowComponent implements OnInit{
   compra(){
     this.nftservice.getsaletabel(this.idsale).subscribe(res=>{
       this.auth.getwallet().subscribe((data: any[]) => {
-        this.address = data.map(item => item.address)[0];
+        this.alladdress = data;
+        if (this.selectedPaymentMethod=='USD'){
+          for (let el of this.alladdress){
+            if(el.type==1 && el.balance!=0){
+              this.address= el.address;
+            }
+          }
+        }
+        if (this.selectedPaymentMethod=='ETH'){
+          for (let el of this.alladdress){
+            if(el.type==0 && el.balance!=0){
+              this.address= el.address;
+            }
+          }
+        }
         this.nftservice.buyNFT(this.nftservice.getnftid() ?? '', {idNft : this.nftservice.getnftid() ?? '', address: this.address, price : res.price})
       });
 
@@ -64,7 +79,6 @@ export class BuyNftNowComponent implements OnInit{
     this.nftservice.reportnft(id);
 
   }
-
 
 
 }

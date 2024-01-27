@@ -17,7 +17,8 @@
 
   <div class="compra">
 
-    <p id="prezzo"> Prezzo: {{ nftmodel.price }} $</p>
+    <p id="prezzo" *ngIf="nftmodel.price<=200"> Prezzo: {{ nftmodel.price }} ETH </p>
+    <p id="prezzo" *ngIf="nftmodel.price>200"> Prezzo: {{ nftmodel.price }} $</p>
     <mat-form-field class="method">
       <mat-label>Metodo di pagamento</mat-label>
       <mat-select [(ngModel)]="selectedPaymentMethod">
