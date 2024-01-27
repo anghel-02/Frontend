@@ -1,0 +1,20 @@
+<div class="container">
+  <mat-card class="NFT">
+    <mat-card-header>
+      <mat-card-title>{{ title }}</mat-card-title>
+      <mat-card-subtitle>{{ tags }} </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image *ngIf="imageUrl" [src]="imageUrl" />
+    <mat-card-content>
+      <p id="tit"><b>Descrizione:</b></p>
+      <p id="comp">{{ caption }}</p>
+      <br />
+      <p id="tit"> <b>Possessore:</b> </p>
+      <p id="comp"> {{ username }}</p>
+    </mat-card-content>
+  </mat-card>
+  <div class="cont">
+    <h1 style="font-size: 60px"><b>Congratulazioni!</b></h1>
+    <h2>Utente si è aggiudicato {{title}}, per la modica cifra di {{price}}$</h2>
+  </div>
+</div>

@@ -12,6 +12,7 @@ import {NewHomeComponent} from "./new-home/new-home.component";
 import {GalleryComponent} from "./component/gallery/gallery.component";
 import { CreatenftComponent } from './component/createnft/createnft.component';
 import { AuthGuardService } from './authguard.guard';
+import {EndAuctionComponent} from "./component/end-auction/end-auction.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:'auctions', component: AuctionsComponent},
   {path:'buy-nft-now', component: BuyNftNowComponent, canActivate:[AuthGuardService]},
   {path:'buy-nft-auction', component: BuyNftAuctionComponent, canActivate:[AuthGuardService]},
+  {path:'end-auction', component: EndAuctionComponent, canActivate:[AuthGuardService]},
   {path:'home', component: NewHomeComponent},
   {path: 'gallery', component: GalleryComponent, canActivate:[AuthGuardService]},
   {path: 'createnft', component: CreatenftComponent, canActivate:[AuthGuardService]},
