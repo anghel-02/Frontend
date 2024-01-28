@@ -98,13 +98,15 @@ export class BuyNftAuctionComponent implements AfterViewInit{
 
     this.createEventSource();
 
-  }
-
-  ngAfterViewInit(): void {
     const checkInterval = 1000;
     this.intervalSubscription = interval(checkInterval).subscribe(() => {
       this.checkduration();
     });
+
+  }
+
+  ngAfterViewInit(): void {
+    
   }
 
 
