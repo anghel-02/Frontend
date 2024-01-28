@@ -21,7 +21,6 @@ export class EndAuctionComponent {
       this.nftservice.getsaletabel(data.id).subscribe(res=>{
         this.idsale=data.id;
         this.nft= data;
-        this.nft['offer_maker']=res.offerMaker;
         this.nft['price']=res.price;
         this.image();
       });

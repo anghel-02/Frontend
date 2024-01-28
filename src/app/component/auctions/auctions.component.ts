@@ -58,25 +58,25 @@ export class AuctionsComponent implements OnInit{
   }
 
 
-  // formatSecondsToTime(totalSeconds: number): string {
-  //   const hours = Math.floor(totalSeconds / 3600);
-  //   const minutes = Math.floor((totalSeconds % 3600) / 60);
-  //   const remainingSeconds = totalSeconds % 60;
+  formatSecondsToTime(totalSeconds: number): string {
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const remainingSeconds = totalSeconds % 60;
   
-  //   return `${this.padZero(hours)}:${this.padZero(minutes)}:${this.padZero(remainingSeconds)}`;
-  // }
-
-  formatSecondsToTime(seconds: number): string {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const remainingSeconds = seconds % 60;
-
-    const hoursString = String(hours).padStart(2, '0');
-    const minutesString = String(minutes).padStart(2, '0');
-    const secondsString = String(remainingSeconds).padStart(2, '0');
-
-    return `${hoursString}:${minutesString}:${secondsString}`;
+    return `${this.padZero(hours)}:${this.padZero(minutes)}:${this.padZero(remainingSeconds)}`;
   }
+
+  // formatSecondsToTime(seconds: number): string {
+  //   const hours = Math.floor(seconds / 3600);
+  //   const minutes = Math.floor((seconds % 3600) / 60);
+  //   const remainingSeconds = seconds % 60;
+
+  //   const hoursString = String(hours).padStart(2, '0');
+  //   const minutesString = String(minutes).padStart(2, '0');
+  //   const secondsString = String(remainingSeconds).padStart(2, '0');
+
+  //   return `${hoursString}:${minutesString}:${secondsString}`;
+  // }
   
   padZero(value: number): string {
     return value < 10 ? `0${value}` : `${value}`;
@@ -101,16 +101,17 @@ export class AuctionsComponent implements OnInit{
       console.log(data)
         for (let element of data){
           this.nftService.getdbnft(element.nft.id).subscribe(res=>{
-
-            // const secondsRemaining = this.calcolaDifferenzaTraTimestamp(element.creationDate, element.endTime);
-            // this.astas.addAuction(element.nft.id, secondsRemaining);
-            // this.astas.getTimeRemaining(element.nft.id).subscribe(timeRemaining => {
-            //   const durata = this.formatSecondsToTime(timeRemaining);
-            //   res['durata'] = durata;
-            // });
-            
-              let durata = this.formatSecondsToTime(this.calcolaDifferenzaTraTimestamp(element.creationDate ,element.endTime));
+            const temponow = new Date().toString();
+            const secondsRemaining = this.calcolaDifferenzaTraTimestamp(temponow, element.endTime);
+            this.astas.addAuction(element.nft.id, secondsRemaining);
+            this.astas.getTimeRemaining(element.nft.id).subscribe(timeRemaining => {
+              const durata = this.formatSecondsToTime(timeRemaining);
               res['durata'] = durata;
+            });
+            
+              // let durata = this.formatSecondsToTime(this.calcolaDifferenzaTraTimestamp(element.creationDate ,element.endTime));
+              // res['durata'] = durata;
+
               res['price']=element.price;
               this.allNFTs.push(res);
               this.saleNFTs.push(res);

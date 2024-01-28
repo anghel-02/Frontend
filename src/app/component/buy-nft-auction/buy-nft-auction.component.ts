@@ -4,6 +4,7 @@ import { NFTService } from '../../nft.service';
 import { AuthService } from '../../auth.service';
 import { Subscription, interval } from 'rxjs';
 import { InitialNavigationFeature, Router } from '@angular/router';
+import { AuctionserviceService } from '../../auctionservice.service';
 
 @Component({
   selector: 'app-buy-nft-auction',
@@ -19,31 +20,33 @@ export class BuyNftAuctionComponent implements AfterViewInit{
   selectedPaymentMethod!: any;
   alladdress: any []= [];
   offerta!: any;
-  endtime!: any;
-  offermaker!: any;
   intervalSubscription!: Subscription;
+  stop = false;
+  eventSource: any;
 
 
-  constructor(private nftservice : NFTService, private auth : AuthService, private route: Router){}
-  
+
+  constructor(private nftservice : NFTService, private auth : AuthService, private route: Router, private astas: AuctionserviceService ){}
   
 
   createEventSource() {
-    var eventSource = new EventSource("http://localhost:9001/" + `sale/get/updates/${this.nftservice.getnftid()}`);
+    
+    this.eventSource = new EventSource("http://localhost:9001/" + `sale/get/updates/${this.nftservice.getnftid()}`);
 
-    eventSource.onmessage = (e) => {
+    this.eventSource.onmessage = (e: { data: string; }) => {
         const obj = JSON.parse(e.data);
         obj.event; // Può essere "newOffer" o "end"
         obj.nftId; // Id dell'nft
         obj.value; // (Solo per newOffer) nuovo valore dell'nft
     };
 
-    eventSource.onerror = (e) => {
-        eventSource.close();
-        eventSource = this.createEventSource();
+    this.eventSource.onerror = (e: any) => {
+        this.eventSource.close();
+        this.eventSource = this.createEventSource();
     }
 
-    return eventSource;
+    
+    return this.eventSource;
 }
 
   calcolaDifferenzaTraTimestamp(timestamp1: string, timestamp2: string): number {
@@ -56,16 +59,28 @@ export class BuyNftAuctionComponent implements AfterViewInit{
     return differenzaInSecondi;
   }
 
-  formatSecondsToTime(seconds: number): string {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const remainingSeconds = seconds % 60;
+  // formatSecondsToTime(seconds: number): string {
+  //   const hours = Math.floor(seconds / 3600);
+  //   const minutes = Math.floor((seconds % 3600) / 60);
+  //   const remainingSeconds = seconds % 60;
 
-    const hoursString = String(hours).padStart(2, '0');
-    const minutesString = String(minutes).padStart(2, '0');
-    const secondsString = String(remainingSeconds).padStart(2, '0');
+  //   const hoursString = String(hours).padStart(2, '0');
+  //   const minutesString = String(minutes).padStart(2, '0');
+  //   const secondsString = String(remainingSeconds).padStart(2, '0');
 
-    return `${hoursString}:${minutesString}:${secondsString}`;
+  //   return `${hoursString}:${minutesString}:${secondsString}`;
+  // }
+
+  formatSecondsToTime(totalSeconds: number): string {
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const remainingSeconds = totalSeconds % 60;
+  
+    return `${this.padZero(hours)}:${this.padZero(minutes)}:${this.padZero(remainingSeconds)}`;
+  }
+
+  padZero(value: number): string {
+    return value < 10 ? `0${value}` : `${value}`;
   }
 
   ngOnInit(): void {
@@ -86,40 +101,43 @@ export class BuyNftAuctionComponent implements AfterViewInit{
   }
 
   ngAfterViewInit(): void {
-    this.getendtime();
     const checkInterval = 1000;
     this.intervalSubscription = interval(checkInterval).subscribe(() => {
       this.checkduration();
     });
   }
 
-  getendtime(){
-    const nftId = this.nftservice.getnftid() ?? '';
-    this.nftservice.getsaletabel(this.idsale).subscribe(res=>{
-      this.endtime=res.endTime;
-      this.offermaker = res.offerMaker;
-    })
-  }
 
   checkduration(){
-      const endtime= new Date(this.endtime);
+    const nftId = this.nftservice.getnftid() ?? '';
+    this.nftservice.getsaletabel(nftId).subscribe(res=>{
+      this.nftmodel['price']=res.price;
+
+      const temponow = new Date().toString();
+      const secondsRemaining = this.calcolaDifferenzaTraTimestamp(temponow, res.endTime);
+      this.astas.addAuction(res.nftId, secondsRemaining);
+      this.astas.getTimeRemaining(res.nftId).subscribe(timeRemaining => {
+      const durata = this.formatSecondsToTime(timeRemaining);
+      this.nftmodel['durata'] = durata;
+      })
+      // let durata = this.formatSecondsToTime(this.calcolaDifferenzaTraTimestamp(res.creationDate ,res.endTime));
+      const endtime= new Date(res.endTime);
       const currentTime = new Date();
-      
-      if(endtime <= currentTime && this.offermaker!=null){
+      console.log(endtime, currentTime, res.offerMaker)
+      if(endtime <= currentTime && res.offerMaker!=null){
         this.route.navigate(['/end-auction'])
         this.intervalSubscription.unsubscribe();
       }
-    if(endtime <= currentTime && this.offermaker==null){
+    if(endtime <= currentTime && res.offerMaker==null){
         this.route.navigate(['/home'])
         this.intervalSubscription.unsubscribe();
       }
-    
-      
-    
+    })
   }
 
   ngOnDestroy(): void {
     console.log('distrutto')
+    this.eventSource?.close();
   }
 
   image() {
@@ -161,7 +179,6 @@ export class BuyNftAuctionComponent implements AfterViewInit{
         this.nftservice.offer(nftId, {address: this.address, offer})
       });
       })
-    
     
   }
 
