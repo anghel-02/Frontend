@@ -7,6 +7,13 @@
       <input #searchInput type="text" id="searchInput" placeholder="Cerca..." (input)="updateSearch(searchInput.value)" />
     </div>
     <div *ngIf="isUserLoggedIn(); else showLoginButtons">
+      <div class="user-rank" *ngIf="userRank">
+        {{ userRank }}
+        <img *ngIf="convertToNumber(userRank) >= 0 && convertToNumber(userRank) <= 4" src="assets/img/noBadge.png" alt="Badge for Rank 0-4" class="badge-image">
+        <img *ngIf="convertToNumber(userRank) >= 5 && convertToNumber(userRank) <= 9" src="assets/img/eliteBadge.png" alt="Badge for Rank 5-9" class="badge-image">
+        <img *ngIf="convertToNumber(userRank) >= 10" src="assets/img/unrealBadge.png" alt="Badge for Rank 10 and above" class="badge-image">
+      </div>
+
       <div class="utente">
         <a [routerLink]="['/user']">
           <img src="../../../assets/img/imgUtente.png" width="30" height="30" class="logImg">

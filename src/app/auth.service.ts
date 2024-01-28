@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable} from 'rxjs';
@@ -12,7 +12,7 @@ export class AuthService {
   private url = "http://localhost:9001/";
   public token?:string | null;
   private usernameglobal?:string | null;
-  
+
   constructor(private http: HttpClient, private route: Router) {}
 
 
@@ -24,12 +24,11 @@ export class AuthService {
   getUsername(){
     if(this.usernameglobal == undefined){
       this.usernameglobal = localStorage.getItem("Username");
-      
+
     }
     return this.usernameglobal;
   }
 
-  
   getToken(){
     if (this.token === undefined){
       this.token = localStorage.getItem("AuthToken");
@@ -77,7 +76,7 @@ export class AuthService {
     })
   }
 
-  
+
   getUserByUsername(username: string): Observable<any> {
     return this.http.get<any>(`${this.url}user/get/${username}`)
   }
@@ -109,7 +108,7 @@ export class AuthService {
   }
 
 }
- 
+
 
 
 
