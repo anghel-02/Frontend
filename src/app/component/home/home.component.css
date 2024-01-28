@@ -35,7 +35,8 @@ mat-list-item{
   z-index: 1;
 }
 .btnlogout{
-  left: 2470%;
+  left: 1250px;
+  top: -22px;
   border-radius: 16px;
 }
 .logbuttons{

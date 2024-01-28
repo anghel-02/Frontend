@@ -41,8 +41,7 @@ export class GalleryComponent implements AfterViewInit{
     );
   }
   filterNFTs(search: string) {
-    console.log('Before filter:', this.ownedNFTs);
-
+    
     if (!search || search.trim() === '') {
       // Se la stringa di ricerca è vuota, reimposta la lista degli NFT posseduti
       this.ownedNFTs = [...this.allNFTs];
@@ -51,7 +50,6 @@ export class GalleryComponent implements AfterViewInit{
       this.ownedNFTs = this.allNFTs.filter((nft) => nft.title.toLowerCase().includes(search.toLowerCase()));
     }
 
-    console.log('After filter:', this.ownedNFTs);
   }
 
 

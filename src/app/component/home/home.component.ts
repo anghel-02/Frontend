@@ -3,6 +3,7 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
 import {AuthService} from "../../auth.service";
 import { Router } from '@angular/router';
 import {SearchService} from "../../search.service";
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -12,10 +13,14 @@ import {SearchService} from "../../search.service";
 export class HomeComponent implements OnInit{
   userRank: string = "";
   userName: string = "";
+  intervalSubscription: any;
   constructor(private authService: AuthService, private route: Router, private searchService: SearchService) {}
 
   ngOnInit(): void {
+    // const checkInterval = 1000;
+    // this.intervalSubscription = interval(checkInterval).subscribe(() => {});
     this.getUserRank();
+    
   }
 
   updateSearch(value: string) {
